@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoCreator - Создатель тестов для олимпиады</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0cf;
+            --secondary: #6c0cf0;
+            --accent: #ff00ff;
+            --dark: #0a0a1a;
+            --darker: #050510;
+            --light: #e0f0ff;
+            --success: #00ff9d;
+            --warning: #ffcc00;
+            --danger: #ff0066;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(0, 204, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 0, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(108, 12, 240, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 70%, rgba(0, 255, 157, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #050510 0%, #0a0a1a 50%, #0d0d20 100%);
+            background-attachment: fixed;
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Exo 2', sans-serif;
+            position: relative;
+            transition: background 0.5s ease;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 204, 255, 0.03) 2px, rgba(0, 204, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 0, 255, 0.03) 2px, rgba(255, 0, 255, 0.03) 4px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 204, 255, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Светлая тема */
+        body.light-theme {
+            background: #f5f5f0;
+            color: #2a2a2a;
+        }
+
+        body.light-theme::before,
+        body.light-theme::after {
+            opacity: 0;
+        }
+
+        body.light-theme .container {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(100, 180, 220, 0.3);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme header {
+            background: linear-gradient(90deg, #4a9fd8 0%, #64b5f6 100%);
+        }
+
+        body.light-theme #logoTitle {
+            display: none;
+        }
+
+        body.light-theme .panel {
+            background: rgba(240, 248, 255, 0.8);
+            border: 1px solid rgba(100, 180, 220, 0.2);
+        }
+
+        body.light-theme .panel-title {
+            color: #4a9fd8;
+            border-bottom-color: #4a9fd8;
+        }
+
+        body.light-theme .question-text,
+        body.light-theme .subquestion-text,
+        body.light-theme p,
+        body.light-theme label,
+        body.light-theme .description,
+        body.light-theme .credits,
+        body.light-theme .form-group label,
+        body.light-theme .question-answer,
+        body.light-theme .question-points,
+        body.light-theme small {
+            color: #2a2a2a !important;
+        }
+
+        body.light-theme input,
+        body.light-theme textarea,
+        body.light-theme select {
+            background: #ffffff;
+            border: 1px solid #b0d4e8;
+            color: #2a2a2a;
+        }
+
+        body.light-theme input:focus,
+        body.light-theme textarea:focus,
+        body.light-theme select:focus {
+            border-color: #4a9fd8;
+            box-shadow: 0 0 0 2px rgba(74, 159, 216, 0.2);
+        }
+
+        body.light-theme .btn-primary {
+            background: linear-gradient(135deg, #4a9fd8 0%, #64b5f6 100%);
+        }
+
+        body.light-theme .btn-success {
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+        }
+
+        body.light-theme .btn-secondary {
+            background: rgba(120, 120, 120, 0.2);
+            color: #2a2a2a;
+        }
+
+        body.light-theme .question-item {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(100, 180, 220, 0.3);
+        }
+
+        body.light-theme .subquestion {
+            background: rgba(240, 248, 255, 0.5);
+            border-left-color: #64b5f6;
+        }
+
+        body.light-theme .code-block {
+            background: #f8f9fa;
+            color: #2a2a2a;
+            border: 1px solid #b0d4e8;
+        }
+
+        body.light-theme .subquestion-item {
+            background: rgba(240, 248, 255, 0.7);
+            border-left-color: #64b5f6;
+        }
+
+        body.light-theme .questions-list {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(100, 180, 220, 0.2);
+        }
+
+        body.light-theme ::-webkit-scrollbar-track {
+            background: rgba(240, 240, 240, 0.5);
+        }
+
+        body.light-theme ::-webkit-scrollbar-thumb {
+            background: #4a9fd8;
+        }
+
+        body.light-theme ::-webkit-scrollbar-thumb:hover {
+            background: #64b5f6;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(10, 10, 30, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 204, 255, 0.4), 0 0 80px rgba(255, 0, 255, 0.2);
+            overflow: hidden;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            backdrop-filter: blur(15px);
+        }
+
+        header {
+            background: linear-gradient(90deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .credits {
+            font-size: 0.85rem;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: rgba(15, 15, 35, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(0, 204, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(20, 20, 40, 0.8);
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            color: var(--light);
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 204, 255, 0.2);
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Exo 2', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success) 0%, #00cc7a 100%);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(60, 60, 100, 0.7);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(80, 80, 120, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .question-item {
+            padding: 15px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background: rgba(20, 20, 40, 0.5);
+            transition: all 0.3s;
+        }
+
+        .question-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+
+        .subquestion {
+            margin-left: 20px;
+            padding: 10px;
+            border-left: 2px solid var(--secondary);
+            margin-bottom: 10px;
+            background: rgba(30, 30, 60, 0.3);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .question-points {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .question-answer {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .questions-list {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            background: rgba(15, 15, 35, 0.5);
+        }
+
+        .export-section {
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px solid rgba(0, 204, 255, 0.2);
+            background: rgba(15, 15, 35, 0.7);
+            grid-column: 1 / -1;
+        }
+
+        .code-block {
+            background: rgba(10, 10, 20, 0.9);
+            color: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            min-height: 200px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .image-preview {
+            max-width: 300px;
+            max-height: 200px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: none;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+        }
+
+        .file-input-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .image-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .subquestion-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .subquestions-list {
+            margin-top: 15px;
+            border: 1px dashed rgba(0, 204, 255, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            background: rgba(25, 25, 50, 0.3);
+        }
+
+        .subquestion-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(30, 30, 60, 0.5);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .config-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .config-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .glow {
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        /* Стили для скроллбара */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* Модальное окно */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--background);
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: var(--text);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text);
+            padding: 5px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--background-alt);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .test-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .file-upload-section {
+            position: relative;
+        }
+
+        .saved-tests-section h3 {
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .saved-tests-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .test-item {
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .test-info {
+            flex: 1;
+        }
+
+        .test-title {
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .test-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .test-actions-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .test-actions-buttons button {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+    </style>
+    <script>
+        // Применяем светлую тему сразу, до загрузки DOM
+        document.documentElement.classList.add('light-theme-init');
+    </script>
+</head>
+<body class="light-theme">
+    <div class="container">
+        <header>
+            <div style="position: absolute; top: 15px; right: 25px; z-index: 10; display: flex; gap: 15px; align-items: center;">
+                <button id="testMenu" class="btn-primary" style="padding: 8px 15px; font-size: 0.9rem;">📁 Тесты</button>
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <span style="font-size: 0.9rem;">Светлая тема</span>
+                    <input type="checkbox" id="themeToggle" style="width: auto; cursor: pointer;" checked>
+                </label>
+            </div>
+            <h1 id="logoTitle">NEO<span style="-webkit-text-fill-color: transparent; background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent)); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; animation: shimmer 3s linear infinite;">CREATOR</span></h1>
+            <div class="credits">Создано каналом "Регион для всех" | Powered by NeoCreator</div>
+            <p class="description">Создавайте продвинутые тесты для олимпиад с подвопросами и системой баллов</p>
+        </header>
+
+        <div class="content">
+            <div class="panel">
+                <h2 class="panel-title">Настройки теста</h2>
+
+                <div class="form-group">
+                    <label for="testTitle">Название теста:</label>
+                    <input type="text" id="testTitle" placeholder="Введите название теста" value="Олимпиада по наукам">
+                </div>
+
+                <div class="form-group">
+                    <label for="testDescription">Описание теста:</label>
+                    <textarea id="testDescription" placeholder="Введите описание теста...">Проверьте свои знания в различных областях науки</textarea>
+                </div>
+
+                <div class="config-group">
+                    <div class="form-group">
+                        <label for="timeLimit">Общее время (минут):</label>
+                        <input type="number" id="timeLimit" min="1" max="180" value="15">
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="radio" name="passingScoreType" value="percent" checked style="width: auto; margin-right: 5px;">
+                            Проходной балл в %
+                        </label>
+                        <input type="number" id="passingScore" min="0" max="100" value="70">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="radio" name="passingScoreType" value="absolute" style="width: auto; margin-right: 5px;">
+                        Проходной балл (абсолютное значение)
+                    </label>
+                    <input type="number" id="passingScoreAbsolute" min="0" value="0" disabled>
+                    <small style="display: block; margin-top: 5px; opacity: 0.7;">Максимальный балл: <span id="maxPointsDisplay">0</span></small>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Добавление вопроса</h2>
+
+                <div class="form-group">
+                    <label for="questionText">Текст вопроса:</label>
+                    <textarea id="questionText" placeholder="Введите текст вопроса..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Изображение к вопросу (необязательно):</label>
+                    <small style="display: block; margin-bottom: 5px; opacity: 0.7;">Любой размер (внешние файлы). Форматы: JPG, PNG, WebP, GIF, BMP</small>
+                    <div class="file-input-container">
+                        <button type="button" class="btn-secondary">Выбрать изображение</button>
+                        <input type="file" id="imageUpload" class="file-input" accept="image/*">
+                    </div>
+
+                    <img id="imagePreview" class="image-preview" alt="Предпросмотр изображения">
+
+                    <div class="image-actions">
+                        <button id="removeImage" class="btn-secondary" style="display: none;">Удалить изображение</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Аудиофайл к вопросу (необязательно):</label>
+                    <small style="display: block; margin-bottom: 5px; opacity: 0.7;">Любой размер (внешние файлы). Форматы: MP3, WAV, OGG, M4A, FLAC</small>
+                    <div class="file-input-container">
+                        <button type="button" class="btn-secondary">Выбрать аудиофайл</button>
+                        <input type="file" id="audioUpload" class="file-input" accept="audio/*">
+                    </div>
+
+                    <div id="audioPreview" style="display: none; margin-top: 10px;">
+                        <audio id="previewAudio" controls style="width: 100%; max-width: 400px;"></audio>
+                        <div style="margin-top: 5px; font-size: 0.9rem; color: var(--accent);" id="audioInfo"></div>
+                    </div>
+
+                    <div class="audio-actions">
+                        <button id="removeAudio" class="btn-secondary" style="display: none;">Удалить аудиофайл</button>
+                    </div>
+                </div>
+
+                <h3 style="margin: 20px 0 10px; color: var(--accent);">Подвопросы</h3>
+
+                <div class="subquestions-list" id="subquestionsList">
+                    <div class="empty-state">Подвопросы не добавлены</div>
+                </div>
+
+                <div class="subquestion-controls">
+                    <button id="addSubquestion" class="btn-secondary">+ Текстовый ответ</button>
+                    <button id="addMultipleAnswers" class="btn-secondary">+ Множественные ответы</button>
+                    <button id="addMultipleChoice" class="btn-secondary">+ Множественный выбор</button>
+                    <button id="addMultipleNumeric" class="btn-secondary">+ Множественные числа</button>
+                </div>
+
+                <button id="addQuestion" class="btn-primary" style="margin-top: 20px;">Добавить вопрос</button>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Список вопросов</h2>
+                <div class="questions-list" id="questionsList">
+                    <div class="empty-state">Вопросы не добавлены</div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Статистика теста</h2>
+                <div id="testStats">
+                    <p>Всего вопросов: <span id="totalQuestions">0</span></p>
+                    <p>Всего подвопросов: <span id="totalSubquestions">0</span></p>
+                    <p>Максимальный балл: <span id="maxPoints">0</span></p>
+                    <p>Проходной балл: <span id="passingPoints">0</span> (<span id="passingPercent">70</span>%)</p>
+                </div>
+            </div>
+
+            <div class="export-section">
+                <h2 class="panel-title">Экспорт теста</h2>
+                <p>Скопируйте этот JSON код и вставьте его в файл test_runner.html:</p>
+                <div class="code-block" id="exportCode">{}</div>
+                <div class="action-buttons">
+                    <button id="copyCode" class="btn-success">Скопировать код</button>
+                    <button id="downloadCode" class="btn-primary">Скачать JSON файл</button>
+                    <button id="clearMemory" class="btn-secondary" title="Очистить память и перезагрузить">🔄 Очистить память</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно управления тестами -->
+    <div id="testModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Управление тестами</h2>
+                <button class="modal-close" onclick="closeTestModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="test-actions">
+                    <button id="saveCurrentTest" class="btn-success">💾 Сохранить текущий тест</button>
+                    <button id="newTest" class="btn-primary">📄 Новый тест</button>
+                    <div class="file-upload-section">
+                        <label for="jsonFileInput" class="btn-secondary">📂 Загрузить JSON файл</label>
+                        <input type="file" id="jsonFileInput" accept=".json" style="display: none;">
+                    </div>
+                </div>
+                
+                <div class="saved-tests-section">
+                    <h3>Сохраненные тесты</h3>
+                    <div id="savedTestsList" class="saved-tests-list">
+                        <!-- Список сохраненных тестов -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Мониторинг памяти
+            if (performance && performance.memory) {
+                setInterval(() => {
+                    const used = performance.memory.usedJSHeapSize / 1024 / 1024;
+                    const total = performance.memory.totalJSHeapSize / 1024 / 1024;
+                    const limit = performance.memory.jsHeapSizeLimit / 1024 / 1024;
+                    
+                    if (used > limit * 0.9) {
+                        console.warn(`КРИТИЧЕСКОЕ ИСПОЛЬЗОВАНИЕ ПАМЯТИ: ${used.toFixed(1)}/${limit.toFixed(1)} МБ`);
+                        alert('Критическое использование памяти! Рекомендуется перезагрузить страницу.');
+                    }
+                }, 5000);
+            }
+            
+            // Система внешних файлов готова к работе
+            console.log('Система внешних аудиофайлов инициализирована');
+            
+            // Загружаем сохраненные тесты
+            loadSavedTests();
+            
+            // Обработчик для предотвращения потери данных
+            window.addEventListener('beforeunload', function(e) {
+                if (testData.questions.length > 0) {
+                    e.preventDefault();
+                    e.returnValue = 'У вас есть несохраненные вопросы. Вы уверены, что хотите покинуть страницу?';
+                }
+            });
+            
+            // Обработчик ошибок для диагностики
+            window.addEventListener('error', function(e) {
+                console.error('Глобальная ошибка:', e.error);
+                if (e.error && e.error.message && e.error.message.includes('memory')) {
+                    alert('Ошибка памяти! Рекомендуется перезагрузить страницу.');
+                }
+            });
+            // Элементы DOM
+            const testTitle = document.getElementById('testTitle');
+            const testDescription = document.getElementById('testDescription');
+            const passingScore = document.getElementById('passingScore');
+            const passingScoreAbsolute = document.getElementById('passingScoreAbsolute');
+            const maxPointsDisplay = document.getElementById('maxPointsDisplay');
+            const timeLimit = document.getElementById('timeLimit');
+            const questionText = document.getElementById('questionText');
+            const imageUpload = document.getElementById('imageUpload');
+            const imagePreview = document.getElementById('imagePreview');
+            const removeImageBtn = document.getElementById('removeImage');
+            const audioUpload = document.getElementById('audioUpload');
+            const audioPreview = document.getElementById('audioPreview');
+            const removeAudioBtn = document.getElementById('removeAudio');
+            const addSubquestionBtn = document.getElementById('addSubquestion');
+            const addMultipleAnswersBtn = document.getElementById('addMultipleAnswers');
+            const addMultipleChoiceBtn = document.getElementById('addMultipleChoice');
+            const addMultipleNumericBtn = document.getElementById('addMultipleNumeric');
+            const subquestionsList = document.getElementById('subquestionsList');
+            const addQuestionBtn = document.getElementById('addQuestion');
+            const questionsList = document.getElementById('questionsList');
+            const exportCode = document.getElementById('exportCode');
+            const copyCodeBtn = document.getElementById('copyCode');
+            const downloadCodeBtn = document.getElementById('downloadCode');
+            const clearMemoryBtn = document.getElementById('clearMemory');
+            const testMenuBtn = document.getElementById('testMenu');
+            const testModal = document.getElementById('testModal');
+            const saveCurrentTestBtn = document.getElementById('saveCurrentTest');
+            const newTestBtn = document.getElementById('newTest');
+            const jsonFileInput = document.getElementById('jsonFileInput');
+            const savedTestsList = document.getElementById('savedTestsList');
+            const totalQuestions = document.getElementById('totalQuestions');
+            const totalSubquestions = document.getElementById('totalSubquestions');
+            const maxPoints = document.getElementById('maxPoints');
+            const passingPoints = document.getElementById('passingPoints');
+            const passingPercent = document.getElementById('passingPercent');
+            const themeToggle = document.getElementById('themeToggle');
+            const passingScoreTypeRadios = document.querySelectorAll('input[name="passingScoreType"]');
+
+            // Данные приложения
+            let testData = {
+                title: "Олимпиада по наукам",
+                description: "Проверьте свои знания в различных областях науки",
+                passingScore: 70,
+                timeLimit: 15,
+                questions: []
+            };
+
+            let currentSubquestions = [];
+            let currentImageData = null;
+            let currentAudioData = null;
+            let currentAudioFile = null; // Храним оригинальный файл
+            let currentAudioBlob = null; // Храним Blob URL
+            let passingScoreType = 'percent';
+            
+            // Система внешних файлов - храним только метаданные
+            let audioFileRegistry = new Map(); // Реестр аудиофайлов
+            let imageFileRegistry = new Map(); // Реестр изображений
+            let audioFileCounter = 0;
+            let imageFileCounter = 0;
+            
+            // Система управления тестами
+            let savedTests = new Map(); // Сохраненные тесты
+            let currentTestId = null; // ID текущего теста
+            
+            // Система внешних аудиофайлов - только метаданные
+            function registerAudioFile(file) {
+                audioFileCounter++;
+                const fileId = `audio_${audioFileCounter}_${Date.now()}`;
+                
+                // Создаем Blob URL для предпросмотра
+                const blobUrl = URL.createObjectURL(file);
+                
+                // Сохраняем метаданные
+                const audioMetadata = {
+                    id: fileId,
+                    name: file.name,
+                    size: file.size,
+                    type: file.type,
+                    blobUrl: blobUrl,
+                    originalFile: file // Храним ссылку на оригинальный файл
+                };
+                
+                audioFileRegistry.set(fileId, audioMetadata);
+                return fileId;
+            }
+            
+            // Получение аудиофайла по ID
+            function getAudioFile(fileId) {
+                return audioFileRegistry.get(fileId);
+            }
+            
+            // Система внешних изображений - только метаданные
+            function registerImageFile(file) {
+                imageFileCounter++;
+                const fileId = `image_${imageFileCounter}_${Date.now()}`;
+                
+                // Создаем Blob URL для предпросмотра
+                const blobUrl = URL.createObjectURL(file);
+                
+                // Сохраняем метаданные
+                const imageMetadata = {
+                    id: fileId,
+                    name: file.name,
+                    size: file.size,
+                    type: file.type,
+                    blobUrl: blobUrl,
+                    originalFile: file // Храним ссылку на оригинальный файл
+                };
+                
+                imageFileRegistry.set(fileId, imageMetadata);
+                return fileId;
+            }
+            
+            // Получение изображения по ID
+            function getImageFile(fileId) {
+                return imageFileRegistry.get(fileId);
+            }
+            
+            // Очистка аудиофайлов
+            function clearAudioFiles() {
+                audioFileRegistry.forEach(metadata => {
+                    if (metadata.blobUrl) {
+                        URL.revokeObjectURL(metadata.blobUrl);
+                    }
+                });
+                audioFileRegistry.clear();
+            }
+            
+            // Очистка изображений
+            function clearImageFiles() {
+                imageFileRegistry.forEach(metadata => {
+                    if (metadata.blobUrl) {
+                        URL.revokeObjectURL(metadata.blobUrl);
+                    }
+                });
+                imageFileRegistry.clear();
+            }
+            
+            // Очистка всех медиафайлов
+            function clearAllMediaFiles() {
+                clearAudioFiles();
+                clearImageFiles();
+            }
+            
+            // Система управления тестами
+            function loadSavedTests() {
+                try {
+                    const saved = localStorage.getItem('olympiad_tests');
+                    if (saved) {
+                        const testsData = JSON.parse(saved);
+                        savedTests.clear();
+                        Object.entries(testsData).forEach(([id, test]) => {
+                            savedTests.set(id, test);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Ошибка загрузки сохраненных тестов:', error);
+                }
+            }
+            
+            function saveTestToStorage() {
+                try {
+                    const testId = currentTestId || `test_${Date.now()}`;
+                    const testToSave = {
+                        ...testData,
+                        id: testId,
+                        lastModified: new Date().toISOString(),
+                        mediaFiles: {
+                            images: Array.from(imageFileRegistry.entries()),
+                            audio: Array.from(audioFileRegistry.entries())
+                        }
+                    };
+                    
+                    savedTests.set(testId, testToSave);
+                    currentTestId = testId;
+                    
+                    // Сохраняем в localStorage
+                    const testsToSave = Object.fromEntries(savedTests);
+                    localStorage.setItem('olympiad_tests', JSON.stringify(testsToSave));
+                    
+                    return testId;
+                } catch (error) {
+                    console.error('Ошибка сохранения теста:', error);
+                    throw error;
+                }
+            }
+            
+            function loadTestFromStorage(testId) {
+                try {
+                    const test = savedTests.get(testId);
+                    if (!test) {
+                        throw new Error('Тест не найден');
+                    }
+                    
+                    // Загружаем данные теста
+                    testData = { ...test };
+                    delete testData.id;
+                    delete testData.lastModified;
+                    delete testData.mediaFiles;
+                    
+                    // Восстанавливаем медиафайлы
+                    if (test.mediaFiles) {
+                        imageFileRegistry.clear();
+                        audioFileRegistry.clear();
+                        
+                        if (test.mediaFiles.images) {
+                            test.mediaFiles.images.forEach(([id, metadata]) => {
+                                imageFileRegistry.set(id, metadata);
+                            });
+                        }
+                        
+                        if (test.mediaFiles.audio) {
+                            test.mediaFiles.audio.forEach(([id, metadata]) => {
+                                audioFileRegistry.set(id, metadata);
+                            });
+                        }
+                    }
+                    
+                    currentTestId = testId;
+                    
+                    // Обновляем интерфейс
+                    updateInterfaceFromTestData();
+                    
+                } catch (error) {
+                    console.error('Ошибка загрузки теста:', error);
+                    throw error;
+                }
+            }
+            
+            function deleteTestFromStorage(testId) {
+                try {
+                    savedTests.delete(testId);
+                    const testsToSave = Object.fromEntries(savedTests);
+                    localStorage.setItem('olympiad_tests', JSON.stringify(testsToSave));
+                } catch (error) {
+                    console.error('Ошибка удаления теста:', error);
+                    throw error;
+                }
+            }
+            
+            function updateInterfaceFromTestData() {
+                // Обновляем поля формы
+                testTitle.value = testData.title || '';
+                testDescription.value = testData.description || '';
+                passingScore.value = testData.passingScore || 70;
+                timeLimit.value = testData.timeLimit || 15;
+                
+                // Очищаем текущие медиафайлы
+                removeImage();
+                removeAudio();
+                
+                // Обновляем списки и статистику
+                renderQuestionsList();
+                updateStats();
+                updateExportCode();
+            }
+
+            // Создание инструкции для пользователя
+            function generateMediaInstructions() {
+                let instructions = '';
+                
+                if (imageFileRegistry.size > 0) {
+                    instructions += '\n\n=== ИНСТРУКЦИЯ ПО ИЗОБРАЖЕНИЯМ ===\n';
+                    instructions += 'Для корректной работы теста поместите следующие изображения в папку с тестом:\n\n';
+                    
+                    imageFileRegistry.forEach((metadata, fileId) => {
+                        const extension = metadata.type.split('/')[1] || 'jpg';
+                        instructions += `${fileId}.${extension} - ${metadata.name}\n`;
+                    });
+                }
+                
+                if (audioFileRegistry.size > 0) {
+                    instructions += '\n\n=== ИНСТРУКЦИЯ ПО АУДИОФАЙЛАМ ===\n';
+                    instructions += 'Для корректной работы теста поместите следующие аудиофайлы в папку с тестом:\n\n';
+                    
+                    audioFileRegistry.forEach((metadata, fileId) => {
+                        const extension = metadata.type.split('/')[1] || 'mp3';
+                        instructions += `${fileId}.${extension} - ${metadata.name}\n`;
+                    });
+                }
+                
+                if (instructions) {
+                    instructions += '\nВ JSON файле медиафайлы будут ссылаться на эти внешние файлы.\n';
+                    instructions += 'Это позволяет избежать проблем с памятью браузера при работе с большими файлами.\n';
+                }
+                
+                return instructions;
+            }
+
+            // Обработчики событий
+            addQuestionBtn.addEventListener('click', addQuestion);
+            copyCodeBtn.addEventListener('click', copyExportCode);
+            downloadCodeBtn.addEventListener('click', downloadJsonFile);
+            clearMemoryBtn.addEventListener('click', clearMemoryAndReload);
+            testMenuBtn.addEventListener('click', openTestModal);
+            saveCurrentTestBtn.addEventListener('click', saveCurrentTest);
+            newTestBtn.addEventListener('click', createNewTest);
+            jsonFileInput.addEventListener('change', loadJsonFile);
+            imageUpload.addEventListener('change', handleImageUpload);
+            removeImageBtn.addEventListener('click', removeImage);
+            audioUpload.addEventListener('change', handleAudioUpload);
+            removeAudioBtn.addEventListener('click', removeAudio);
+            addSubquestionBtn.addEventListener('click', addSubquestion);
+            addMultipleAnswersBtn.addEventListener('click', addMultipleAnswersSubquestion);
+            addMultipleChoiceBtn.addEventListener('click', addMultipleChoiceSubquestion);
+            addMultipleNumericBtn.addEventListener('click', addMultipleNumericSubquestion);
+
+            testTitle.addEventListener('input', updateTestData);
+            testDescription.addEventListener('input', updateTestData);
+            passingScore.addEventListener('input', updateTestData);
+            passingScoreAbsolute.addEventListener('input', updateTestDataAbsolute);
+            timeLimit.addEventListener('input', updateTestData);
+            themeToggle.addEventListener('change', toggleTheme);
+
+            passingScoreTypeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    passingScoreType = this.value;
+                    if (passingScoreType === 'percent') {
+                        passingScore.disabled = false;
+                        passingScoreAbsolute.disabled = true;
+                    } else {
+                        passingScore.disabled = true;
+                        passingScoreAbsolute.disabled = false;
+                    }
+                    updateTestData();
+                });
+            });
+
+            // Инициализация (тема уже применена в body)
+            updateTestData();
+            updateExportCode();
+
+            // Функции
+            function toggleTheme() {
+                document.body.classList.toggle('light-theme');
+            }
+
+            function updateTestData() {
+                testData.title = testTitle.value;
+                testData.description = testDescription.value;
+                
+                if (passingScoreType === 'percent') {
+                    testData.passingScore = parseInt(passingScore.value) || 70;
+                } else {
+                    // Вычисляем процент из абсолютного значения
+                    const maxPts = calculateMaxPoints();
+                    const absoluteValue = parseInt(passingScoreAbsolute.value) || 0;
+                    testData.passingScore = maxPts > 0 ? Math.round((absoluteValue / maxPts) * 100) : 70;
+                }
+                
+                testData.timeLimit = parseInt(timeLimit.value) || 15;
+                updateStats();
+                updateExportCode();
+            }
+
+            function updateTestDataAbsolute() {
+                updateTestData();
+            }
+
+            function calculateMaxPoints() {
+                let total = 0;
+                testData.questions.forEach(q => {
+                    q.subquestions.forEach(sq => {
+                        total += sq.points;
+                    });
+                });
+                return total;
+            }
+
+            function handleImageUpload(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                if (!file.type.match('image.*')) {
+                    alert('Пожалуйста, выберите файл изображения');
+                    return;
+                }
+
+                // Теперь нет ограничений по размеру - файл не загружается в память
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                
+                try {
+                    console.log(`Регистрация изображения ${fileSize} МБ...`);
+                    
+                    // Регистрируем файл без загрузки в память
+                    const fileId = registerImageFile(file);
+                    const imageMetadata = getImageFile(fileId);
+                    
+                    // Сохраняем ссылки
+                    currentImageData = {
+                        type: 'external',
+                        fileId: fileId,
+                        fileName: file.name,
+                        fileSize: file.size,
+                        mimeType: file.type,
+                        externalPath: `${fileId}.${file.type.split('/')[1] || 'jpg'}`
+                    };
+                    
+                    // Обновляем интерфейс
+                    imagePreview.src = imageMetadata.blobUrl;
+                    imagePreview.style.display = 'block';
+                    removeImageBtn.style.display = 'block';
+                    
+                    console.log(`Изображение ${fileSize} МБ зарегистрировано с ID: ${fileId}`);
+                    
+                } catch (error) {
+                    console.error('Ошибка при регистрации изображения:', error);
+                    alert(`Ошибка при обработке изображения: ${error.message}`);
+                    imageUpload.value = '';
+                }
+            }
+
+            function removeImage() {
+                currentImageData = null;
+                imagePreview.style.display = 'none';
+                removeImageBtn.style.display = 'none';
+                imageUpload.value = '';
+            }
+
+            function handleAudioUpload(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                if (!file.type.match('audio.*')) {
+                    alert('Пожалуйста, выберите аудиофайл');
+                    return;
+                }
+
+                // Теперь нет ограничений по размеру - файл не загружается в память
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                
+                try {
+                    console.log(`Регистрация аудиофайла ${fileSize} МБ...`);
+                    
+                    // Регистрируем файл без загрузки в память
+                    const fileId = registerAudioFile(file);
+                    const audioMetadata = getAudioFile(fileId);
+                    
+                    // Сохраняем ссылки
+                    currentAudioFile = file;
+                    currentAudioBlob = audioMetadata.blobUrl;
+                    currentAudioData = {
+                        type: 'external',
+                        fileId: fileId,
+                        fileName: file.name,
+                        fileSize: file.size,
+                        mimeType: file.type,
+                        externalPath: `${fileId}.${file.type.split('/')[1]}`
+                    };
+                    
+                    // Обновляем интерфейс
+                    const previewAudio = document.getElementById('previewAudio');
+                    const audioInfo = document.getElementById('audioInfo');
+                    
+                    previewAudio.src = audioMetadata.blobUrl;
+                    audioInfo.innerHTML = `
+                        <div>${file.name} (${fileSize} МБ)</div>
+                        <div style="font-size: 0.8rem; opacity: 0.7;">Внешний файл: ${currentAudioData.externalPath}</div>
+                    `;
+                    
+                    audioPreview.style.display = 'block';
+                    removeAudioBtn.style.display = 'block';
+                    
+                    console.log(`Аудиофайл ${fileSize} МБ зарегистрирован с ID: ${fileId}`);
+                    
+                } catch (error) {
+                    console.error('Ошибка при регистрации аудиофайла:', error);
+                    alert(`Ошибка при обработке аудиофайла: ${error.message}`);
+                    audioUpload.value = '';
+                }
+            }
+
+            function removeAudio() {
+                // Освобождаем Blob URL
+                if (currentAudioBlob) {
+                    URL.revokeObjectURL(currentAudioBlob);
+                    currentAudioBlob = null;
+                }
+                
+                currentAudioData = null;
+                currentAudioFile = null;
+                audioPreview.style.display = 'none';
+                removeAudioBtn.style.display = 'none';
+                audioUpload.value = '';
+            }
+
+            function addSubquestion() {
+                const subquestionId = 'subq_' + Date.now();
+                const subquestionItem = document.createElement('div');
+                subquestionItem.className = 'subquestion-item';
+                subquestionItem.id = subquestionId;
+                subquestionItem.dataset.type = 'text';
+
+                subquestionItem.innerHTML = `
+                    <div class="form-group">
+                        <label>Тип: <strong>Текстовый ответ</strong></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Текст подвопроса:</label>
+                        <textarea class="subquestion-text" placeholder="Введите текст подвопроса..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Числовой ответ:</label>
+                        <input type="number" class="subquestion-answer" placeholder="Введите числовой ответ">
+                    </div>
+                    <div class="form-group">
+                        <label>Баллы:</label>
+                        <input type="number" class="subquestion-points" min="1" value="1">
+                    </div>
+                    <button type="button" class="btn-secondary remove-subquestion">Удалить подвопрос</button>
+                `;
+
+                subquestionsList.appendChild(subquestionItem);
+                removeEmptyState();
+                addRemoveHandler(subquestionItem);
+            }
+
+            function addMultipleAnswersSubquestion() {
+                const subquestionId = 'subq_' + Date.now();
+                const subquestionItem = document.createElement('div');
+                subquestionItem.className = 'subquestion-item';
+                subquestionItem.id = subquestionId;
+                subquestionItem.dataset.type = 'multiple_answers';
+
+                subquestionItem.innerHTML = `
+                    <div class="form-group">
+                        <label>Тип: <strong>Множественные ответы (нужны ВСЕ для засчитывания)</strong></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Текст подвопроса:</label>
+                        <textarea class="subquestion-text" placeholder="Введите текст подвопроса..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Правильные ответы (по одному на строку):</label>
+                        <textarea class="subquestion-answer" placeholder="217&#10;222&#10;228" rows="3"></textarea>
+                        <small style="display: block; margin-top: 5px; opacity: 0.7;">Пользователь должен ввести ВСЕ эти ответы для получения балла (порядок не важен)</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Баллы:</label>
+                        <input type="number" class="subquestion-points" min="1" value="2">
+                    </div>
+                    <button type="button" class="btn-secondary remove-subquestion">Удалить подвопрос</button>
+                `;
+
+                subquestionsList.appendChild(subquestionItem);
+                removeEmptyState();
+                addRemoveHandler(subquestionItem);
+            }
+
+            function addMultipleChoiceSubquestion() {
+                const subquestionId = 'subq_' + Date.now();
+                const subquestionItem = document.createElement('div');
+                subquestionItem.className = 'subquestion-item';
+                subquestionItem.id = subquestionId;
+                subquestionItem.dataset.type = 'multiple_choice';
+
+                subquestionItem.innerHTML = `
+                    <div class="form-group">
+                        <label>Тип: <strong>Множественный выбор</strong></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Текст подвопроса:</label>
+                        <textarea class="subquestion-text" placeholder="Введите текст подвопроса..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Варианты ответов (по одному на строку):</label>
+                        <textarea class="subquestion-options" placeholder="Вариант 1\nВариант 2\nВариант 3\nВариант 4" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Правильный ответ:</label>
+                        <input type="text" class="subquestion-answer" placeholder="Введите точный текст правильного варианта">
+                    </div>
+                    <div class="form-group">
+                        <label>Баллы:</label>
+                        <input type="number" class="subquestion-points" min="1" value="2">
+                    </div>
+                    <button type="button" class="btn-secondary remove-subquestion">Удалить подвопрос</button>
+                `;
+
+                subquestionsList.appendChild(subquestionItem);
+                removeEmptyState();
+                addRemoveHandler(subquestionItem);
+            }
+
+            function addMultipleNumericSubquestion() {
+                const subquestionId = 'subq_' + Date.now();
+                const subquestionItem = document.createElement('div');
+                subquestionItem.className = 'subquestion-item';
+                subquestionItem.id = subquestionId;
+                subquestionItem.dataset.type = 'multiple_numeric';
+
+                subquestionItem.innerHTML = `
+                    <div class="form-group">
+                        <label>Тип: <strong>Множественные численные ответы</strong></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Текст подвопроса:</label>
+                        <textarea class="subquestion-text" placeholder="Введите текст подвопроса..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Поля для ответов (по одному на строку, формат: ключ|название|плейсхолдер):</label>
+                        <textarea class="subquestion-fields" placeholder="x|Значение x|Введите x\ny|Значение y|Введите y" rows="3"></textarea>
+                        <small style="display: block; margin-top: 5px; opacity: 0.7;">Пример: x|Значение x|Введите значение x</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Правильные ответы (формат: ключ=значение, по одному на строку):</label>
+                        <textarea class="subquestion-answers" placeholder="x=7\ny=3" rows="3"></textarea>
+                        <small style="display: block; margin-top: 5px; opacity: 0.7;">Пример: x=7</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Баллы:</label>
+                        <input type="number" class="subquestion-points" min="1" value="3">
+                    </div>
+                    <button type="button" class="btn-secondary remove-subquestion">Удалить подвопрос</button>
+                `;
+
+                subquestionsList.appendChild(subquestionItem);
+                removeEmptyState();
+                addRemoveHandler(subquestionItem);
+            }
+
+            function removeEmptyState() {
+                const emptyState = subquestionsList.querySelector('.empty-state');
+                if (emptyState) {
+                    emptyState.remove();
+                }
+            }
+
+            function addRemoveHandler(subquestionItem) {
+                const removeBtn = subquestionItem.querySelector('.remove-subquestion');
+                removeBtn.addEventListener('click', function() {
+                    subquestionItem.remove();
+                    // Если подвопросов не осталось, показываем сообщение
+                    if (subquestionsList.children.length === 0) {
+                        subquestionsList.innerHTML = '<div class="empty-state">Подвопросы не добавлены</div>';
+                    }
+                });
+            }
+
+            function addQuestion() {
+                try {
+                    const text = questionText.value.trim();
+
+                    if (!text) {
+                        alert('Введите текст вопроса');
+                        return;
+                    }
+
+                // Собираем подвопросы
+                const subquestions = [];
+                const subquestionItems = subquestionsList.querySelectorAll('.subquestion-item');
+
+                if (subquestionItems.length === 0) {
+                    alert('Добавьте хотя бы один подвопрос');
+                    return;
+                }
+
+                let hasErrors = false;
+                subquestionItems.forEach(item => {
+                    const subText = item.querySelector('.subquestion-text').value.trim();
+                    const points = parseInt(item.querySelector('.subquestion-points').value) || 1;
+                    const type = item.dataset.type;
+
+                    if (!subText) {
+                        hasErrors = true;
+                        return;
+                    }
+
+                    if (type === 'multiple_answers') {
+                        const answersText = item.querySelector('.subquestion-answer').value.trim();
+                        
+                        if (!answersText) {
+                            hasErrors = true;
+                            return;
+                        }
+
+                        // Парсим ответы - если несколько строк, то массив, если одна - строка
+                        const answerLines = answersText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+                        const answer = answerLines.length === 1 ? answerLines[0] : answerLines;
+
+                        subquestions.push({
+                            text: subText,
+                            type: 'multiple_answers',
+                            answer: answer,
+                            points: points
+                        });
+                    } else if (type === 'multiple_choice') {
+                        const optionsText = item.querySelector('.subquestion-options').value.trim();
+                        const answer = item.querySelector('.subquestion-answer').value.trim();
+                        
+                        if (!optionsText || !answer) {
+                            hasErrors = true;
+                            return;
+                        }
+
+                        const options = optionsText.split('\n').map(opt => opt.trim()).filter(opt => opt.length > 0);
+                        
+                        if (options.length < 2) {
+                            hasErrors = true;
+                            return;
+                        }
+
+                        if (!options.includes(answer)) {
+                            hasErrors = true;
+                            alert('Правильный ответ должен точно совпадать с одним из вариантов!');
+                            return;
+                        }
+
+                        subquestions.push({
+                            text: subText,
+                            type: 'multiple_choice',
+                            options: options,
+                            answer: answer,
+                            points: points
+                        });
+                    } else if (type === 'multiple_numeric') {
+                        const fieldsText = item.querySelector('.subquestion-fields').value.trim();
+                        const answersText = item.querySelector('.subquestion-answers').value.trim();
+                        
+                        if (!fieldsText || !answersText) {
+                            hasErrors = true;
+                            return;
+                        }
+
+                        // Парсим поля
+                        const answerFields = [];
+                        const fieldLines = fieldsText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+                        
+                        fieldLines.forEach(line => {
+                            const parts = line.split('|');
+                            if (parts.length >= 2) {
+                                answerFields.push({
+                                    key: parts[0].trim(),
+                                    label: parts[1].trim(),
+                                    placeholder: parts[2] ? parts[2].trim() : 'Введите ответ'
+                                });
+                            }
+                        });
+
+                        // Парсим ответы
+                        const answerObj = {};
+                        const answerLines = answersText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+                        
+                        answerLines.forEach(line => {
+                            const parts = line.split('=');
+                            if (parts.length === 2) {
+                                answerObj[parts[0].trim()] = parts[1].trim();
+                            }
+                        });
+
+                        if (answerFields.length === 0 || Object.keys(answerObj).length === 0) {
+                            hasErrors = true;
+                            return;
+                        }
+
+                        subquestions.push({
+                            text: subText,
+                            type: 'multiple_numeric',
+                            answerFields: answerFields,
+                            answer: answerObj,
+                            points: points
+                        });
+                    } else {
+                        const answer = parseFloat(item.querySelector('.subquestion-answer').value);
+                        
+                        if (isNaN(answer)) {
+                            hasErrors = true;
+                            return;
+                        }
+
+                        subquestions.push({
+                            text: subText,
+                            answer: answer,
+                            points: points
+                        });
+                    }
+                });
+
+                if (hasErrors) {
+                    alert('Заполните все поля подвопросов');
+                    return;
+                }
+
+                const question = {
+                    text: text,
+                    subquestions: subquestions
+                };
+
+                // Добавляем изображение, если есть
+                if (currentImageData) {
+                    question.image = currentImageData;
+                }
+                
+                // Добавляем аудио, если есть
+                if (currentAudioData) {
+                    question.audio = currentAudioData;
+                }
+
+                testData.questions.push(question);
+
+                // Обновляем интерфейс
+                renderQuestionsList();
+                updateStats();
+                updateExportCode();
+
+                    // Очищаем поля ввода
+                    questionText.value = '';
+                    removeImage();
+                    removeAudio();
+                    subquestionsList.innerHTML = '<div class="empty-state">Подвопросы не добавлены</div>';
+                    currentSubquestions = [];
+                } catch (error) {
+                    console.error('Ошибка при добавлении вопроса:', error);
+                    alert(`Произошла ошибка при добавлении вопроса: ${error.message}\n\nПроверьте консоль браузера для подробностей.`);
+                }
+            }
+
+            function renderQuestionsList() {
+                questionsList.innerHTML = '';
+
+                if (testData.questions.length === 0) {
+                    questionsList.innerHTML = '<div class="empty-state">Вопросы не добавлены</div>';
+                    return;
+                }
+
+                testData.questions.forEach((question, index) => {
+                    const questionItem = document.createElement('div');
+                    questionItem.className = 'question-item';
+
+                    let mediaHtml = '';
+                    if (question.image) {
+                        if (typeof question.image === 'string') {
+                            // Обычный Base64 или внешний файл
+                            if (question.image.startsWith('data:')) {
+                                mediaHtml += `<img src="${question.image}" class="image-preview" style="display: block; max-width: 200px; margin-bottom: 10px;" alt="Изображение вопроса">`;
+                            } else {
+                                mediaHtml += `<div style="display: block; padding: 10px; background: var(--background-alt); border-radius: 4px; margin-bottom: 10px;">🖼️ Внешний файл: ${question.image}</div>`;
+                            }
+                        } else if (question.image && question.image.type === 'external') {
+                            // Внешнее изображение - показываем информацию
+                            mediaHtml += `<div style="display: block; padding: 10px; background: var(--background-alt); border-radius: 4px; margin-bottom: 10px;">🖼️ Изображение: ${question.image.fileName || 'неизвестный файл'} (${(question.image.fileSize / 1024 / 1024).toFixed(2)} МБ)<br><small>Внешний файл: ${question.image.externalPath}</small></div>`;
+                        }
+                    }
+                    if (question.audio) {
+                        if (typeof question.audio === 'string') {
+                            // Обычный Base64 аудиофайл или внешний файл
+                            if (question.audio.startsWith('data:')) {
+                                mediaHtml += `<audio controls style="display: block; width: 100%; max-width: 300px; margin-bottom: 10px;"><source src="${question.audio}">Ваш браузер не поддерживает аудио.</audio>`;
+                            } else {
+                                mediaHtml += `<div style="display: block; padding: 10px; background: var(--background-alt); border-radius: 4px; margin-bottom: 10px;">🔊 Внешний файл: ${question.audio}</div>`;
+                            }
+                        } else if (question.audio && question.audio.type === 'external') {
+                            // Внешний аудиофайл - показываем информацию
+                            mediaHtml += `<div style="display: block; padding: 10px; background: var(--background-alt); border-radius: 4px; margin-bottom: 10px;">🔊 Аудиофайл: ${question.audio.fileName || 'неизвестный файл'} (${(question.audio.fileSize / 1024 / 1024).toFixed(2)} МБ)<br><small>Внешний файл: ${question.audio.externalPath}</small></div>`;
+                        }
+                    }
+
+                    let subquestionsHtml = '';
+                    question.subquestions.forEach((subq, subIndex) => {
+                        let answerDisplay = '';
+                        if (subq.type === 'multiple_answers') {
+                            const answerText = Array.isArray(subq.answer) ? subq.answer.join(', ') : subq.answer;
+                            answerDisplay = `
+                                <div class="question-answer">Тип: Множественные ответы</div>
+                                <div class="question-answer">Правильные ответы: ${answerText}</div>
+                            `;
+                        } else if (subq.type === 'multiple_choice') {
+                            answerDisplay = `
+                                <div class="question-answer">Тип: Множественный выбор</div>
+                                <div class="question-answer">Варианты: ${subq.options.join(', ')}</div>
+                                <div class="question-answer">Правильный ответ: ${subq.answer}</div>
+                            `;
+                        } else if (subq.type === 'multiple_numeric') {
+                            const fieldsDisplay = subq.answerFields.map(field => field.label).join(', ');
+                            const answersDisplay = Object.entries(subq.answer).map(([key, value]) => `${key}=${value}`).join(', ');
+                            answerDisplay = `
+                                <div class="question-answer">Тип: Множественные численные ответы</div>
+                                <div class="question-answer">Поля: ${fieldsDisplay}</div>
+                                <div class="question-answer">Ответы: ${answersDisplay}</div>
+                            `;
+                        } else {
+                            answerDisplay = `<div class="question-answer">Ответ: ${subq.answer}</div>`;
+                        }
+                        
+                        subquestionsHtml += `
+                            <div class="subquestion">
+                                <div class="question-text">${subIndex + 1}. ${subq.text}</div>
+                                ${answerDisplay}
+                                <div class="question-points">Баллы: ${subq.points}</div>
+                            </div>
+                        `;
+                    });
+
+                    questionItem.innerHTML = `
+                        <div class="question-header">
+                            <div class="question-number">Вопрос ${index + 1}</div>
+                            <button class="btn-secondary" onclick="removeQuestion(${index})">Удалить</button>
+                        </div>
+                        <div class="question-text">${question.text}</div>
+                        ${mediaHtml}
+                        ${subquestionsHtml}
+                    `;
+
+                    questionsList.appendChild(questionItem);
+                });
+            }
+
+            function removeQuestion(index) {
+                if (confirm('Удалить этот вопрос?')) {
+                    testData.questions.splice(index, 1);
+                    renderQuestionsList();
+                    updateStats();
+                    updateExportCode();
+                }
+            }
+
+            function updateStats() {
+                totalQuestions.textContent = testData.questions.length;
+
+                let subquestionCount = 0;
+                let totalPoints = 0;
+
+                testData.questions.forEach(question => {
+                    subquestionCount += question.subquestions.length;
+                    question.subquestions.forEach(subq => {
+                        totalPoints += subq.points;
+                    });
+                });
+
+                totalSubquestions.textContent = subquestionCount;
+                maxPoints.textContent = totalPoints;
+                maxPointsDisplay.textContent = totalPoints;
+                passingScoreAbsolute.max = totalPoints;
+                
+                const calculatedPassingPoints = Math.ceil(totalPoints * testData.passingScore / 100);
+                passingPoints.textContent = calculatedPassingPoints;
+                passingPercent.textContent = testData.passingScore;
+                
+                // Обновляем значение absoluteного поля, если оно активно
+                if (passingScoreType === 'absolute') {
+                    // Оставляем текущее значение, но обновляем процент
+                } else {
+                    // Синхронизируем абсолютное значение с процентом
+                    passingScoreAbsolute.value = calculatedPassingPoints;
+                }
+            }
+
+            function updateExportCode() {
+                try {
+                    // Создаем копию testData для экспорта
+                    const exportData = JSON.parse(JSON.stringify(testData));
+                    
+                    // Обрабатываем внешние медиафайлы
+                    for (let question of exportData.questions) {
+                        // Обрабатываем изображения
+                        if (question.image && question.image.type === 'external') {
+                            question.image = question.image.externalPath;
+                        }
+                        
+                        // Обрабатываем аудио
+                        if (question.audio && question.audio.type === 'external') {
+                            question.audio = question.audio.externalPath;
+                        }
+                    }
+                    
+                    const jsonString = JSON.stringify(exportData, null, 2);
+                    const mediaInstructions = generateMediaInstructions();
+                    
+                    exportCode.textContent = jsonString + mediaInstructions;
+                    
+                } catch (error) {
+                    console.error('Ошибка при создании JSON:', error);
+                    exportCode.textContent = `Ошибка при создании JSON: ${error.message}\n\nПопробуйте перезагрузить страницу.`;
+                }
+            }
+            function copyExportCode() {
+                navigator.clipboard.writeText(exportCode.textContent)
+                    .then(() => {
+                        // Временное изменение текста кнопки
+                        const originalText = copyCodeBtn.textContent;
+                        copyCodeBtn.textContent = 'Скопировано!';
+                        setTimeout(() => {
+                            copyCodeBtn.textContent = originalText;
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Ошибка копирования: ', err);
+                        alert('Не удалось скопировать код');
+                    });
+            }
+
+            function downloadJsonFile() {
+                try {
+                    const jsonString = JSON.stringify(testData, null, 2);
+                    
+                    // Проверяем размер перед скачиванием
+                    const jsonSize = new Blob([jsonString]).size;
+                    const jsonSizeMB = (jsonSize / 1024 / 1024).toFixed(2);
+                    
+                    if (jsonSize > 500 * 1024 * 1024) { // 500 МБ
+                        if (!confirm(`Размер файла критически большой (${jsonSizeMB} МБ). Это может вызвать серьезные проблемы при загрузке и использовании. Продолжить скачивание?`)) {
+                            return;
+                        }
+                    } else if (jsonSize > 200 * 1024 * 1024) { // 200 МБ
+                        if (!confirm(`Размер файла очень большой (${jsonSizeMB} МБ). Убедитесь, что целевые устройства смогут его обработать. Продолжить скачивание?`)) {
+                            return;
+                        }
+                    }
+                    
+                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonString);
+                    const downloadAnchorNode = document.createElement('a');
+                    downloadAnchorNode.setAttribute("href", dataStr);
+                    downloadAnchorNode.setAttribute("download", "olympiad_test.json");
+                    document.body.appendChild(downloadAnchorNode);
+                    downloadAnchorNode.click();
+                    downloadAnchorNode.remove();
+                    
+                    console.log(`JSON файл скачан. Размер: ${jsonSizeMB} МБ`);
+                } catch (error) {
+                    console.error('Ошибка при скачивании JSON:', error);
+                    alert(`Ошибка при создании файла: ${error.message}\n\nВозможные причины:\n- Слишком большие медиафайлы\n- Недостаточно памяти\n\nПопробуйте уменьшить размер аудиофайлов.`);
+                }
+            }
+
+            function clearMemoryAndReload() {
+                if (confirm('Это действие очистит всю память и перезагрузит страницу.\n\nВсе несохраненные данные будут потеряны!\n\nПродолжить?')) {
+                    // Очищаем все медиафайлы
+                    clearAllMediaFiles();
+                    
+                    // Очищаем все переменные
+                    testData.questions = [];
+                    currentImageData = null;
+                    currentAudioData = null;
+                    currentAudioFile = null;
+                    currentAudioBlob = null;
+                    
+                    // Принудительная сборка мусора (если доступна)
+                    if (window.gc) {
+                        window.gc();
+                    }
+                    
+                    // Перезагружаем страницу
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 500);
+                }
+            }
+
+            // Функции управления тестами
+            function openTestModal() {
+                renderSavedTestsList();
+                testModal.style.display = 'flex';
+            }
+            
+            function closeTestModal() {
+                testModal.style.display = 'none';
+            }
+            
+            function saveCurrentTest() {
+                try {
+                    const testId = saveTestToStorage();
+                    alert(`Тест сохранен с ID: ${testId}`);
+                    renderSavedTestsList();
+                } catch (error) {
+                    alert(`Ошибка сохранения: ${error.message}`);
+                }
+            }
+            
+            function createNewTest() {
+                if (testData.questions.length > 0) {
+                    if (!confirm('Создать новый тест? Текущие данные будут очищены.')) {
+                        return;
+                    }
+                }
+                
+                // Очищаем все данные
+                testData = {
+                    title: "Новый тест",
+                    description: "Описание теста",
+                    passingScore: 70,
+                    timeLimit: 15,
+                    questions: []
+                };
+                
+                clearAllMediaFiles();
+                currentTestId = null;
+                updateInterfaceFromTestData();
+                closeTestModal();
+            }
+            
+            function loadJsonFile(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const jsonData = JSON.parse(e.target.result);
+                        
+                        // Проверяем структуру данных
+                        if (!jsonData.title || !jsonData.questions) {
+                            throw new Error('Неверная структура JSON файла');
+                        }
+                        
+                        // Загружаем данные
+                        testData = {
+                            title: jsonData.title || "Загруженный тест",
+                            description: jsonData.description || "Описание теста",
+                            passingScore: jsonData.passingScore || 70,
+                            timeLimit: jsonData.timeLimit || 15,
+                            questions: jsonData.questions || []
+                        };
+                        
+                        clearAllMediaFiles();
+                        currentTestId = null;
+                        updateInterfaceFromTestData();
+                        closeTestModal();
+                        
+                        alert('JSON файл успешно загружен!');
+                        
+                    } catch (error) {
+                        alert(`Ошибка загрузки JSON: ${error.message}`);
+                    }
+                };
+                reader.readAsText(file);
+                event.target.value = '';
+            }
+            
+            function renderSavedTestsList() {
+                savedTestsList.innerHTML = '';
+                
+                if (savedTests.size === 0) {
+                    savedTestsList.innerHTML = '<div style="text-align: center; color: var(--text-secondary); padding: 20px;">Нет сохраненных тестов</div>';
+                    return;
+                }
+                
+                savedTests.forEach((test, testId) => {
+                    const testItem = document.createElement('div');
+                    testItem.className = 'test-item';
+                    
+                    const lastModified = new Date(test.lastModified).toLocaleString('ru-RU');
+                    const questionsCount = test.questions ? test.questions.length : 0;
+                    
+                    testItem.innerHTML = `
+                        <div class="test-info">
+                            <div class="test-title">${test.title}</div>
+                            <div class="test-meta">
+                                ${questionsCount} вопросов • Изменен: ${lastModified}
+                            </div>
+                        </div>
+                        <div class="test-actions-buttons">
+                            <button class="btn-primary" onclick="loadTest('${testId}')">Загрузить</button>
+                            <button class="btn-secondary" onclick="deleteTest('${testId}')">Удалить</button>
+                        </div>
+                    `;
+                    
+                    savedTestsList.appendChild(testItem);
+                });
+            }
+            
+            function loadTest(testId) {
+                try {
+                    loadTestFromStorage(testId);
+                    closeTestModal();
+                    alert('Тест загружен!');
+                } catch (error) {
+                    alert(`Ошибка загрузки теста: ${error.message}`);
+                }
+            }
+            
+            function deleteTest(testId) {
+                if (confirm('Удалить этот тест?')) {
+                    try {
+                        deleteTestFromStorage(testId);
+                        renderSavedTestsList();
+                    } catch (error) {
+                        alert(`Ошибка удаления теста: ${error.message}`);
+                    }
+                }
+            }
+            
+            // Закрытие модального окна по клику вне его
+            testModal.addEventListener('click', function(e) {
+                if (e.target === testModal) {
+                    closeTestModal();
+                }
+            });
+
+            // Делаем функции глобальными для обработки событий в HTML
+            window.removeQuestion = removeQuestion;
+            window.closeTestModal = closeTestModal;
+            window.loadTest = loadTest;
+            window.deleteTest = deleteTest;
+        });
+    </script>
+</body>
+</html>

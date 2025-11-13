@@ -1,0 +1,71 @@
+{
+  "name": "NeoCreator Olympiad Tests",
+  "short_name": "NeoCreator",
+  "description": "Система прохождения олимпиадных тестов по различным предметам",
+  "version": "1.0.0",
+  "telegram": {
+    "bot_username": "your_bot_username",
+    "web_app_url": "https://your-domain.com/telegram-app.html",
+    "short_description": "Олимпиадные тесты",
+    "description": "Проходите олимпиадные тесты по математике, физике, химии, биологии и информатике"
+  },
+  "files": [
+    {
+      "name": "telegram-app.html",
+      "description": "Главная страница Telegram Mini App"
+    },
+    {
+      "name": "runner-with-tests.html",
+      "description": "Выбор и прохождение олимпиадных тестов"
+    },
+    {
+      "name": "runner.html",
+      "description": "Система прохождения выбранного теста"
+    },
+    {
+      "name": "runner-external.html",
+      "description": "Загрузка и прохождение внешних тестов"
+    },
+    {
+      "name": "tests/",
+      "description": "Папка с готовыми олимпиадными тестами"
+    }
+  ],
+  "deployment": {
+    "hosting": {
+      "github_pages": {
+        "repository": "your-username/neocreator-olympiad",
+        "branch": "main",
+        "custom_domain": "your-domain.com"
+      },
+      "netlify": {
+        "site_name": "neocreator-olympiad",
+        "build_command": "echo 'No build needed'",
+        "publish_directory": "."
+      },
+      "vercel": {
+        "project_name": "neocreator-olympiad",
+        "framework": "other"
+      }
+    },
+    "telegram_bot": {
+      "commands": [
+        {
+          "command": "start",
+          "description": "Запустить приложение"
+        },
+        {
+          "command": "help", 
+          "description": "Помощь и инструкции"
+        }
+      ],
+      "menu_button": {
+        "type": "web_app",
+        "text": "Открыть NeoCreator",
+        "web_app": {
+          "url": "https://your-domain.com/telegram-app.html"
+        }
+      }
+    }
+  }
+}

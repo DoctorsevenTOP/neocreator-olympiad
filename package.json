@@ -1,0 +1,46 @@
+{
+  "name": "neocreator-olympiad",
+  "version": "1.0.0",
+  "description": "Система прохождения олимпиадных тестов по различным предметам с интеграцией Telegram Mini App",
+  "main": "telegram-app.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "deploy": "deploy.bat",
+    "build": "echo 'No build needed - static files'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "olympiad",
+    "tests",
+    "education",
+    "telegram",
+    "mini-app",
+    "quiz",
+    "examination"
+  ],
+  "author": "Регион для всех",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/neocreator-olympiad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/neocreator-olympiad/issues"
+  },
+  "homepage": "https://your-domain.com/telegram-app.html",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "files": [
+    "telegram-app.html",
+    "runner-with-tests.html",
+    "runner.html",
+    "runner-external.html",
+    "tests/",
+    "deploy.bat",
+    "deploy.json",
+    "README.md"
+  ]
+}

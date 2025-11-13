@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoTest - Олимпиада</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="runner-styles.css">
+</head>
+<body class="light-theme">
+    <div class="container">
+        <header>
+            <div style="position: absolute; top: 15px; right: 25px; z-index: 10;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <span style="font-size: 0.9rem;">Светлая тема</span>
+                    <input type="checkbox" id="themeToggle" style="width: auto; cursor: pointer;" checked>
+                </label>
+            </div>
+            <div class="olympiad-title" id="olympiadTitle">Олимпиада</div>
+            <h1 id="logoTitle">NEO<span style="-webkit-text-fill-color: transparent; background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent)); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; animation: shimmer 3s linear infinite;">TEST</span></h1>
+            <div class="credits">Создано каналом "Регион для всех" | Powered by NeoCreator</div>
+            <p class="description" id="testDescription">Проверьте свои знания в различных областях науки</p>
+        </header>
+
+        <div class="content">
+            <div class="quiz-area" id="quizArea">
+                <div class="empty-state" id="emptyState">
+                    Загрузка теста...
+                </div>
+
+                <div id="startScreen" style="display: none; text-align: center;">
+                    <h2 class="panel-title" id="startTitle">Олимпиада по наукам</h2>
+                    <p style="margin: 20px 0;">Проверьте свои знания в различных областях науки</p>
+                    <div class="timer" id="totalTimer">15:00</div>
+                    <p style="margin: 15px 0;">Всего вопросов: <span id="startTotalQuestions">0</span></p>
+                    <p style="margin: 15px 0;">Максимальный балл: <span id="startMaxPoints">0</span></p>
+                    <p style="margin: 15px 0;">Проходной балл: <span id="startPassingPoints">0</span> баллов (<span id="startPassingPercent">70</span>%)</p>
+                    <button id="startButton" class="btn-primary" style="margin-top: 20px;">Начать тестирование</button>
+                </div>
+
+                <div id="quizContent" style="display: none;">
+                    <div class="timer" id="timer">15:00</div>
+
+                    <div class="questions-menu" id="questionsMenu"></div>
+
+                    <div class="question-counter">
+                        Вопрос <span id="currentQuestionNumber">1</span> из <span id="totalQuestions">0</span>
+                        <div class="question-timer" id="questionTimer">Время на вопрос: 0:00</div>
+                    </div>
+
+                    <div class="question-text" id="questionText"></div>
+
+                    <div id="questionImageContainer"></div>
+
+                    <div id="subquestionsContainer"></div>
+
+                    <div class="navigation-buttons">
+                        <button id="prevButton" class="btn-secondary" style="display: none;">← Назад</button>
+                        <button id="nextButton" class="btn-primary">Вперед →</button>
+                        <button id="finishButton" class="btn-success" style="display: none;">Завершить тест</button>
+                    </div>
+                </div>
+
+                <div id="resultsContent" style="display: none;">
+                    <div class="results-area">
+                        <h2 class="panel-title">Результаты тестирования</h2>
+                        <div class="score" id="scoreResult">0</div>
+                        <div class="score-percent" id="scorePercent">0%</div>
+                        <div id="testStatus" class="status-passed">Проходной балл!</div>
+
+                        <div class="results-details" id="resultsDetails"></div>
+
+                        <div class="time-stats">
+                            <h3 style="margin-bottom: 15px; color: var(--primary);">Временная статистика</h3>
+                            <div class="time-stat">
+                                <span>Общее время:</span>
+                                <span id="totalTimeSpent">0:00</span>
+                            </div>
+                            <div class="time-stat">
+                                <span>Среднее время на вопрос:</span>
+                                <span id="averageTimePerQuestion">0:00</span>
+                            </div>
+                            <div id="questionTimesList"></div>
+                        </div>
+
+                        <button id="restartButton" class="btn-primary" style="margin-top: 20px;">Пройти тест заново</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Внешние скрипты -->
+    <script src="testData.js"></script>
+    <script src="runner.js"></script>
+</body>
+</html>

@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoTest - Олимпиада</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0cf;
+            --secondary: #6c0cf0;
+            --accent: #ff00ff;
+            --dark: #0a0a1a;
+            --darker: #050510;
+            --light: #e0f0ff;
+            --success: #00ff9d;
+            --warning: #ffcc00;
+            --danger: #ff0066;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(0, 204, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 0, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(108, 12, 240, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 70%, rgba(0, 255, 157, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #050510 0%, #0a0a1a 50%, #0d0d20 100%);
+            background-attachment: fixed;
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Exo 2', sans-serif;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 204, 255, 0.03) 2px, rgba(0, 204, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 0, 255, 0.03) 2px, rgba(255, 0, 255, 0.03) 4px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 204, 255, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Светлая тема */
+        body.light-theme {
+            background: #f5f5f0;
+            color: #2a2a2a;
+        }
+
+        body.light-theme::before,
+        body.light-theme::after {
+            opacity: 0;
+        }
+
+        body.light-theme .container {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(100, 180, 220, 0.3);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme header {
+            background: linear-gradient(90deg, #4a9fd8 0%, #64b5f6 100%);
+        }
+
+        body.light-theme #logoTitle {
+            display: none;
+        }
+
+        body.light-theme .panel,
+        body.light-theme .quiz-area,
+        body.light-theme .question-item,
+        body.light-theme .subquestion {
+            background: rgba(240, 248, 255, 0.8);
+            border-color: rgba(100, 180, 220, 0.2);
+        }
+
+        body.light-theme .panel-title {
+            color: #4a9fd8;
+        }
+
+        body.light-theme .question-text,
+        body.light-theme .subquestion-text,
+        body.light-theme p,
+        body.light-theme label,
+        body.light-theme .description,
+        body.light-theme .olympiad-title,
+        body.light-theme .question-counter,
+        body.light-theme .time-stat,
+        body.light-theme .results-details,
+        body.light-theme .score,
+        body.light-theme .score-percent {
+            color: #2a2a2a !important;
+        }
+
+        body.light-theme .status-passed {
+            color: #2e7d32 !important;
+        }
+
+        body.light-theme .status-failed {
+            color: #c62828 !important;
+        }
+
+        body.light-theme input,
+        body.light-theme textarea {
+            background: #ffffff;
+            border: 1px solid #b0d4e8;
+            color: #2a2a2a;
+        }
+
+        body.light-theme .btn-primary {
+            background: linear-gradient(135deg, #4a9fd8 0%, #64b5f6 100%);
+        }
+
+        body.light-theme .btn-success {
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+        }
+
+        body.light-theme .btn-secondary {
+            background: rgba(120, 120, 120, 0.2);
+            color: #2a2a2a;
+        }
+
+        body.light-theme .timer {
+            background: rgba(74, 159, 216, 0.1);
+            border-color: #4a9fd8;
+            color: #2a2a2a;
+        }
+
+        body.light-theme .question-btn {
+            background: rgba(240, 248, 255, 0.8);
+            border-color: #b0d4e8;
+            color: #2a2a2a;
+        }
+
+        body.light-theme .question-btn.current {
+            background: #4a9fd8;
+            color: white;
+        }
+
+        body.light-theme .question-btn.answered {
+            background: #66bb6a;
+            color: white;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(10, 10, 30, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 204, 255, 0.4), 0 0 80px rgba(255, 0, 255, 0.2);
+            overflow: hidden;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            backdrop-filter: blur(15px);
+        }
+
+        header {
+            background: linear-gradient(90deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .olympiad-title {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--light);
+            opacity: 0.9;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .credits {
+            font-size: 0.85rem;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 25px;
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quiz-area {
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            background: rgba(15, 15, 35, 0.7);
+            min-height: 400px;
+            position: relative;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--light);
+        }
+
+        .question-image {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 10px;
+            margin: 15px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+        }
+
+        .subquestion {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(25, 25, 50, 0.5);
+        }
+
+        .subquestion-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+
+        .subquestion-points {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .answer-input-container {
+            margin: 15px 0;
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(20, 20, 40, 0.8);
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            color: var(--light);
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .answer-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 204, 255, 0.2);
+        }
+
+        /* Стили для множественного выбора */
+        .multiple-choice-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        /* Стили для множественных численных ответов */
+        .multiple-numeric-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .numeric-answer-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .numeric-answer-item label {
+            min-width: 80px;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        .numeric-answer-item input {
+            flex: 1;
+            padding: 8px 12px;
+            background: rgba(20, 20, 40, 0.8);
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--light);
+        }
+
+        .numeric-answer-item input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 204, 255, 0.2);
+        }
+
+        /* Светлая тема для множественных численных ответов */
+        body.light-theme .numeric-answer-item input {
+            background: #ffffff;
+            border-color: #b0d4e8;
+            color: #2a2a2a;
+        }
+
+        body.light-theme .numeric-answer-item input:focus {
+            border-color: #4a9fd8;
+            box-shadow: 0 0 0 2px rgba(74, 159, 216, 0.2);
+        }
+
+        body.light-theme .numeric-answer-item label {
+            color: #4a9fd8;
+        }
+
+        /* Стили для множественных ответов на одну задачу */
+        .multiple-answers-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .answer-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .answer-row input {
+            flex: 1;
+            padding: 8px 12px;
+            background: rgba(20, 20, 40, 0.8);
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--light);
+        }
+
+        .answer-row input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 204, 255, 0.2);
+        }
+
+        .add-answer-btn {
+            padding: 6px 12px;
+            background: rgba(0, 255, 157, 0.2);
+            border: 1px solid var(--success);
+            border-radius: 6px;
+            color: var(--success);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            min-width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-answer-btn:hover {
+            background: rgba(0, 255, 157, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .remove-answer-btn {
+            padding: 6px 8px;
+            background: rgba(255, 0, 102, 0.2);
+            border: 1px solid var(--danger);
+            border-radius: 6px;
+            color: var(--danger);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            min-width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-answer-btn:hover {
+            background: rgba(255, 0, 102, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .answer-counter {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        /* Светлая тема для множественных ответов */
+        body.light-theme .answer-row input {
+            background: #ffffff;
+            border-color: #b0d4e8;
+            color: #2a2a2a;
+        }
+
+        body.light-theme .answer-row input:focus {
+            border-color: #4a9fd8;
+            box-shadow: 0 0 0 2px rgba(74, 159, 216, 0.2);
+        }
+
+        body.light-theme .add-answer-btn {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: #4caf50;
+            color: #4caf50;
+        }
+
+        body.light-theme .add-answer-btn:hover {
+            background: rgba(76, 175, 80, 0.3);
+        }
+
+        body.light-theme .remove-answer-btn {
+            background: rgba(244, 67, 54, 0.2);
+            border-color: #f44336;
+            color: #f44336;
+        }
+
+        body.light-theme .remove-answer-btn:hover {
+            background: rgba(244, 67, 54, 0.3);
+        }
+
+        body.light-theme .answer-counter {
+            color: #4a9fd8;
+        }
+
+        .choice-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(20, 20, 40, 0.6);
+            border: 2px solid rgba(0, 204, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            color: var(--light);
+        }
+
+        .choice-option:hover {
+            border-color: var(--primary);
+            background: rgba(30, 30, 50, 0.8);
+        }
+
+        .choice-option.selected {
+            border-color: var(--primary);
+            background: rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+        }
+
+        .choice-option input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .choice-option label {
+            cursor: pointer;
+            flex: 1;
+            margin: 0;
+        }
+
+        /* Светлая тема для множественного выбора */
+        body.light-theme .choice-option {
+            background: rgba(240, 248, 255, 0.8);
+            border-color: rgba(100, 180, 220, 0.3);
+            color: #2a2a2a;
+        }
+
+        body.light-theme .choice-option:hover {
+            border-color: #4a9fd8;
+            background: rgba(220, 240, 255, 0.9);
+        }
+
+        body.light-theme .choice-option.selected {
+            border-color: #4a9fd8;
+            background: rgba(74, 159, 216, 0.2);
+            box-shadow: 0 0 10px rgba(74, 159, 216, 0.3);
+        }
+
+        body.light-theme .choice-option input[type="radio"] {
+            accent-color: #4a9fd8;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .question-counter {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        .questions-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .question-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(40, 40, 80, 0.7);
+            border: 2px solid rgba(0, 204, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--light);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .question-btn.answered {
+            background: rgba(0, 255, 157, 0.3);
+            border-color: var(--success);
+        }
+
+        .question-btn.current {
+            background: var(--primary);
+            color: var(--dark);
+            border-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .question-btn.has-image::after {
+            content: "🖼";
+            font-size: 0.7rem;
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background: var(--accent);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .question-btn.has-audio::before {
+            content: "🔊";
+            font-size: 0.7rem;
+            position: absolute;
+            bottom: -5px;
+            left: -5px;
+            background: var(--success);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .question-btn.has-image.has-audio::after {
+            content: "🖼🔊";
+            width: 32px;
+        }
+
+        .question-btn.has-image.has-audio::before {
+            content: "";
+        }
+
+        .results-area {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .score {
+            font-size: 3rem;
+            margin: 20px 0;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        .score-percent {
+            font-size: 1.5rem;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .results-details {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .result-item {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 204, 255, 0.2);
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background: rgba(20, 20, 40, 0.5);
+        }
+
+        .result-correct {
+            border-left: 4px solid var(--success);
+        }
+
+        .result-incorrect {
+            border-left: 4px solid var(--danger);
+        }
+
+        .correct-answer {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .user-answer {
+            font-weight: bold;
+        }
+
+        .user-answer.correct {
+            color: var(--success);
+        }
+
+        .user-answer.incorrect {
+            color: var(--danger);
+        }
+
+        .result-image {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .timer {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background: rgba(0, 204, 255, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            display: inline-block;
+        }
+
+        .timer.warning {
+            color: var(--danger);
+            background: rgba(255, 0, 102, 0.1);
+            border-color: var(--danger);
+            animation: pulse 1s infinite;
+        }
+
+        .question-timer {
+            font-size: 1rem;
+            margin: 5px 0;
+            color: var(--warning);
+            font-family: 'Orbitron', sans-serif;
+            display: none;
+        }
+
+        .time-stats {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+        }
+
+        .time-stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .time-stat:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Exo 2', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(60, 60, 100, 0.7);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(80, 80, 120, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success) 0%, #00cc7a 100%);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
+        }
+
+        .status-passed {
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px var(--success);
+        }
+
+        .status-failed {
+            color: var(--danger);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px var(--danger);
+        }
+
+        .glow {
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        /* Стили для скроллбара */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* Мобильная адаптация */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+                max-width: 100%;
+            }
+
+            header {
+                padding: 15px 10px;
+                position: relative;
+            }
+
+            header > div[style*="position: absolute"] {
+                position: static !important;
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+
+            .olympiad-title {
+                font-size: 0.85rem;
+                margin-bottom: 5px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 5px;
+            }
+
+            .credits {
+                font-size: 0.75rem;
+                margin-top: 3px;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .panel, .quiz-area, .results-area {
+                padding: 15px;
+            }
+
+            .panel-title {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            .timer {
+                font-size: 1.5rem;
+                padding: 12px;
+                margin: 15px 0;
+            }
+
+            .question-counter {
+                font-size: 0.95rem;
+                margin: 10px 0;
+            }
+
+            .questions-menu {
+                grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+                gap: 8px;
+                padding: 12px;
+                margin: 15px 0;
+            }
+
+            .question-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 0.9rem;
+            }
+
+            .question-text {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .question-image {
+                max-width: 100%;
+                max-height: 250px;
+                margin: 15px 0;
+            }
+
+            .subquestion {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .subquestion-text {
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+            }
+
+            input[type="number"] {
+                font-size: 1rem;
+                padding: 12px;
+                -webkit-appearance: none;
+                -moz-appearance: textfield;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            button {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+
+            .score {
+                font-size: 2.5rem;
+                margin: 15px 0;
+            }
+
+            .score-percent {
+                font-size: 1.3rem;
+            }
+
+            .time-stats {
+                padding: 12px;
+                margin: 15px 0;
+            }
+
+            .time-stat {
+                font-size: 0.9rem;
+                padding: 8px 0;
+            }
+
+            .results-details {
+                margin-top: 15px;
+            }
+
+            .result-question {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .result-subquestion {
+                padding: 10px;
+                margin: 8px 0;
+                font-size: 0.9rem;
+            }
+
+            /* Улучшение читаемости на мобильных */
+            p, label, span {
+                line-height: 1.5;
+            }
+
+            /* Увеличение области нажатия для кнопок */
+            .question-btn {
+                min-height: 48px;
+                min-width: 48px;
+            }
+
+            button {
+                min-height: 48px;
+            }
+
+            /* Скрытие анимаций на мобильных для производительности */
+            * {
+                animation-duration: 0s !important;
+                transition-duration: 0.2s !important;
+            }
+
+            h1, h1 span {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .questions-menu {
+                grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+                gap: 6px;
+            }
+
+            .question-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.85rem;
+            }
+
+            .timer {
+                font-size: 1.3rem;
+                padding: 10px;
+            }
+
+            .score {
+                font-size: 2rem;
+            }
+
+            input[type="number"] {
+                font-size: 16px; /* Предотвращает зум на iOS */
+            }
+        }
+    </style>
+    <script>
+        // Применяем светлую тему сразу, до загрузки DOM
+        document.documentElement.classList.add('light-theme-init');
+    </script>
+</head>
+<body class="light-theme">
+    <div class="container">
+        <header>
+            <div style="position: absolute; top: 15px; right: 25px; z-index: 10;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <span style="font-size: 0.9rem;">Светлая тема</span>
+                    <input type="checkbox" id="themeToggle" style="width: auto; cursor: pointer;" checked>
+                </label>
+            </div>
+            <div class="olympiad-title" id="olympiadTitle">Олимпиада</div>
+            <h1 id="logoTitle">NEO<span style="-webkit-text-fill-color: transparent; background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent)); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; animation: shimmer 3s linear infinite;">TEST</span></h1>
+            <div class="credits">Создано каналом "Регион для всех"</div>
+            <p class="description" id="testDescription">Проверьте свои знания в различных областях науки</p>
+        </header>
+
+        <div class="content">
+            <div class="quiz-area" id="quizArea">
+                <div class="empty-state" id="emptyState">
+                    Тест не загружен. Вставьте JSON с вопросами в код этого файла.
+                </div>
+
+                <div id="startScreen" style="display: none; text-align: center;">
+                    <h2 class="panel-title" id="startTitle">Олимпиада по наукам</h2>
+                    <p style="margin: 20px 0;">Попробуйте написать муниципальный этап</p>
+                    <div class="timer" id="totalTimer">15:00</div>
+                    <p style="margin: 15px 0;">Всего вопросов: <span id="startTotalQuestions">0</span></p>
+                    <p style="margin: 15px 0;">Максимальный балл: <span id="startMaxPoints">0</span></p>
+                    <p style="margin: 15px 0;">Проходной балл: <span id="startPassingPoints">0</span> баллов (<span id="startPassingPercent">70</span>%)</p>
+                    <button id="startButton" class="btn-primary" style="margin-top: 20px;">Начать тестирование</button>
+                </div>
+
+                <div id="quizContent" style="display: none;">
+                    <div class="timer" id="timer">15:00</div>
+
+                    <div class="questions-menu" id="questionsMenu"></div>
+
+                    <div class="question-counter">
+                        Вопрос <span id="currentQuestionNumber">1</span> из <span id="totalQuestions">0</span>
+                        <div class="question-timer" id="questionTimer">Время на вопрос: 0:00</div>
+                    </div>
+
+                    <div class="question-text" id="questionText"></div>
+
+                    <div id="questionImageContainer"></div>
+
+                    <div id="subquestionsContainer"></div>
+
+                    <div class="navigation">
+                        <button id="prevButton" class="btn-secondary">← Назад</button>
+                        <button id="nextButton" class="btn-primary">Вперед →</button>
+                        <button id="finishButton" class="btn-success" style="display: none;">Завершить тест</button>
+                    </div>
+                </div>
+
+                <div id="resultsContent" style="display: none;">
+                    <div class="results-area">
+                        <h2 class="panel-title">Результаты тестирования</h2>
+                        <div class="score" id="scoreResult">0</div>
+                        <div class="score-percent" id="scorePercent">0%</div>
+                        <div id="testStatus" class="status-passed">Проходной балл!</div>
+
+                        <div class="results-details" id="resultsDetails"></div>
+
+                        <div class="time-stats">
+                            <h3 style="margin-bottom: 15px; color: var(--primary);">Временная статистика</h3>
+                            <div class="time-stat">
+                                <span>Общее время:</span>
+                                <span id="totalTimeSpent">0:00</span>
+                            </div>
+                            <div class="time-stat">
+                                <span>Среднее время на вопрос:</span>
+                                <span id="averageTimePerQuestion">0:00</span>
+                            </div>
+                            <div id="questionTimesList"></div>
+                        </div>
+
+                        <button id="restartButton" class="btn-primary" style="margin-top: 20px;">Пройти тест заново</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // IndexedDB для работы с аудиофайлами
+        // ============================================
+        let db = null;
+        
+        // Инициализация IndexedDB
+        function initDB() {
+            const request = indexedDB.open('OlympiadMediaDB', 1);
+            
+            request.onerror = function() {
+                console.error('Ошибка открытия IndexedDB');
+            };
+            
+            request.onsuccess = function(event) {
+                db = event.target.result;
+            };
+            
+            request.onupgradeneeded = function(event) {
+                db = event.target.result;
+                
+                if (!db.objectStoreNames.contains('mediaFiles')) {
+                    const objectStore = db.createObjectStore('mediaFiles', { keyPath: 'id' });
+                    objectStore.createIndex('type', 'type', { unique: false });
+                }
+            };
+        }
+        
+        // Получение файла из IndexedDB
+        function getFileFromIndexedDB(fileId) {
+            return new Promise((resolve, reject) => {
+                if (!db) {
+                    reject('IndexedDB не инициализирована');
+                    return;
+                }
+                
+                const transaction = db.transaction(['mediaFiles'], 'readonly');
+                const objectStore = transaction.objectStore('mediaFiles');
+                const request = objectStore.get(fileId);
+                
+                request.onsuccess = function() {
+                    if (request.result) {
+                        resolve(request.result);
+                    } else {
+                        reject('Файл не найден');
+                    }
+                };
+                
+                request.onerror = function() {
+                    reject('Ошибка получения файла из IndexedDB');
+                };
+            });
+        }
+
+        // ============================================
+        // ЗАГРУЗКА ДАННЫХ ТЕСТА
+        // ============================================
+        // Загружаем тест из localStorage или используем пустой объект
+        var testData = null;
+        
+        // Проверяем, есть ли тест в localStorage
+        const storedTest = localStorage.getItem('currentTest');
+        if (storedTest) {
+            try {
+                testData = JSON.parse(storedTest);
+                console.log('Тест загружен из localStorage:', testData.title);
+            } catch (error) {
+                console.error('Ошибка парсинга теста из localStorage:', error);
+            }
+        }
+        
+        // Если тест не загружен, показываем сообщение
+        if (!testData) {
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.innerHTML = `
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 20px;">
+                        <h1 style="color: var(--primary); margin-bottom: 20px;">🏆 NeoCreator</h1>
+                        <h2 style="color: var(--light); margin-bottom: 30px;">Тест не выбран</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 30px; max-width: 500px;">
+                            Для прохождения теста необходимо сначала выбрать его из списка доступных тестов.
+                        </p>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                            <a href="runner-with-tests.html" style="padding: 12px 24px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; text-decoration: none; border-radius: 8px; font-weight: 500;">
+                                📝 Выбрать тест
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+
+
+        // Делаем testData глобально доступным
+        window.testData = testData;
+
+        // ============================================
+        // КОНЕЦ ВСТАВКИ JSON
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Инициализируем IndexedDB
+            initDB();
+            
+            // Используем глобальную переменную
+            const testData = window.testData;
+
+            // Отладочная информация
+            console.log('testData загружен:', testData);
+            console.log('Количество вопросов:', testData?.questions?.length || 0);
+
+            // Элементы DOM
+            const emptyState = document.getElementById('emptyState');
+            const startScreen = document.getElementById('startScreen');
+            const quizContent = document.getElementById('quizContent');
+            const resultsContent = document.getElementById('resultsContent');
+            const testDescription = document.getElementById('testDescription');
+            const startTitle = document.getElementById('startTitle');
+            const startTotalQuestions = document.getElementById('startTotalQuestions');
+            const startMaxPoints = document.getElementById('startMaxPoints');
+            const startPassingPoints = document.getElementById('startPassingPoints');
+            const startPassingPercent = document.getElementById('startPassingPercent');
+            const olympiadTitle = document.getElementById('olympiadTitle');
+            const startButton = document.getElementById('startButton');
+            const totalTimer = document.getElementById('totalTimer');
+            const timerElement = document.getElementById('timer');
+            const questionTimer = document.getElementById('questionTimer');
+            const questionsMenu = document.getElementById('questionsMenu');
+            const questionText = document.getElementById('questionText');
+            const questionImageContainer = document.getElementById('questionImageContainer');
+            const subquestionsContainer = document.getElementById('subquestionsContainer');
+            const currentQuestionNumber = document.getElementById('currentQuestionNumber');
+            const totalQuestions = document.getElementById('totalQuestions');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            const finishButton = document.getElementById('finishButton');
+            const scoreResult = document.getElementById('scoreResult');
+            const scorePercent = document.getElementById('scorePercent');
+            const testStatus = document.getElementById('testStatus');
+            const totalTimeSpent = document.getElementById('totalTimeSpent');
+            const averageTimePerQuestion = document.getElementById('averageTimePerQuestion');
+            const questionTimesList = document.getElementById('questionTimesList');
+            const resultsDetails = document.getElementById('resultsDetails');
+            const restartButton = document.getElementById('restartButton');
+            const themeToggle = document.getElementById('themeToggle');
+
+            // Данные теста
+            let currentQuestionIndex = 0;
+            let userAnswers = [];
+            let totalTimeLeft = 0;
+            let totalTimerInterval;
+            let questionStartTimes = [];
+            let questionTimes = [];
+            let testStartTime;
+
+            // Обработчики событий
+            startButton.addEventListener('click', startQuiz);
+            prevButton.addEventListener('click', goToPreviousQuestion);
+            nextButton.addEventListener('click', goToNextQuestion);
+            finishButton.addEventListener('click', finishQuiz);
+            restartButton.addEventListener('click', restartQuiz);
+            themeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('light-theme');
+            });
+
+            // Инициализация теста
+            initializeQuiz();
+
+            function initializeQuiz() {
+                // Проверяем, есть ли testData
+                if (typeof testData === 'undefined' || testData === null) {
+                    console.error('testData не определен');
+                    emptyState.innerHTML = `
+                        <h3 style="color: var(--danger); margin-bottom: 15px;">❌ Тест не загружен</h3>
+                        <p style="margin-bottom: 10px;">JSON с вопросами не найден в коде файла.</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Вставьте данные теста в секцию &lt;script&gt; перед закрывающим тегом &lt;/body&gt;</p>
+                        <p style="font-size: 0.85rem; margin-top: 10px; color: var(--warning);">Откройте консоль разработчика (F12) для подробной информации.</p>
+                    `;
+                    emptyState.style.display = 'block';
+                    return;
+                }
+
+                // Проверяем структуру данных
+                if (!testData.questions || !Array.isArray(testData.questions) || testData.questions.length === 0) {
+                    console.error('Неверная структура testData:', testData);
+                    emptyState.innerHTML = `
+                        <h3 style="color: var(--danger); margin-bottom: 15px;">❌ Ошибка в данных теста</h3>
+                        <p style="margin-bottom: 10px;">JSON загружен, но не содержит вопросов или имеет неверный формат.</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Проверьте структуру JSON: должен быть массив questions с вопросами.</p>
+                        <p style="font-size: 0.85rem; margin-top: 10px; color: var(--warning);">Откройте консоль разработчика (F12) для подробной информации.</p>
+                    `;
+                    emptyState.style.display = 'block';
+                    return;
+                }
+
+                console.log('✅ Тест успешно загружен:', testData.title, '- вопросов:', testData.questions.length);
+
+                // Обновляем информацию на стартовом экране
+                testDescription.textContent = testData.description;
+                startTitle.textContent = testData.title;
+                olympiadTitle.textContent = testData.title;
+                startTotalQuestions.textContent = testData.questions.length;
+
+                // Вычисляем максимальный балл
+                let maxPoints = 0;
+                testData.questions.forEach(question => {
+                    question.subquestions.forEach(subq => {
+                        maxPoints += subq.points;
+                    });
+                });
+
+                startMaxPoints.textContent = maxPoints;
+                const passingPoints = Math.ceil(maxPoints * testData.passingScore / 100);
+                startPassingPoints.textContent = passingPoints;
+                startPassingPercent.textContent = testData.passingScore;
+
+                // Обновляем общий таймер
+                totalTimeLeft = testData.timeLimit * 60;
+                updateTotalTimerDisplay();
+
+                // Показываем стартовый экран
+                emptyState.style.display = 'none';
+                startScreen.style.display = 'block';
+                quizContent.style.display = 'none';
+                resultsContent.style.display = 'none';
+            }
+
+            function startQuiz() {
+                // Сбрасываем состояние теста
+                currentQuestionIndex = 0;
+                userAnswers = [];
+                questionTimes = [];
+                questionStartTimes = [];
+
+                // Инициализируем массив ответов и времени
+                testData.questions.forEach(question => {
+                    const questionAnswers = [];
+                    question.subquestions.forEach(() => {
+                        questionAnswers.push(null);
+                    });
+                    userAnswers.push(questionAnswers);
+                    questionStartTimes.push(null);
+                    questionTimes.push(0);
+                });
+
+                // Запоминаем время начала теста
+                testStartTime = new Date();
+
+                // Обновляем интерфейс
+                startScreen.style.display = 'none';
+                quizContent.style.display = 'block';
+                resultsContent.style.display = 'none';
+
+                // Обновляем счетчики
+                totalQuestions.textContent = testData.questions.length;
+
+                // Создаем меню вопросов
+                updateQuestionsMenu();
+
+                // Запускаем таймер
+                startTotalTimer();
+
+                // Запоминаем время начала первого вопроса
+                questionStartTimes[0] = new Date();
+
+                // Показываем первый вопрос
+                showQuestion();
+            }
+
+            function startTotalTimer() {
+                clearInterval(totalTimerInterval);
+                updateTotalTimerDisplay();
+
+                totalTimerInterval = setInterval(() => {
+                    totalTimeLeft--;
+                    updateTotalTimerDisplay();
+
+                    if (totalTimeLeft <= 0) {
+                        clearInterval(totalTimerInterval);
+                        finishQuiz();
+                    }
+                }, 1000);
+            }
+
+            function updateTotalTimerDisplay() {
+                const minutes = Math.floor(totalTimeLeft / 60);
+                const seconds = totalTimeLeft % 60;
+                const timerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                timerElement.textContent = timerText;
+                totalTimer.textContent = timerText;
+
+                if (totalTimeLeft <= 60) {
+                    timerElement.classList.add('warning');
+                } else {
+                    timerElement.classList.remove('warning');
+                }
+            }
+
+            function updateQuestionsMenu() {
+                questionsMenu.innerHTML = '';
+
+                testData.questions.forEach((question, index) => {
+                    const btn = document.createElement('div');
+                    btn.className = 'question-btn';
+                    btn.textContent = index + 1;
+
+                    // Проверяем, полностью ли отвечен вопрос
+                    let allAnswered = true;
+                    userAnswers[index].forEach(answer => {
+                        if (answer === null) allAnswered = false;
+                    });
+
+                    if (allAnswered) {
+                        btn.classList.add('answered');
+                    }
+
+                    if (index === currentQuestionIndex) {
+                        btn.classList.add('current');
+                    }
+
+                    // Добавляем индикаторы медиа
+                    if (question.image) {
+                        btn.classList.add('has-image');
+                    }
+                    if (question.audio) {
+                        btn.classList.add('has-audio');
+                    }
+
+                    btn.addEventListener('click', () => goToQuestion(index));
+                    questionsMenu.appendChild(btn);
+                });
+            }
+
+            // Функция для обработки отображения аудио
+            async function handleAudioDisplay(audioData, container) {
+                try {
+                    const audio = document.createElement('audio');
+                    audio.controls = true;
+                    audio.className = 'question-audio';
+                    audio.style.cssText = 'width: 100%; max-width: 400px; margin-top: 10px;';
+                    
+                    if (typeof audioData === 'string') {
+                        // Обычный Base64 формат
+                        audio.src = audioData;
+                    } else if (audioData && audioData.type === 'indexeddb') {
+                        // Аудио из IndexedDB
+                        try {
+                            const fileData = await getFileFromIndexedDB(audioData.fileId);
+                            const blobUrl = URL.createObjectURL(fileData.data);
+                            audio.src = blobUrl;
+                            
+                            // Освобождаем URL при завершении воспроизведения
+                            audio.addEventListener('ended', () => {
+                                URL.revokeObjectURL(blobUrl);
+                            });
+                        } catch (error) {
+                            console.error('Ошибка загрузки аудио из IndexedDB:', error);
+                            // Создаем заглушку
+                            const errorDiv = document.createElement('div');
+                            errorDiv.textContent = `⚠️ Аудиофайл недоступен (${audioData.fileName || 'неизвестный файл'})`;
+                            errorDiv.style.cssText = 'color: var(--danger); margin-top: 10px; padding: 10px; border: 1px solid var(--danger); border-radius: 4px;';
+                            container.appendChild(errorDiv);
+                            return;
+                        }
+                    }
+                    
+                    container.appendChild(audio);
+                } catch (error) {
+                    console.error('Ошибка отображения аудио:', error);
+                }
+            }
+
+            function showQuestion() {
+                const question = testData.questions[currentQuestionIndex];
+
+                // Обновляем номер вопроса
+                currentQuestionNumber.textContent = currentQuestionIndex + 1;
+
+                // Показываем текст вопроса
+                questionText.textContent = question.text;
+
+                // Показываем изображение и аудио, если есть
+                questionImageContainer.innerHTML = '';
+                if (question.image) {
+                    const img = document.createElement('img');
+                    img.src = question.image;
+                    img.alt = 'Изображение вопроса';
+                    img.className = 'question-image';
+                    questionImageContainer.appendChild(img);
+                }
+                if (question.audio) {
+                    handleAudioDisplay(question.audio, questionImageContainer);
+                }
+
+                // Показываем подвопросы
+                subquestionsContainer.innerHTML = '';
+                question.subquestions.forEach((subq, index) => {
+                    const subquestionElement = document.createElement('div');
+                    subquestionElement.className = 'subquestion';
+
+                    let answerInputHTML = '';
+                    
+                    if (subq.type === 'multiple_choice' && subq.options) {
+                        // Множественный выбор
+                        answerInputHTML = `
+                            <div class="multiple-choice-options">
+                                ${subq.options.map((option, optIndex) => `
+                                    <div class="choice-option ${userAnswers[currentQuestionIndex][index] === option ? 'selected' : ''}">
+                                        <input type="radio" 
+                                               name="q${currentQuestionIndex}_s${index}" 
+                                               value="${option}"
+                                               data-question="${currentQuestionIndex}"
+                                               data-subquestion="${index}"
+                                               ${userAnswers[currentQuestionIndex][index] === option ? 'checked' : ''}>
+                                        <label>${option}</label>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    } else if (subq.type === 'multiple_numeric' && subq.answerFields) {
+                        // Множественные численные ответы
+                        const currentAnswers = userAnswers[currentQuestionIndex][index] || {};
+                        answerInputHTML = `
+                            <div class="multiple-numeric-answers">
+                                ${subq.answerFields.map((field, fieldIndex) => `
+                                    <div class="numeric-answer-item">
+                                        <label>${field.label}:</label>
+                                        <input type="text" 
+                                               class="numeric-input"
+                                               data-question="${currentQuestionIndex}"
+                                               data-subquestion="${index}"
+                                               data-field="${field.key}"
+                                               placeholder="${field.placeholder || 'Введите ответ'}"
+                                               value="${currentAnswers[field.key] || ''}">
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    } else {
+                        // Обычный текстовый ввод с возможностью множественных ответов
+                        const currentAnswers = userAnswers[currentQuestionIndex][index];
+                        let answersArray = [];
+                        
+                        if (Array.isArray(currentAnswers)) {
+                            answersArray = currentAnswers;
+                        } else if (currentAnswers !== null && currentAnswers !== undefined) {
+                            answersArray = [currentAnswers];
+                        } else {
+                            answersArray = [''];
+                        }
+                        
+                        if (answersArray.length === 0) {
+                            answersArray = [''];
+                        }
+
+                        answerInputHTML = `
+                            <div class="answer-input-container">
+                                <div class="answer-counter">Ответов: <span class="answer-count">${answersArray.filter(a => a.trim() !== '').length}</span></div>
+                                <div class="multiple-answers-container" data-question="${currentQuestionIndex}" data-subquestion="${index}">
+                                    ${answersArray.map((answer, answerIndex) => `
+                                        <div class="answer-row">
+                                            <input type="text" class="multiple-answer-input"
+                                                   data-question="${currentQuestionIndex}"
+                                                   data-subquestion="${index}"
+                                                   data-answer-index="${answerIndex}"
+                                                   placeholder="Введите ответ ${answerIndex + 1}"
+                                                   value="${answer}">
+                                            ${answerIndex === answersArray.length - 1 ? 
+                                                '<button type="button" class="add-answer-btn" title="Добавить ответ">+</button>' : 
+                                                (answersArray.length > 1 ? '<button type="button" class="remove-answer-btn" title="Удалить ответ">×</button>' : '<button type="button" class="add-answer-btn" title="Добавить ответ">+</button>')}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    subquestionElement.innerHTML = `
+                        <div class="subquestion-text">${index + 1}. ${subq.text}</div>
+                        <div class="subquestion-points">Баллы: ${subq.points}</div>
+                        ${answerInputHTML}
+                    `;
+
+                    subquestionsContainer.appendChild(subquestionElement);
+                });
+
+                // Добавляем обработчики событий для полей ввода
+                const answerInputs = document.querySelectorAll('.subquestion-answer');
+                answerInputs.forEach(input => {
+                    input.addEventListener('input', saveAnswer);
+                });
+
+                // Добавляем обработчики для радиокнопок множественного выбора
+                const radioInputs = document.querySelectorAll('input[type="radio"]');
+                radioInputs.forEach(input => {
+                    input.addEventListener('change', saveAnswer);
+                });
+
+                // Добавляем обработчики для кликов по опциям
+                const choiceOptions = document.querySelectorAll('.choice-option');
+                choiceOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        const radio = this.querySelector('input[type="radio"]');
+                        if (radio) {
+                            radio.checked = true;
+                            radio.dispatchEvent(new Event('change'));
+                        }
+                    });
+                });
+
+                // Добавляем обработчики для множественных численных ответов
+                const numericInputs = document.querySelectorAll('.numeric-input');
+                numericInputs.forEach(input => {
+                    input.addEventListener('input', saveMultipleNumericAnswer);
+                });
+
+                // Добавляем обработчики для множественных ответов на одну задачу
+                const multipleAnswerInputs = document.querySelectorAll('.multiple-answer-input');
+                multipleAnswerInputs.forEach(input => {
+                    input.addEventListener('input', saveMultipleAnswer);
+                });
+
+                // Добавляем обработчики для кнопок добавления/удаления ответов
+                const addAnswerBtns = document.querySelectorAll('.add-answer-btn');
+                addAnswerBtns.forEach(btn => {
+                    btn.addEventListener('click', addAnswerField);
+                });
+
+                const removeAnswerBtns = document.querySelectorAll('.remove-answer-btn');
+                removeAnswerBtns.forEach(btn => {
+                    btn.addEventListener('click', removeAnswerField);
+                });
+
+                // Обновляем кнопки навигации
+                updateNavigationButtons();
+
+                // Обновляем меню вопросов
+                updateQuestionsMenu();
+            }
+
+            function saveAnswer(event) {
+                const input = event.target;
+                const questionIndex = parseInt(input.dataset.question);
+                const subquestionIndex = parseInt(input.dataset.subquestion);
+                
+                let value;
+                if (input.type === 'radio') {
+                    value = input.value;
+                    // Обновляем визуальное состояние опций
+                    const allOptions = document.querySelectorAll(`input[name="q${questionIndex}_s${subquestionIndex}"]`);
+                    allOptions.forEach(option => {
+                        const choiceOption = option.closest('.choice-option');
+                        if (option.checked) {
+                            choiceOption.classList.add('selected');
+                        } else {
+                            choiceOption.classList.remove('selected');
+                        }
+                    });
+                } else {
+                    value = input.value.trim();
+                    if (value === '') {
+                        value = null;
+                    }
+                }
+
+                userAnswers[questionIndex][subquestionIndex] = value;
+                updateQuestionsMenu();
+            }
+
+            function saveMultipleNumericAnswer(event) {
+                const input = event.target;
+                const questionIndex = parseInt(input.dataset.question);
+                const subquestionIndex = parseInt(input.dataset.subquestion);
+                const fieldKey = input.dataset.field;
+                const value = input.value.trim();
+
+                // Инициализируем объект ответов, если его нет
+                if (!userAnswers[questionIndex][subquestionIndex]) {
+                    userAnswers[questionIndex][subquestionIndex] = {};
+                }
+
+                // Сохраняем значение поля
+                if (value === '') {
+                    delete userAnswers[questionIndex][subquestionIndex][fieldKey];
+                } else {
+                    userAnswers[questionIndex][subquestionIndex][fieldKey] = value;
+                }
+
+                // Если все поля пусты, устанавливаем null
+                if (Object.keys(userAnswers[questionIndex][subquestionIndex]).length === 0) {
+                    userAnswers[questionIndex][subquestionIndex] = null;
+                }
+
+                updateQuestionsMenu();
+            }
+
+            function saveMultipleAnswer(event) {
+                const input = event.target;
+                const questionIndex = parseInt(input.dataset.question);
+                const subquestionIndex = parseInt(input.dataset.subquestion);
+                const answerIndex = parseInt(input.dataset.answerIndex);
+                const value = input.value.trim();
+
+                // Инициализируем массив ответов, если его нет
+                if (!Array.isArray(userAnswers[questionIndex][subquestionIndex])) {
+                    userAnswers[questionIndex][subquestionIndex] = [];
+                }
+
+                // Обновляем значение в массиве
+                userAnswers[questionIndex][subquestionIndex][answerIndex] = value;
+
+                // Удаляем пустые элементы с конца массива
+                while (userAnswers[questionIndex][subquestionIndex].length > 1 && 
+                       userAnswers[questionIndex][subquestionIndex][userAnswers[questionIndex][subquestionIndex].length - 1] === '') {
+                    userAnswers[questionIndex][subquestionIndex].pop();
+                }
+
+                // Если массив пустой или содержит только пустые строки, устанавливаем null
+                if (userAnswers[questionIndex][subquestionIndex].every(answer => answer === '')) {
+                    userAnswers[questionIndex][subquestionIndex] = null;
+                }
+
+                // Обновляем счетчик ответов
+                updateAnswerCounter(questionIndex, subquestionIndex);
+                updateQuestionsMenu();
+            }
+
+            function addAnswerField(event) {
+                const btn = event.target;
+                const answerRow = btn.closest('.answer-row');
+                const container = btn.closest('.multiple-answers-container');
+                const questionIndex = parseInt(container.dataset.question);
+                const subquestionIndex = parseInt(container.dataset.subquestion);
+
+                // Инициализируем массив ответов, если его нет
+                if (!Array.isArray(userAnswers[questionIndex][subquestionIndex])) {
+                    const currentValue = userAnswers[questionIndex][subquestionIndex];
+                    userAnswers[questionIndex][subquestionIndex] = currentValue ? [currentValue] : [''];
+                }
+
+                // Добавляем новый пустой ответ
+                userAnswers[questionIndex][subquestionIndex].push('');
+
+                // Перерисовываем вопрос
+                showQuestion();
+            }
+
+            function removeAnswerField(event) {
+                const btn = event.target;
+                const answerRow = btn.closest('.answer-row');
+                const container = btn.closest('.multiple-answers-container');
+                const questionIndex = parseInt(container.dataset.question);
+                const subquestionIndex = parseInt(container.dataset.subquestion);
+                const input = answerRow.querySelector('.multiple-answer-input');
+                const answerIndex = parseInt(input.dataset.answerIndex);
+
+                // Удаляем ответ из массива
+                if (Array.isArray(userAnswers[questionIndex][subquestionIndex])) {
+                    userAnswers[questionIndex][subquestionIndex].splice(answerIndex, 1);
+                    
+                    // Если остался только один пустой элемент, оставляем его
+                    if (userAnswers[questionIndex][subquestionIndex].length === 0) {
+                        userAnswers[questionIndex][subquestionIndex] = [''];
+                    }
+                }
+
+                // Перерисовываем вопрос
+                showQuestion();
+            }
+
+            function updateAnswerCounter(questionIndex, subquestionIndex) {
+                const container = document.querySelector(`[data-question="${questionIndex}"][data-subquestion="${subquestionIndex}"]`);
+                if (container) {
+                    const counter = container.closest('.answer-input-container').querySelector('.answer-count');
+                    if (counter && Array.isArray(userAnswers[questionIndex][subquestionIndex])) {
+                        const nonEmptyAnswers = userAnswers[questionIndex][subquestionIndex].filter(a => a.trim() !== '').length;
+                        counter.textContent = nonEmptyAnswers;
+                    }
+                }
+            }
+
+            function goToQuestion(index) {
+                // Сохраняем время для текущего вопроса
+                if (questionStartTimes[currentQuestionIndex]) {
+                    const timeSpent = Math.floor((new Date() - questionStartTimes[currentQuestionIndex]) / 1000);
+                    questionTimes[currentQuestionIndex] += timeSpent;
+                }
+
+                // Переходим к новому вопросу
+                currentQuestionIndex = index;
+
+                // Запоминаем время начала нового вопроса
+                if (!questionStartTimes[index]) {
+                    questionStartTimes[index] = new Date();
+                } else {
+                    questionStartTimes[index] = new Date();
+                }
+
+                // Показываем вопрос
+                showQuestion();
+            }
+
+            function updateNavigationButtons() {
+                // Кнопка "Назад"
+                prevButton.style.display = currentQuestionIndex > 0 ? 'block' : 'none';
+
+                // Кнопка "Далее" / "Завершить"
+                if (currentQuestionIndex < testData.questions.length - 1) {
+                    nextButton.style.display = 'block';
+                    finishButton.style.display = 'none';
+                } else {
+                    nextButton.style.display = 'none';
+                    finishButton.style.display = 'block';
+                }
+            }
+
+            function goToPreviousQuestion() {
+                if (currentQuestionIndex > 0) {
+                    goToQuestion(currentQuestionIndex - 1);
+                }
+            }
+
+            function goToNextQuestion() {
+                if (currentQuestionIndex < testData.questions.length - 1) {
+                    goToQuestion(currentQuestionIndex + 1);
+                }
+            }
+
+            function finishQuiz() {
+                // Сохраняем время последнего вопроса
+                if (questionStartTimes[currentQuestionIndex]) {
+                    const timeSpent = Math.floor((new Date() - questionStartTimes[currentQuestionIndex]) / 1000);
+                    questionTimes[currentQuestionIndex] += timeSpent;
+                }
+
+                // Останавливаем таймер
+                clearInterval(totalTimerInterval);
+
+                // Запоминаем время завершения теста
+                const testEndTime = new Date();
+                const totalTimeSpentSeconds = Math.floor((testEndTime - testStartTime) / 1000);
+
+                // Скрываем вопросы, показываем результаты
+                quizContent.style.display = 'none';
+                resultsContent.style.display = 'block';
+
+                // Подсчитываем результаты
+                let totalPoints = 0;
+                let maxPoints = 0;
+                let resultsHTML = '';
+
+                testData.questions.forEach((question, qIndex) => {
+                    resultsHTML += `
+                        <div class="result-item">
+                            <p><strong>Вопрос ${qIndex + 1}:</strong> ${question.text}</p>
+                    `;
+
+                    if (question.image) {
+                        resultsHTML += `<img src="${question.image}" class="result-image" alt="Изображение вопроса">`;
+                    }
+                    
+                    if (question.audio) {
+                        if (typeof question.audio === 'string') {
+                            resultsHTML += `<audio controls class="result-audio" style="width: 100%; max-width: 300px; margin: 10px 0;"><source src="${question.audio}">Ваш браузер не поддерживает аудио.</audio>`;
+                        } else if (question.audio && question.audio.type === 'indexeddb') {
+                            resultsHTML += `<div style="margin: 10px 0; padding: 10px; background: var(--background-alt); border-radius: 4px;">🔊 Аудиофайл: ${question.audio.fileName || 'неизвестный файл'}</div>`;
+                        }
+                    }
+
+                    question.subquestions.forEach((subq, sIndex) => {
+                        maxPoints += subq.points;
+                        const userAnswer = userAnswers[qIndex][sIndex];
+                        let isCorrect = false;
+                        let userAnswerDisplay = 'Нет ответа';
+                        let correctAnswerDisplay = Array.isArray(subq.answer) ? subq.answer.join(', ') : subq.answer;
+
+                        if (subq.type === 'multiple_numeric' && subq.answerFields) {
+                            // Проверка множественных численных ответов
+                            isCorrect = true;
+                            const userAnswerParts = [];
+                            const correctAnswerParts = [];
+                            
+                            subq.answerFields.forEach(field => {
+                                const userValue = userAnswer && userAnswer[field.key] ? userAnswer[field.key] : '';
+                                const correctValue = subq.answer[field.key];
+                                
+                                userAnswerParts.push(`${field.label}: ${userValue || 'не указано'}`);
+                                correctAnswerParts.push(`${field.label}: ${correctValue}`);
+                                
+                                if (userValue != correctValue) {
+                                    isCorrect = false;
+                                }
+                            });
+                            
+                            userAnswerDisplay = userAnswerParts.join(', ');
+                            correctAnswerDisplay = correctAnswerParts.join(', ');
+                        } else {
+                            // Проверка обычных и множественных ответов
+                            if (Array.isArray(userAnswer)) {
+                                // Множественные ответы - проверяем, содержится ли правильный ответ в массиве
+                                const nonEmptyAnswers = userAnswer.filter(a => a.trim() !== '');
+                                if (subq.type === 'multiple_answers') {
+                                    // Для типа multiple_answers нужно ввести ВСЕ правильные ответы
+                                    if (Array.isArray(subq.answer)) {
+                                        // Проверяем, что введены ВСЕ правильные ответы и НЕТ лишних
+                                        const sortedUserAnswers = nonEmptyAnswers.map(a => a.trim()).sort();
+                                        const sortedCorrectAnswers = subq.answer.map(a => a.trim()).sort();
+                                        isCorrect = sortedUserAnswers.length === sortedCorrectAnswers.length &&
+                                                   sortedUserAnswers.every((answer, index) => answer === sortedCorrectAnswers[index]);
+                                    } else {
+                                        // Если правильный ответ один, достаточно одного совпадения
+                                        isCorrect = nonEmptyAnswers.length === 1 && nonEmptyAnswers[0].trim() === subq.answer.trim();
+                                    }
+                                } else {
+                                    // Для обычных вопросов с множественными ответами
+                                    isCorrect = nonEmptyAnswers.some(answer => answer.trim() == subq.answer);
+                                }
+                                userAnswerDisplay = nonEmptyAnswers.length > 0 ? nonEmptyAnswers.join(', ') : 'Нет ответа';
+                            } else {
+                                // Обычная проверка
+                                if (Array.isArray(subq.answer)) {
+                                    // Если правильных ответов несколько, а пользователь ввел один
+                                    isCorrect = subq.answer.some(correctAnswer => userAnswer == correctAnswer);
+                                } else {
+                                    isCorrect = userAnswer == subq.answer;
+                                }
+                                userAnswerDisplay = userAnswer !== null ? userAnswer : 'Нет ответа';
+                            }
+                        }
+
+                        if (isCorrect) {
+                            totalPoints += subq.points;
+                        }
+
+                        resultsHTML += `
+                            <div class="subquestion ${isCorrect ? 'result-correct' : 'result-incorrect'}">
+                                <div class="subquestion-text">${sIndex + 1}. ${subq.text}</div>
+                                <p>Ваш ответ: <span class="user-answer ${isCorrect ? 'correct' : 'incorrect'}">${userAnswerDisplay}</span></p>
+                                <p>Правильный ответ: <span class="correct-answer">${correctAnswerDisplay}</span></p>
+                                <p>Баллы: ${isCorrect ? subq.points : 0} из ${subq.points}</p>
+                            </div>
+                        `;
+                    });
+
+                    resultsHTML += `</div>`;
+                });
+
+                // Вычисляем процент
+                const percent = Math.round((totalPoints / maxPoints) * 100);
+
+                // Определяем статус теста
+                const passed = percent >= testData.passingScore;
+
+                // Показываем результаты
+                scoreResult.textContent = `${totalPoints} / ${maxPoints}`;
+                scorePercent.textContent = `${percent}%`;
+
+                if (passed) {
+                    testStatus.textContent = "Проходной балл!";
+                    testStatus.className = "status-passed";
+                } else {
+                    testStatus.textContent = "Не проходной балл";
+                    testStatus.className = "status-failed";
+                }
+
+                // Показываем временную статистику
+                const totalMinutes = Math.floor(totalTimeSpentSeconds / 60);
+                const totalSeconds = totalTimeSpentSeconds % 60;
+                totalTimeSpent.textContent = `${totalMinutes}:${totalSeconds.toString().padStart(2, '0')}`;
+
+                // Среднее время на вопрос
+                const avgTime = Math.round(totalTimeSpentSeconds / testData.questions.length);
+                const avgMinutes = Math.floor(avgTime / 60);
+                const avgSeconds = avgTime % 60;
+                averageTimePerQuestion.textContent = `${avgMinutes}:${avgSeconds.toString().padStart(2, '0')}`;
+
+                // Время на каждый вопрос
+                questionTimesList.innerHTML = '<h4 style="margin: 15px 0 10px; color: var(--accent);">Время по вопросам:</h4>';
+                questionTimes.forEach((time, index) => {
+                    const minutes = Math.floor(time / 60);
+                    const seconds = time % 60;
+                    questionTimesList.innerHTML += `
+                        <div class="time-stat">
+                            <span>Вопрос ${index + 1}:</span>
+                            <span>${minutes}:${seconds.toString().padStart(2, '0')}</span>
+                        </div>
+                    `;
+                });
+
+                resultsDetails.innerHTML = resultsHTML;
+            }
+
+            function restartQuiz() {
+                // Возвращаемся к стартовому экрану
+                startScreen.style.display = 'block';
+                resultsContent.style.display = 'none';
+
+                // Сбрасываем таймер
+                totalTimeLeft = testData.timeLimit * 60;
+                updateTotalTimerDisplay();
+            }
+        });
+    </script>
+</body>
+</html>
