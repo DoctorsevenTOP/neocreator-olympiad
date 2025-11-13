@@ -93,6 +93,31 @@
             box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
         }
 
+        body.dark-theme .test-card.unavailable {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: #444;
+        }
+
+        body.dark-theme .test-card.unavailable .test-title {
+            color: #666;
+        }
+
+        body.dark-theme .test-card.unavailable .test-description {
+            color: #555;
+        }
+
+        body.dark-theme .unavailable-overlay {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-theme .unavailable-icon {
+            color: #666;
+        }
+
+        body.dark-theme .unavailable-reason {
+            background: rgba(100, 100, 100, 0.9);
+        }
+
 
         body.dark-theme .header {
             background: rgba(0, 0, 0, 0.3);
@@ -269,6 +294,63 @@
             background: linear-gradient(135deg, #feca57, #ff9ff3);
             color: #2d3436;
             box-shadow: 0 2px 4px rgba(254, 202, 87, 0.3);
+        }
+
+        /* Стили для недоступных тестов */
+        .test-card.unavailable {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: var(--background-alt);
+            border-color: #ccc;
+            position: relative;
+        }
+
+        .test-card.unavailable:hover {
+            transform: none;
+            box-shadow: 0 2px 4px var(--shadow);
+            border-color: #ccc;
+        }
+
+        .test-card.unavailable .test-title {
+            color: #999;
+        }
+
+        .test-card.unavailable .test-description {
+            color: #bbb;
+        }
+
+        .unavailable-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(128, 128, 128, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .unavailable-icon {
+            font-size: 2rem;
+            color: #999;
+            opacity: 0.7;
+        }
+
+        .unavailable-reason {
+            position: absolute;
+            bottom: 8px;
+            left: 12px;
+            right: 12px;
+            background: rgba(128, 128, 128, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            text-align: center;
+            font-weight: 500;
         }
 
         .test-title {
@@ -456,57 +538,70 @@
     </div>
 
     <script>
-        // Конфигурация тестов с возможностью закрепления
+        // Конфигурация тестов с возможностью закрепления и доступности
         const testsConfig = [
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_simple.json',
                 pinned: false,
-                featured: false
+                featured: false,
+                available: false
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_working_audio.json',
                 pinned: false,
-                featured: false
+                featured: false,
+                available: false
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_multimedia.json',
                 pinned: false,
-                featured: false
+                featured: false,
+                available: false
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math_olympiad_10.json',
                 pinned: false,
-                featured: false
+                featured: false,
+                available: false,
+                reason: 'Скоро будет доступен'
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/physics_olympiad_11.json',
                 pinned: false,
-                featured: false
+                featured: false,
+                available: false,
+                reason: 'В разработке'
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/chemistry_test.json',
                 pinned: false,
-                featured: false
+                featured: false,
+                available: false
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/biology_advanced.json',
                 pinned: false,
-                featured: false
+                featured: false,
+                available: false
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/informatics_regional.json',
                 pinned: false,
-                featured: false
+                featured: false,
+                available: false
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/mun23_24.json',
                 pinned: true,
-                featured: true
+                featured: true,
+                available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/eng23_24.json',
                 pinned: true,
-                featured: false
+                featured: false,
+                available: false,
+                reason: 'Скоро будет доступен'
             }
         ];
 
@@ -540,28 +635,67 @@
                 // Загружаем каждый тест с конфигурацией
                 for (const testConfig of testsConfig) {
                     try {
-                        const response = await fetch(testConfig.url);
-                        if (response.ok) {
-                            const testData = await response.json();
+                        // Для недоступных тестов создаем заглушку
+                        if (testConfig.available === false) {
                             tests.push({
                                 filename: testConfig.url.split('/').pop(),
-                                data: testData,
+                                data: {
+                                    title: getTestNameFromUrl(testConfig.url),
+                                    description: 'Тест временно недоступен',
+                                    questions: [],
+                                    timeLimit: 0,
+                                    passingScore: 0
+                                },
                                 pinned: testConfig.pinned,
                                 featured: testConfig.featured,
+                                available: testConfig.available,
+                                reason: testConfig.reason,
                                 url: testConfig.url
                             });
+                        } else {
+                            const response = await fetch(testConfig.url);
+                            if (response.ok) {
+                                const testData = await response.json();
+                                tests.push({
+                                    filename: testConfig.url.split('/').pop(),
+                                    data: testData,
+                                    pinned: testConfig.pinned,
+                                    featured: testConfig.featured,
+                                    available: testConfig.available !== false,
+                                    reason: testConfig.reason,
+                                    url: testConfig.url
+                                });
+                            }
                         }
                     } catch (error) {
                         console.log(`Тест ${testConfig.url} не найден или недоступен`);
                     }
                 }
 
-                // Сортируем тесты: сначала закрепленные, потом рекомендуемые, потом обычные
+                // Сортируем тесты: закрепленные → рекомендуемые → доступные → недоступные с причиной → недоступные без причины
                 tests.sort((a, b) => {
+                    // Сначала проверяем доступность
+                    const aAvailable = a.available !== false;
+                    const bAvailable = b.available !== false;
+                    
+                    // Если один доступен, а другой нет
+                    if (aAvailable && !bAvailable) return -1;
+                    if (!aAvailable && bAvailable) return 1;
+                    
+                    // Если оба недоступны, сортируем по наличию причины
+                    if (!aAvailable && !bAvailable) {
+                        const aHasReason = !!a.reason;
+                        const bHasReason = !!b.reason;
+                        if (aHasReason && !bHasReason) return -1;
+                        if (!aHasReason && bHasReason) return 1;
+                    }
+                    
+                    // Если оба доступны или оба недоступны с одинаковым статусом причины, сортируем по приоритету
                     if (a.pinned && !b.pinned) return -1;
                     if (!a.pinned && b.pinned) return 1;
                     if (a.featured && !b.featured) return -1;
                     if (!a.featured && b.featured) return 1;
+                    
                     return 0;
                 });
 
@@ -590,12 +724,26 @@
                 testCard.className = 'test-card';
                 testCard.dataset.testIndex = index;
 
+                // Проверяем доступность теста
+                const isAvailable = test.available !== false;
+                if (!isAvailable) {
+                    testCard.classList.add('unavailable');
+                }
+
                 const questionsCount = test.data.questions ? test.data.questions.length : 0;
                 const timeLimit = test.data.timeLimit || 'Не ограничено';
                 const passingScore = test.data.passingScore || 70;
 
                 const pinnedBadge = test.pinned ? '<span class="badge pinned-badge">📌 Закреплен</span>' : '';
                 const featuredBadge = test.featured ? '<span class="badge featured-badge">⭐ Рекомендуем</span>' : '';
+                
+                // Добавляем overlay и причину для недоступных тестов
+                const unavailableOverlay = !isAvailable ? `
+                    <div class="unavailable-overlay">
+                        <div class="unavailable-icon">🔒</div>
+                    </div>
+                    <div class="unavailable-reason">${test.reason || 'Недоступен'}</div>
+                ` : '';
                 
                 testCard.innerHTML = `
                     <div class="test-header">
@@ -611,14 +759,49 @@
                         <span>⏱️ ${timeLimit} мин</span>
                         <span>🎯 ${passingScore}%</span>
                     </div>
+                    ${unavailableOverlay}
                 `;
 
-                testCard.addEventListener('click', () => selectTest(index));
+                // Добавляем обработчик клика только для доступных тестов
+                if (isAvailable) {
+                    testCard.addEventListener('click', () => selectTest(index));
+                } else {
+                    testCard.addEventListener('click', () => showUnavailableMessage(test.reason || 'Тест недоступен'));
+                }
+                
                 testsGrid.appendChild(testCard);
             });
         }
 
+        function getTestNameFromUrl(url) {
+            const filename = url.split('/').pop().replace('.json', '');
+            const nameMap = {
+                'math_olympiad_10': 'Математика 10 класс',
+                'physics_olympiad_11': 'Физика 11 класс', 
+                'chemistry_test': 'Химия',
+                'biology_advanced': 'Биология (продвинутый)',
+                'informatics_regional': 'Информатика (региональный этап)',
+                'demo_simple': 'Простой демо-тест',
+                'demo_working_audio': 'Тест с аудио',
+                'demo_multimedia': 'Мультимедиа тест',
+                'mun23_24': 'МУН 2023-24',
+                'eng23_24': 'Английский язык 2023-24'
+            };
+            return nameMap[filename] || filename.replace(/_/g, ' ');
+        }
+
+        function showUnavailableMessage(reason) {
+            alert(`❌ Тест недоступен\n\n${reason}\n\nПопробуйте выбрать другой тест или обратитесь к администратору.`);
+        }
+
         function selectTest(index) {
+            // Проверяем, доступен ли тест
+            const test = loadedTests[index];
+            if (test.available === false) {
+                showUnavailableMessage(test.reason || 'Тест недоступен');
+                return;
+            }
+
             // Убираем выделение с предыдущего теста
             document.querySelectorAll('.test-card').forEach(card => {
                 card.classList.remove('selected');
