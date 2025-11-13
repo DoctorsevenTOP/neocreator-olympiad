@@ -1207,6 +1207,31 @@
 
     <script>
         // ============================================
+        // Глобальная функция для показа/скрытия ответов
+        // ============================================
+        function toggleAnswer(questionIndex, subquestionIndex, buttonElement) {
+            console.log('toggleAnswer called:', questionIndex, subquestionIndex);
+            const answerId = `answer-${questionIndex}-${subquestionIndex}`;
+            const answerDiv = document.getElementById(answerId);
+            const button = buttonElement || event.target;
+            
+            console.log('Answer div found:', answerDiv);
+            console.log('Button element:', button);
+            
+            if (answerDiv && answerDiv.classList.contains('correct-answer-hidden')) {
+                answerDiv.classList.remove('correct-answer-hidden');
+                answerDiv.classList.add('correct-answer-visible');
+                button.innerHTML = '🙈 Скрыть ответ';
+                console.log('Answer shown');
+            } else if (answerDiv) {
+                answerDiv.classList.remove('correct-answer-visible');
+                answerDiv.classList.add('correct-answer-hidden');
+                button.innerHTML = '👁️ Показать правильный ответ';
+                console.log('Answer hidden');
+            }
+        }
+
+        // ============================================
         // IndexedDB для работы с аудиофайлами
         // ============================================
         let db = null;
@@ -2149,28 +2174,6 @@
             }
         });
 
-        // Глобальная функция для показа/скрытия ответов
-        function toggleAnswer(questionIndex, subquestionIndex, buttonElement) {
-            console.log('toggleAnswer called:', questionIndex, subquestionIndex);
-            const answerId = `answer-${questionIndex}-${subquestionIndex}`;
-            const answerDiv = document.getElementById(answerId);
-            const button = buttonElement || event.target;
-            
-            console.log('Answer div found:', answerDiv);
-            console.log('Button element:', button);
-            
-            if (answerDiv && answerDiv.classList.contains('correct-answer-hidden')) {
-                answerDiv.classList.remove('correct-answer-hidden');
-                answerDiv.classList.add('correct-answer-visible');
-                button.innerHTML = '🙈 Скрыть ответ';
-                console.log('Answer shown');
-            } else if (answerDiv) {
-                answerDiv.classList.remove('correct-answer-visible');
-                answerDiv.classList.add('correct-answer-hidden');
-                button.innerHTML = '👁️ Показать правильный ответ';
-                console.log('Answer hidden');
-            }
-        }
     </script>
 </body>
 </html>
