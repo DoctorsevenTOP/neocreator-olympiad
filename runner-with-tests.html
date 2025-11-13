@@ -270,7 +270,7 @@
             </div>
             
             <div id="errorMessage" class="error-message" style="display: none;">
-                Ошибка загрузки тестов. Убедитесь, что JSON файлы находятся в папке tests/
+                Ошибка загрузки тестов. Проверьте подключение к интернету и повторите попытку.
             </div>
             
             <div id="testsGrid" class="tests-grid" style="display: none;">
@@ -296,13 +296,13 @@
     </div>
 
     <script>
-        // Список доступных тестов (нужно будет обновлять вручную)
+        // Список доступных тестов с полными путями для GitHub Pages
         const availableTests = [
-            'math_olympiad_10.json',
-            'physics_olympiad_11.json',
-            'chemistry_test.json',
-            'biology_advanced.json',
-            'informatics_regional.json'
+            'https://doctorseventop.github.io/neocreator-olympiad/tests/math_olympiad_10.json',
+            'https://doctorseventop.github.io/neocreator-olympiad/tests/physics_olympiad_11.json',
+            'https://doctorseventop.github.io/neocreator-olympiad/tests/chemistry_test.json',
+            'https://doctorseventop.github.io/neocreator-olympiad/tests/biology_advanced.json',
+            'https://doctorseventop.github.io/neocreator-olympiad/tests/informatics_regional.json'
         ];
 
         let selectedTest = null;
@@ -329,19 +329,19 @@
             try {
                 const tests = [];
                 
-                // Пытаемся загрузить каждый тест из списка
-                for (const testFile of availableTests) {
+                // Загружаем каждый тест по полному URL
+                for (const testUrl of availableTests) {
                     try {
-                        const response = await fetch(`tests/${testFile}`);
+                        const response = await fetch(testUrl);
                         if (response.ok) {
                             const testData = await response.json();
                             tests.push({
-                                filename: testFile,
+                                filename: testUrl.split('/').pop(), // Извлекаем имя файла из URL
                                 data: testData
                             });
                         }
                     } catch (error) {
-                        console.log(`Тест ${testFile} не найден или недоступен`);
+                        console.log(`Тест ${testUrl} не найден или недоступен`);
                     }
                 }
 
