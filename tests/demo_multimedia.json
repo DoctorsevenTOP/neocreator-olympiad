@@ -5,8 +5,8 @@
   "timeLimit": 30,
   "questions": [
     {
-      "text": "Изучите график квадратичной функции и ответьте на вопросы",
-      "image": "https://quickchart.io/chart?c={type:'line',data:{labels:[-1,0,1,2,3,4,5],datasets:[{label:'y = x² - 4x + 3',data:[8,3,0,-1,0,3,8],borderColor:'rgb(37, 99, 235)',backgroundColor:'rgba(37, 99, 235, 0.1)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:'rgb(37, 99, 235)'}]},options:{responsive:true,plugins:{title:{display:true,text:'График функции y = x² - 4x + 3',font:{size:16}}},scales:{x:{title:{display:true,text:'x'}},y:{title:{display:true,text:'y'},beginAtZero:false}},elements:{point:{hoverRadius:8}}}}",
+      "text": "Изучите график квадратичной функции y = x² - 4x + 3 и ответьте на вопросы",
+      "image": "https://via.placeholder.com/600x400/1976D2/white?text=Graph+y%3Dx%C2%B2-4x%2B3%0AParabola+opens+upward%0AVertex+at+(2,-1)%0ARoots+at+x%3D1+and+x%3D3",
       "subquestions": [
         {
           "text": "При каком значении x функция равна нулю? (меньший корень)",
@@ -30,27 +30,27 @@
     },
     {
       "text": "Прослушайте музыкальный фрагмент и определите характеристики",
-      "audio": "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
+      "audio": "https://actions.google.com/sounds/v1/alarms/beep_short.ogg",
       "subquestions": [
         {
-          "text": "Какой характер у данной мелодии?",
+          "text": "Какой тип звука вы слышите?",
           "type": "multiple_choice",
-          "options": ["Веселый и игривый", "Грустный и медленный", "Торжественный", "Агрессивный"],
-          "answer": "Веселый и игривый",
+          "options": ["Короткий сигнал", "Длинная мелодия", "Речь", "Шум"],
+          "answer": "Короткий сигнал",
           "points": 3
         },
         {
-          "text": "Какой инструмент звучит в мелодии?",
+          "text": "Сколько раз повторяется звук?",
           "type": "multiple_choice",
-          "options": ["Фортепиано", "Скрипка", "Духовые инструменты", "Гитара"],
-          "answer": "Духовые инструменты",
+          "options": ["1 раз", "2 раза", "3 раза", "Много раз"],
+          "answer": "1 раз",
           "points": 4
         }
       ]
     },
     {
-      "text": "Рассмотрите схему химической реакции",
-      "image": "https://via.placeholder.com/600x300/4CAF50/white?text=2H2+O2→2H2O+Энергия",
+      "text": "Рассмотрите схему химической реакции: 2H₂ + O₂ → 2H₂O + Энергия",
+      "image": "https://via.placeholder.com/600x300/4CAF50/white?text=2H2%2BO2%E2%86%922H2O%2BEnergy",
       "subquestions": [
         {
           "text": "Сколько молекул водорода участвует в реакции?",
@@ -75,8 +75,8 @@
       ]
     },
     {
-      "text": "Изучите диаграмму распределения элементов в земной коре",
-      "image": "https://quickchart.io/chart?c={type:'pie',data:{labels:['Кислород (46.6%)','Кремний (27.7%)','Алюминий (8.1%)','Железо (5.0%)','Кальций (3.6%)','Другие (9.0%)'],datasets:[{data:[46.6,27.7,8.1,5.0,3.6,9.0],backgroundColor:['#FF6384','#36A2EB','#FFCE56','#4BC0C0','#9966FF','#FF9F40']}]},options:{responsive:true,plugins:{title:{display:true,text:'Химический состав земной коры'},legend:{position:'right'}}}}",
+      "text": "Изучите данные о составе земной коры: Кислород 46.6%, Кремний 27.7%, Алюминий 8.1%, Железо 5.0%, Кальций 3.6%, Другие 9.0%",
+      "image": "https://via.placeholder.com/500x400/2196F3/white?text=Earth+Crust+Composition%0AO+46.6%25%0ASi+27.7%25%0AAl+8.1%25%0AFe+5.0%25%0ACa+3.6%25%0AOthers+9.0%25",
       "subquestions": [
         {
           "text": "Какой элемент составляет наибольшую долю в земной коре?",
@@ -101,27 +101,27 @@
     },
     {
       "text": "Послушайте звуковой фрагмент и определите источник",
-      "audio": "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
+      "audio": "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg",
       "subquestions": [
         {
-          "text": "К какому жанру относится данная музыка?",
+          "text": "Какой характер у звука?",
           "type": "multiple_choice",
-          "options": ["Классическая", "Джаз", "Рок", "Саундтрек к фильму"],
-          "answer": "Саундтрек к фильму",
+          "options": ["Металлический", "Мягкий", "Резкий", "Тихий"],
+          "answer": "Металлический",
           "points": 3
         },
         {
-          "text": "Какое настроение передает музыка?",
+          "text": "Что напоминает этот звук?",
           "type": "multiple_choice",
-          "options": ["Героическое", "Романтическое", "Печальное", "Комическое"],
-          "answer": "Героическое",
+          "options": ["Колокольчик", "Удар по металлу", "Свисток", "Барабан"],
+          "answer": "Удар по металлу",
           "points": 3
         },
         {
-          "text": "Какие инструменты вы слышите в оркестре?",
-          "type": "multiple_answers",
-          "options": ["Струнные", "Духовые", "Ударные", "Электронные"],
-          "answer": ["Струнные", "Духовые", "Ударные"],
+          "text": "Длительность звучания:",
+          "type": "multiple_choice",
+          "options": ["Очень короткая", "Короткая", "Средняя", "Длинная"],
+          "answer": "Короткая",
           "points": 4
         }
       ]

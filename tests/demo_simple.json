@@ -1,0 +1,57 @@
+{
+  "title": "Простой демо-тест",
+  "description": "Упрощенная версия демо-теста с надежными медиафайлами",
+  "passingScore": 60,
+  "timeLimit": 20,
+  "questions": [
+    {
+      "text": "Изучите информацию о квадратичной функции y = x² - 4x + 3",
+      "image": "https://via.placeholder.com/400x300/blue/white?text=Quadratic+Function",
+      "subquestions": [
+        {
+          "text": "При каком значении x функция равна нулю? (меньший корень)",
+          "answer": 1,
+          "points": 3,
+          "type": "numeric"
+        },
+        {
+          "text": "При каком значении x функция равна нулю? (больший корень)",
+          "answer": 3,
+          "points": 3,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Представьте, что вы слушаете веселую джазовую мелодию",
+      "subquestions": [
+        {
+          "text": "Какой характер у данной мелодии?",
+          "type": "multiple_choice",
+          "options": ["Веселый", "Грустный", "Торжественный", "Агрессивный"],
+          "answer": "Веселый",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "text": "Рассмотрите химическую реакцию: 2H₂ + O₂ → 2H₂O",
+      "image": "https://via.placeholder.com/400x200/green/white?text=Chemical+Reaction",
+      "subquestions": [
+        {
+          "text": "Сколько молекул водорода участвует в реакции?",
+          "answer": 2,
+          "points": 3,
+          "type": "numeric"
+        },
+        {
+          "text": "Что является продуктом реакции?",
+          "type": "multiple_choice",
+          "options": ["Водород", "Кислород", "Вода", "Углекислый газ"],
+          "answer": "Вода",
+          "points": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "title": "Демо-тест с рабочим аудио",
+  "description": "Тест с проверенными аудио файлами и изображениями",
+  "passingScore": 60,
+  "timeLimit": 25,
+  "questions": [
+    {
+      "text": "Изучите график квадратичной функции y = x² - 4x + 3",
+      "image": "https://via.placeholder.com/600x400/1976D2/white?text=Graph+y%3Dx%C2%B2-4x%2B3%0AParabola+opens+upward%0AVertex+at+(2,-1)%0ARoots+at+x%3D1+and+x%3D3",
+      "subquestions": [
+        {
+          "text": "При каком значении x функция равна нулю? (меньший корень)",
+          "answer": 1,
+          "points": 3,
+          "type": "numeric"
+        },
+        {
+          "text": "При каком значении x функция равна нулю? (больший корень)",
+          "answer": 3,
+          "points": 3,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Прослушайте короткий звуковой сигнал",
+      "audio": "data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmHgU7k9n1unEiBC13yO/eizEIHWq+8+OWT",
+      "subquestions": [
+        {
+          "text": "Сколько коротких сигналов вы услышали?",
+          "type": "multiple_choice",
+          "options": ["1", "2", "3", "4"],
+          "answer": "1",
+          "points": 2
+        },
+        {
+          "text": "Какой тип сигнала это был?",
+          "type": "multiple_choice",
+          "options": ["Непрерывный тон", "Короткий щелчок", "Мелодия", "Шум"],
+          "answer": "Короткий щелчок",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "text": "Рассмотрите химическую реакцию: 2H₂ + O₂ → 2H₂O",
+      "image": "https://via.placeholder.com/400x200/green/white?text=Chemical+Reaction%0A2H2+%2B+O2+%E2%86%92+2H2O",
+      "subquestions": [
+        {
+          "text": "Сколько молекул водорода участвует в реакции?",
+          "answer": 2,
+          "points": 3,
+          "type": "numeric"
+        },
+        {
+          "text": "Что является продуктом реакции?",
+          "type": "multiple_choice",
+          "options": ["Водород", "Кислород", "Вода", "Углекислый газ"],
+          "answer": "Вода",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "text": "Прослушайте простую мелодию",
+      "audio": "data:audio/wav;base64,UklGRiQEAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAEAAA=",
+      "subquestions": [
+        {
+          "text": "Какой характер у мелодии?",
+          "type": "multiple_choice",
+          "options": ["Веселый", "Грустный", "Нейтральный", "Тревожный"],
+          "answer": "Нейтральный",
+          "points": 2
+        },
+        {
+          "text": "Длительность звучания:",
+          "type": "multiple_choice",
+          "options": ["Очень короткая", "Короткая", "Средняя", "Длинная"],
+          "answer": "Очень короткая",
+          "points": 2
+        }
+      ]
+    }
+  ]
+}
