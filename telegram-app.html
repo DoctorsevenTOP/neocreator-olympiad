@@ -136,6 +136,120 @@
         .menu-item:nth-child(2) { animation-delay: 0.2s; }
         .menu-item:nth-child(3) { animation-delay: 0.3s; }
         .menu-item:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Стили для экрана приветствия */
+        .welcome-screen {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .welcome-content {
+            max-width: 100%;
+        }
+
+        .welcome-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            animation: bounce 2s infinite;
+        }
+
+        .welcome-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--tg-theme-text-color);
+            margin-bottom: 12px;
+        }
+
+        .welcome-text {
+            color: var(--tg-theme-hint-color);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            padding: 0 8px;
+        }
+
+        .welcome-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            background: var(--tg-theme-secondary-bg-color);
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .feature-text {
+            font-size: 11px;
+            color: var(--tg-theme-hint-color);
+            text-align: center;
+        }
+
+        .start-button {
+            background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            border: none;
+            border-radius: 12px;
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .start-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-icon {
+            font-size: 18px;
+        }
+
+        /* Анимации */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-screen {
+            animation: slideInUp 0.6s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -145,7 +259,42 @@
             <div class="subtitle">Система олимпиадных тестов</div>
         </div>
 
-        <div class="menu-grid">
+        <!-- Экран приветствия для команды /start -->
+        <div id="welcomeScreen" class="welcome-screen" style="display: none;">
+            <div class="welcome-content">
+                <div class="welcome-icon">🎓</div>
+                <h2 class="welcome-title">Добро пожаловать в NeoCreator!</h2>
+                <p class="welcome-text">
+                    Система олимпиадных тестов для подготовки к соревнованиям по различным предметам.
+                    Проверьте свои знания и улучшите результаты!
+                </p>
+                <div class="welcome-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">📚</span>
+                        <span class="feature-text">Тесты по 5+ предметам</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⏱️</span>
+                        <span class="feature-text">Система времени и баллов</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span class="feature-text">Детальная статистика</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span class="feature-text">Реальные олимпиадные задания</span>
+                    </div>
+                </div>
+                <button class="start-button" onclick="showMainMenu()">
+                    <span class="button-icon">🚀</span>
+                    Начать тестирование
+                </button>
+            </div>
+        </div>
+
+        <!-- Основное меню -->
+        <div id="mainMenu" class="menu-grid">
             <button class="menu-item" onclick="openRunner()">
                 <div class="menu-icon">🎯</div>
                 <div class="menu-title">Олимпиадные тесты</div>
@@ -156,6 +305,12 @@
                 <div class="menu-icon">📂</div>
                 <div class="menu-title">Загрузить свой тест</div>
                 <div class="menu-description">Загрузите и пройдите собственный JSON файл теста</div>
+            </button>
+
+            <button class="menu-item" onclick="showHelp()">
+                <div class="menu-icon">❓</div>
+                <div class="menu-title">Помощь</div>
+                <div class="menu-description">Инструкции и часто задаваемые вопросы</div>
             </button>
 
             <button class="menu-item" onclick="showInfo()">
@@ -188,6 +343,43 @@
         document.documentElement.style.setProperty('--tg-theme-button-text-color', tg.themeParams.button_text_color || '#ffffff');
         document.documentElement.style.setProperty('--tg-theme-secondary-bg-color', tg.themeParams.secondary_bg_color || '#f1f1f1');
 
+        // Проверяем параметры запуска для команд /start и /help
+        const startParam = tg.initDataUnsafe?.start_param;
+        const isFirstLaunch = !localStorage.getItem('neocreator_visited');
+
+        // Инициализация интерфейса
+        function initializeApp() {
+            if (startParam === 'start' || isFirstLaunch) {
+                showWelcomeScreen();
+                localStorage.setItem('neocreator_visited', 'true');
+            } else if (startParam === 'help') {
+                showMainMenu();
+                setTimeout(showHelp, 500);
+            } else {
+                showMainMenu();
+            }
+        }
+
+        // Показать экран приветствия
+        function showWelcomeScreen() {
+            document.getElementById('welcomeScreen').style.display = 'block';
+            document.getElementById('mainMenu').style.display = 'none';
+            
+            // Устанавливаем главную кнопку
+            tg.MainButton.setText('🚀 Начать тестирование');
+            tg.MainButton.show();
+            tg.MainButton.onClick(showMainMenu);
+        }
+
+        // Показать основное меню
+        function showMainMenu() {
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('mainMenu').style.display = 'grid';
+            
+            // Скрываем главную кнопку
+            tg.MainButton.hide();
+        }
+
         // Функции навигации
         function openRunner() {
             tg.openLink('https://doctorseventop.github.io/neocreator-olympiad/runner-with-tests.html', { try_instant_view: true });
@@ -197,13 +389,85 @@
             tg.openLink('https://doctorseventop.github.io/neocreator-olympiad/runner-external.html', { try_instant_view: true });
         }
 
+        function showHelp() {
+            const helpText = `🤖 ПОМОЩЬ - NeoCreator
+
+📋 КОМАНДЫ БОТА:
+/start - Запустить приложение и показать приветствие
+/help - Показать это сообщение помощи
+
+🎯 КАК ПОЛЬЗОВАТЬСЯ:
+1. Выберите "Олимпиадные тесты" для готовых тестов
+2. Или "Загрузить свой тест" для собственных файлов
+3. Проходите тесты и получайте результаты
+
+📚 ДОСТУПНЫЕ ПРЕДМЕТЫ:
+• Математика (10-11 класс)
+• Английский язык (10-11 класс)
+• Физика
+• Химия
+• Биология
+• Информатика
+
+⚙️ ВОЗМОЖНОСТИ:
+• Различные типы вопросов (выбор, числовые, множественные)
+• Система баллов и таймер
+• Аудио и изображения в вопросах
+• Детальная статистика результатов
+• Загрузка собственных JSON тестов
+
+🏆 СИСТЕМА ОЦЕНИВАНИЯ:
+• Каждый вопрос имеет свой вес в баллах
+• Проходной балл устанавливается для каждого теста
+• Результат показывается в процентах и баллах
+
+❓ ПОДДЕРЖКА:
+Если у вас возникли вопросы, обратитесь к создателям в канале "Регион для всех"`;
+
+            tg.showAlert(helpText);
+        }
+
         function showInfo() {
-            tg.showAlert('NeoCreator - система прохождения олимпиадных тестов.\n\nДоступные предметы:\n• Математика\n• Физика\n• Химия\n• Биология\n• Информатика\n\nВозможности:\n• Различные типы вопросов\n• Система баллов и таймер\n• Детальная статистика результатов\n• Загрузка собственных тестов\n\nСоздано каналом "Регион для всех"');
+            const infoText = `🏆 NeoCreator v2.0
+
+📖 О ПРОЕКТЕ:
+Система прохождения олимпиадных тестов для подготовки к соревнованиям различного уровня.
+
+🎯 ЦЕЛЬ:
+Помочь школьникам подготовиться к олимпиадам и проверить свои знания в интерактивном формате.
+
+🔧 ТЕХНОЛОГИИ:
+• HTML5 + CSS3 + JavaScript
+• Telegram Mini App API
+• JSON формат тестов
+• Адаптивный дизайн
+
+👥 СОЗДАТЕЛИ:
+Канал "Регион для всех"
+
+📅 ВЕРСИЯ:
+2.0 (Ноябрь 2024)
+
+🌟 НОВОЕ В ЭТОЙ ВЕРСИИ:
+• Поддержка команд /start и /help
+• Улучшенный интерфейс приветствия
+• Система закрепления тестов
+• Анимированный логотип
+• Новые олимпиадные тесты
+
+📞 КОНТАКТЫ:
+Telegram: @region_for_all`;
+
+            tg.showAlert(infoText);
         }
 
         // Обработка кнопки "Назад" в Telegram
         tg.BackButton.onClick(() => {
-            tg.close();
+            if (document.getElementById('welcomeScreen').style.display === 'block') {
+                tg.close();
+            } else {
+                showWelcomeScreen();
+            }
         });
 
         // Показываем кнопку "Назад"
@@ -212,8 +476,12 @@
         // Отправляем данные о готовности приложения
         tg.sendData(JSON.stringify({
             action: 'app_ready',
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            start_param: startParam
         }));
+
+        // Инициализируем приложение
+        initializeApp();
     </script>
 </body>
 </html>
