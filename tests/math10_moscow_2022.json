@@ -55,7 +55,7 @@
     },
     {
       "text": "Дан параллелограмм ABCD, точка M — середина стороны BC. На стороне AD нашлась точка K такая, что BK = BM и четырёхугольник KBMD является вписанным.",
-      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/parallelogram-task-10-4.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/parallelogram-task-10-4.png",
       "subquestions": [
         {
           "text": "(а) Чему равна длина отрезка MD, если AD = 17?",
@@ -112,7 +112,7 @@
     },
     {
       "text": "Дан треугольник ABC. Пусть точка I — центр его вписанной окружности, а точки P и Q — середины сторон AB и AC соответственно. Оказалось, что ∠PIQ + ∠BIC = 180°. Найдите длину отрезка BC, если AB = 20 и AC = 14.",
-      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/triangle-incenter-task-10-8.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/triangle-incenter-task-10-8.png",
       "subquestions": [
         {
           "text": "Длина BC",
