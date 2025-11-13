@@ -29,7 +29,7 @@
     },
     {
       "text": "Внутри треугольника ABC отмечена точка P. Биссектрисы углов BAC и ACP пересекаются в точке M, а биссектриса угла PBA и прямая, содержащая биссектрису угла BPC пересекаются в точке N. Докажите, что точка пересечения прямых CP и AB лежит на прямой MN.",
-      "image": "https://username.github.io/repo/media/images/schemes/triangle-bisectors-task-10-3.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/triangle-bisectors-task-10-3.png",
       "subquestions": [
         {
           "text": "Докажите утверждение",
@@ -42,7 +42,7 @@
     },
     {
       "text": "Квадрат со стороной 7 клеток полностью замостили трёхклеточными «уголками» и пятиклеточными «плюсиками». Какое наибольшее количество «плюсиков» могло быть использовано?",
-      "image": "https://username.github.io/repo/media/images/schemes/tiling-task-10-4.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/tiling-task-10-4.png",
       "subquestions": [
         {
           "text": "Наибольшее количество плюсиков",
@@ -66,7 +66,7 @@
     },
     {
       "text": "Стороны основания кирпича равны 28 см и 9 см, а высота 6 см. Улитка ползёт прямолинейно по граням кирпича из вершины нижнего основания в противоположную вершину верхнего основания. Горизонтальная и вертикальная составляющие ее скорости vx и vy связаны соотношением vx² + 4 vy² = 1. Какое наименьшее время может затратить улитка на своё путешествие?",
-      "image": "https://username.github.io/repo/media/images/schemes/brick-snail-task-10-6.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/brick-snail-task-10-6.png",
       "subquestions": [
         {
           "text": "Наименьшее время (мин)",

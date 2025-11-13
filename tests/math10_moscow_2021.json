@@ -17,7 +17,7 @@
     },
     {
       "text": "По кругу лежат 36 шариков, каждый из которых либо красный, либо синий (шарики каждого из этих цветов присутствуют). Известно, что: • для любого красного шарика найдётся ровно один красный шарик такой, что между ними лежит ровно один шарик; • для любого красного шарика найдётся ровно один красный шарик такой, что между ними лежат ровно три шарика.",
-      "image": "https://username.github.io/repo/media/images/schemes/beads-circle-task-10-2.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/beads-circle-task-10-2.png",
       "subquestions": [
         {
           "text": "(а) Пусть нет двух рядом лежащих красных шариков. Сколько всего красных шариков может лежать по кругу? Укажите все возможные варианты.",
@@ -35,7 +35,7 @@
     },
     {
       "text": "Четырёхугольник ABCD таков, что ∠ABD = ∠ACD = 90°, ∠CAD = 42°. Лучи CB и DA пересекаются в точке K. Известно, что BK = 3, AD = 6.",
-      "image": "https://username.github.io/repo/media/images/schemes/quadrilateral-task-10-3.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/quadrilateral-task-10-3.png",
       "subquestions": [
         {
           "text": "(а) Сколько градусов составляет угол BKA?",
@@ -75,7 +75,7 @@
     },
     {
       "text": "Дана трапеция ABCD. Отрезки AB и CD — её боковые стороны — равны 24 и 10 соответственно. На стороне AB отмечены точки X и Y такие, что AX = 6, XY = 8, YB = 10. Известно, что расстояния от точек X и Y до прямой CD равны 23 и 27 соответственно.",
-      "image": "https://username.github.io/repo/media/images/schemes/trapezoid-task-10-6.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/trapezoid-task-10-6.png",
       "subquestions": [
         {
           "text": "(а) Найдите площадь треугольника ACD",

@@ -1542,37 +1542,39 @@
             // Функция для обработки отображения аудио
             async function handleAudioDisplay(audioData, container) {
                 try {
-                    const audio = document.createElement('audio');
-                    audio.controls = true;
-                    audio.className = 'question-audio';
-                    audio.style.cssText = 'width: 100%; max-width: 400px; margin-top: 10px;';
-                    
                     if (typeof audioData === 'string') {
-                        // Обычный Base64 формат
-                        audio.src = audioData;
+                        // Проверяем доступность аудио файла
+                        const exists = await checkAudioExists(audioData);
+                        if (exists) {
+                            const audio = document.createElement('audio');
+                            audio.controls = true;
+                            audio.className = 'question-audio';
+                            audio.style.cssText = 'width: 100%; max-width: 400px; margin-top: 10px;';
+                            audio.src = audioData;
+                            container.appendChild(audio);
+                        }
+                        // Если файл недоступен, просто не показываем ничего
                     } else if (audioData && audioData.type === 'indexeddb') {
                         // Аудио из IndexedDB
                         try {
                             const fileData = await getFileFromIndexedDB(audioData.fileId);
                             const blobUrl = URL.createObjectURL(fileData.data);
+                            const audio = document.createElement('audio');
+                            audio.controls = true;
+                            audio.className = 'question-audio';
+                            audio.style.cssText = 'width: 100%; max-width: 400px; margin-top: 10px;';
                             audio.src = blobUrl;
                             
                             // Освобождаем URL при завершении воспроизведения
                             audio.addEventListener('ended', () => {
                                 URL.revokeObjectURL(blobUrl);
                             });
+                            container.appendChild(audio);
                         } catch (error) {
                             console.error('Ошибка загрузки аудио из IndexedDB:', error);
-                            // Создаем заглушку
-                            const errorDiv = document.createElement('div');
-                            errorDiv.textContent = `⚠️ Аудиофайл недоступен (${audioData.fileName || 'неизвестный файл'})`;
-                            errorDiv.style.cssText = 'color: var(--danger); margin-top: 10px; padding: 10px; border: 1px solid var(--danger); border-radius: 4px;';
-                            container.appendChild(errorDiv);
-                            return;
+                            // Если файл недоступен, просто не показываем ничего
                         }
                     }
-                    
-                    container.appendChild(audio);
                 } catch (error) {
                     console.error('Ошибка отображения аудио:', error);
                 }
@@ -1590,11 +1592,15 @@
                 // Показываем изображение и аудио, если есть
                 questionImageContainer.innerHTML = '';
                 if (question.image) {
-                    const img = document.createElement('img');
-                    img.src = question.image;
-                    img.alt = 'Изображение вопроса';
-                    img.className = 'question-image';
-                    questionImageContainer.appendChild(img);
+                    checkImageExists(question.image).then(exists => {
+                        if (exists) {
+                            const img = document.createElement('img');
+                            img.src = question.image;
+                            img.alt = 'Изображение вопроса';
+                            img.className = 'question-image';
+                            questionImageContainer.appendChild(img);
+                        }
+                    });
                 }
                 if (question.audio) {
                     handleAudioDisplay(question.audio, questionImageContainer);
@@ -1959,19 +1965,44 @@
 
                 testData.questions.forEach((question, qIndex) => {
                     resultsHTML += `
-                        <div class="result-item">
+                        <div class="result-item" data-question="${qIndex}">
                             <p><strong>Вопрос ${qIndex + 1}:</strong> ${question.text}</p>
                     `;
 
+                    // Проверяем и добавляем медиафайлы только если они доступны
                     if (question.image) {
-                        resultsHTML += `<img src="${question.image}" class="result-image" alt="Изображение вопроса">`;
+                        checkImageExists(question.image).then(exists => {
+                            if (exists) {
+                                const resultItem = document.querySelector(`[data-question="${qIndex}"]`);
+                                if (resultItem) {
+                                    const img = document.createElement('img');
+                                    img.src = question.image;
+                                    img.className = 'result-image';
+                                    img.alt = 'Изображение вопроса';
+                                    resultItem.insertBefore(img, resultItem.querySelector('.subquestion'));
+                                }
+                            }
+                        });
                     }
                     
                     if (question.audio) {
                         if (typeof question.audio === 'string') {
-                            resultsHTML += `<audio controls class="result-audio" style="width: 100%; max-width: 300px; margin: 10px 0;"><source src="${question.audio}">Ваш браузер не поддерживает аудио.</audio>`;
+                            checkAudioExists(question.audio).then(exists => {
+                                if (exists) {
+                                    const resultItem = document.querySelector(`[data-question="${qIndex}"]`);
+                                    if (resultItem) {
+                                        const audio = document.createElement('audio');
+                                        audio.controls = true;
+                                        audio.className = 'result-audio';
+                                        audio.style.cssText = 'width: 100%; max-width: 300px; margin: 10px 0;';
+                                        audio.innerHTML = `<source src="${question.audio}">Ваш браузер не поддерживает аудио.`;
+                                        resultItem.insertBefore(audio, resultItem.querySelector('.subquestion'));
+                                    }
+                                }
+                            });
                         } else if (question.audio && question.audio.type === 'indexeddb') {
-                            resultsHTML += `<div style="margin: 10px 0; padding: 10px; background: var(--background-alt); border-radius: 4px;">🔊 Аудиофайл: ${question.audio.fileName || 'неизвестный файл'}</div>`;
+                            // Для IndexedDB аудио просто не показываем ничего, если файл недоступен
+                            // Можно добавить проверку существования в IndexedDB, но пока пропускаем
                         }
                     }
 
@@ -2101,6 +2132,26 @@
                 });
 
                 resultsDetails.innerHTML = resultsHTML;
+            }
+
+            // Функция для проверки доступности изображения
+            function checkImageExists(url) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => resolve(true);
+                    img.onerror = () => resolve(false);
+                    img.src = url;
+                });
+            }
+
+            // Функция для проверки доступности аудио
+            function checkAudioExists(url) {
+                return new Promise((resolve) => {
+                    const audio = new Audio();
+                    audio.oncanplay = () => resolve(true);
+                    audio.onerror = () => resolve(false);
+                    audio.src = url;
+                });
             }
 
             function toggleAnswer(questionIndex, subquestionIndex) {

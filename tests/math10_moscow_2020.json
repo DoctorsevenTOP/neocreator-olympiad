@@ -6,7 +6,7 @@
   "questions": [
     {
       "text": "На какое наименьшее число клетчатых прямоугольников можно разрезать фигуру на рисунке ниже? (Каждый прямоугольник должен состоять из одной или нескольких клеток фигуры.)",
-      "image": "https://username.github.io/repo/media/images/schemes/polyomino-task-10-1.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/polyomino-task-10-1.png",
       "subquestions": [
         {
           "text": "Наименьшее число",
@@ -40,7 +40,7 @@
     },
     {
       "text": "Равнобедренная трапеция ABCD с основаниями BC и AD такова, что ∠ADC = 2∠CAD = 82°. Внутри трапеции выбрана точка T такая, что CT = CD, AT = TD. Найдите ∠TCD. Ответ дайте в градусах.",
-      "image": "https://username.github.io/repo/media/images/schemes/trapezoid-task-10-4.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/trapezoid-task-10-4.png",
       "subquestions": [
         {
           "text": "∠TCD",
@@ -78,7 +78,7 @@
     },
     {
       "text": "Дан прямоугольный треугольник ABC с катетами AB = 42 и BC = 56. Окружность, проходящая через точку B, пересекает сторону AB в точке P, сторону BC — в точке Q, а сторону AC — в точках K и L. Известно, что PK = KQ и QL : PL = 3 : 4. Найдите PQ².",
-      "image": "https://username.github.io/repo/media/images/schemes/triangle-task-10-7.png",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/schemes/triangle-task-10-7.png",
       "subquestions": [
         {
           "text": "PQ²",
