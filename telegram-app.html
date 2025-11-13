@@ -219,6 +219,31 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
+        .menu-button {
+            background: var(--tg-theme-secondary-bg-color);
+            color: var(--tg-theme-text-color);
+            border: 1px solid var(--tg-theme-hint-color);
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 280px;
+            margin: 12px auto 0;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-color: var(--tg-theme-link-color);
+        }
+
         .button-icon {
             font-size: 18px;
         }
@@ -286,9 +311,13 @@
                         <span class="feature-text">Реальные олимпиадные задания</span>
                     </div>
                 </div>
-                <button class="start-button" onclick="showMainMenu()">
+                <button class="start-button" onclick="startTesting()">
                     <span class="button-icon">🚀</span>
                     Начать тестирование
+                </button>
+                <button class="menu-button" onclick="showMainMenu()">
+                    <span class="button-icon">📋</span>
+                    Показать меню
                 </button>
             </div>
         </div>
@@ -368,7 +397,7 @@
             // Устанавливаем главную кнопку
             tg.MainButton.setText('🚀 Начать тестирование');
             tg.MainButton.show();
-            tg.MainButton.onClick(showMainMenu);
+            tg.MainButton.onClick(startTesting);
         }
 
         // Показать основное меню
@@ -378,6 +407,19 @@
             
             // Скрываем главную кнопку
             tg.MainButton.hide();
+        }
+
+        // Функция запуска тестирования
+        function startTesting() {
+            // Отправляем аналитику о начале тестирования
+            tg.sendData(JSON.stringify({
+                action: 'start_testing',
+                timestamp: Date.now(),
+                source: 'welcome_screen'
+            }));
+            
+            // Открываем сайт с тестами
+            tg.openLink('https://doctorseventop.github.io/neocreator-olympiad/runner-with-tests.html', { try_instant_view: true });
         }
 
         // Функции навигации
