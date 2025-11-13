@@ -1209,6 +1209,8 @@
         // ============================================
         // Глобальная функция для показа/скрытия ответов
         // ============================================
+        console.log('toggleAnswer function is being defined');
+        
         function toggleAnswer(questionIndex, subquestionIndex, buttonElement) {
             console.log('toggleAnswer called:', questionIndex, subquestionIndex);
             const answerId = `answer-${questionIndex}-${subquestionIndex}`;
@@ -1230,6 +1232,9 @@
                 console.log('Answer hidden');
             }
         }
+
+        console.log('toggleAnswer function defined successfully:', typeof toggleAnswer);
+        window.toggleAnswer = toggleAnswer; // Явно добавляем в глобальную область
 
         // ============================================
         // IndexedDB для работы с аудиофайлами
@@ -2102,7 +2107,7 @@
                             <div class="subquestion ${isCorrect ? 'result-correct' : 'result-incorrect'}">
                                 <div class="subquestion-text">${sIndex + 1}. ${subq.text}</div>
                                 <p>Ваш ответ: <span class="user-answer ${isCorrect ? 'correct' : 'incorrect'}">${userAnswerDisplay}</span></p>
-                                <button class="show-answer-btn" onclick="toggleAnswer(${qIndex}, ${sIndex}, this)">
+                                <button class="show-answer-btn" onclick="window.toggleAnswer ? window.toggleAnswer(${qIndex}, ${sIndex}, this) : console.error('toggleAnswer not found')">
                                     👁️ Показать правильный ответ
                                 </button>
                                 <div id="answer-${qIndex}-${sIndex}" class="correct-answer-hidden">
