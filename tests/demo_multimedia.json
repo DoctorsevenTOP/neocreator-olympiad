@@ -6,7 +6,7 @@
   "questions": [
     {
       "text": "Изучите график квадратичной функции y = x² - 4x + 3 и ответьте на вопросы",
-      "image": "https://via.placeholder.com/600x400/1976D2/white?text=Graph+y%3Dx%C2%B2-4x%2B3%0AParabola+opens+upward%0AVertex+at+(2,-1)%0ARoots+at+x%3D1+and+x%3D3",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/demo-quadratic-graph.png",
       "subquestions": [
         {
           "text": "При каком значении x функция равна нулю? (меньший корень)",
@@ -30,7 +30,7 @@
     },
     {
       "text": "Прослушайте музыкальный фрагмент и определите характеристики",
-      "audio": "https://actions.google.com/sounds/v1/alarms/beep_short.ogg",
+      "audio": "https://doctorseventop.github.io/neocreator-olympiad/media/audio/demo-beep-sound.mp3",
       "subquestions": [
         {
           "text": "Какой тип звука вы слышите?",
@@ -50,7 +50,7 @@
     },
     {
       "text": "Рассмотрите схему химической реакции: 2H₂ + O₂ → 2H₂O + Энергия",
-      "image": "https://via.placeholder.com/600x300/4CAF50/white?text=2H2%2BO2%E2%86%922H2O%2BEnergy",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/demo-chemical-reaction.png",
       "subquestions": [
         {
           "text": "Сколько молекул водорода участвует в реакции?",
@@ -76,7 +76,7 @@
     },
     {
       "text": "Изучите данные о составе земной коры: Кислород 46.6%, Кремний 27.7%, Алюминий 8.1%, Железо 5.0%, Кальций 3.6%, Другие 9.0%",
-      "image": "https://via.placeholder.com/500x400/2196F3/white?text=Earth+Crust+Composition%0AO+46.6%25%0ASi+27.7%25%0AAl+8.1%25%0AFe+5.0%25%0ACa+3.6%25%0AOthers+9.0%25",
+      "image": "https://doctorseventop.github.io/neocreator-olympiad/media/images/demo-earth-composition.png",
       "subquestions": [
         {
           "text": "Какой элемент составляет наибольшую долю в земной коре?",
@@ -101,7 +101,7 @@
     },
     {
       "text": "Послушайте звуковой фрагмент и определите источник",
-      "audio": "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg",
+      "audio": "https://doctorseventop.github.io/neocreator-olympiad/media/audio/demo-metal-clang.mp3",
       "subquestions": [
         {
           "text": "Какой характер у звука?",
