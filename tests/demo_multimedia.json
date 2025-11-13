@@ -1,0 +1,130 @@
+{
+  "title": "Демо-тест с медиафайлами",
+  "description": "Демонстрация возможностей системы с изображениями и аудио файлами",
+  "passingScore": 60,
+  "timeLimit": 30,
+  "questions": [
+    {
+      "text": "Изучите график квадратичной функции и ответьте на вопросы",
+      "image": "https://quickchart.io/chart?c={type:'line',data:{labels:[-1,0,1,2,3,4,5],datasets:[{label:'y = x² - 4x + 3',data:[8,3,0,-1,0,3,8],borderColor:'rgb(37, 99, 235)',backgroundColor:'rgba(37, 99, 235, 0.1)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:'rgb(37, 99, 235)'}]},options:{responsive:true,plugins:{title:{display:true,text:'График функции y = x² - 4x + 3',font:{size:16}}},scales:{x:{title:{display:true,text:'x'}},y:{title:{display:true,text:'y'},beginAtZero:false}},elements:{point:{hoverRadius:8}}}}",
+      "subquestions": [
+        {
+          "text": "При каком значении x функция равна нулю? (меньший корень)",
+          "answer": 1,
+          "points": 3,
+          "type": "numeric"
+        },
+        {
+          "text": "При каком значении x функция равна нулю? (больший корень)",
+          "answer": 3,
+          "points": 3,
+          "type": "numeric"
+        },
+        {
+          "text": "Чему равно минимальное значение функции?",
+          "answer": -1,
+          "points": 4,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Прослушайте музыкальный фрагмент и определите характеристики",
+      "audio": "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
+      "subquestions": [
+        {
+          "text": "Какой характер у данной мелодии?",
+          "type": "multiple_choice",
+          "options": ["Веселый и игривый", "Грустный и медленный", "Торжественный", "Агрессивный"],
+          "answer": "Веселый и игривый",
+          "points": 3
+        },
+        {
+          "text": "Какой инструмент звучит в мелодии?",
+          "type": "multiple_choice",
+          "options": ["Фортепиано", "Скрипка", "Духовые инструменты", "Гитара"],
+          "answer": "Духовые инструменты",
+          "points": 4
+        }
+      ]
+    },
+    {
+      "text": "Рассмотрите схему химической реакции",
+      "image": "https://via.placeholder.com/600x300/4CAF50/white?text=2H2+O2→2H2O+Энергия",
+      "subquestions": [
+        {
+          "text": "Сколько молекул водорода участвует в реакции?",
+          "answer": 2,
+          "points": 2,
+          "type": "numeric"
+        },
+        {
+          "text": "Какой тип реакции изображен?",
+          "type": "multiple_choice",
+          "options": ["Разложение", "Соединение", "Замещение", "Обмен"],
+          "answer": "Соединение",
+          "points": 3
+        },
+        {
+          "text": "Что является продуктом реакции?",
+          "type": "multiple_choice",
+          "options": ["Водород", "Кислород", "Вода", "Углекислый газ"],
+          "answer": "Вода",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "text": "Изучите диаграмму распределения элементов в земной коре",
+      "image": "https://quickchart.io/chart?c={type:'pie',data:{labels:['Кислород (46.6%)','Кремний (27.7%)','Алюминий (8.1%)','Железо (5.0%)','Кальций (3.6%)','Другие (9.0%)'],datasets:[{data:[46.6,27.7,8.1,5.0,3.6,9.0],backgroundColor:['#FF6384','#36A2EB','#FFCE56','#4BC0C0','#9966FF','#FF9F40']}]},options:{responsive:true,plugins:{title:{display:true,text:'Химический состав земной коры'},legend:{position:'right'}}}}",
+      "subquestions": [
+        {
+          "text": "Какой элемент составляет наибольшую долю в земной коре?",
+          "type": "multiple_choice",
+          "options": ["Кремний", "Кислород", "Алюминий", "Железо"],
+          "answer": "Кислород",
+          "points": 2
+        },
+        {
+          "text": "Какой процент составляет кремний?",
+          "answer": 27.7,
+          "points": 3,
+          "type": "numeric"
+        },
+        {
+          "text": "Сколько процентов составляют вместе кислород и кремний?",
+          "answer": 74.3,
+          "points": 4,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Послушайте звуковой фрагмент и определите источник",
+      "audio": "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
+      "subquestions": [
+        {
+          "text": "К какому жанру относится данная музыка?",
+          "type": "multiple_choice",
+          "options": ["Классическая", "Джаз", "Рок", "Саундтрек к фильму"],
+          "answer": "Саундтрек к фильму",
+          "points": 3
+        },
+        {
+          "text": "Какое настроение передает музыка?",
+          "type": "multiple_choice",
+          "options": ["Героическое", "Романтическое", "Печальное", "Комическое"],
+          "answer": "Героическое",
+          "points": 3
+        },
+        {
+          "text": "Какие инструменты вы слышите в оркестре?",
+          "type": "multiple_answers",
+          "options": ["Струнные", "Духовые", "Ударные", "Электронные"],
+          "answer": ["Струнные", "Духовые", "Ударные"],
+          "points": 4
+        }
+      ]
+    }
+  ]
+}

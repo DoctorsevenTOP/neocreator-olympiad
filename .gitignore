@@ -108,3 +108,7 @@ build/
 # *.jpg
 # *.png
 # *.gif
+
+# Allow media folder structure
+!media/
+!media/**/.gitkeep

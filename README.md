@@ -55,6 +55,7 @@ neocreator-olympiad/
 ├── 📝 runner-with-tests.html # Выбор тестов из списка
 ├── 🌐 runner-external.html # Загрузка внешних тестов
 ├── 📁 tests/               # Папка с JSON файлами тестов
+├── 🎵 media/               # Папка с медиафайлами (изображения, аудио, видео)
 ├── ⚙️ deploy.bat           # Скрипт автоматического деплоя
 ├── 📋 deploy.json          # Конфигурация деплоя
 └── 📖 README.md            # Документация
