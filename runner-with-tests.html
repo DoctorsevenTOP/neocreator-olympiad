@@ -82,6 +82,17 @@
             background: rgba(0, 255, 157, 0.1);
         }
 
+        body.dark-theme .pinned-badge {
+            background: linear-gradient(135deg, #ff3838, #ff6b35);
+            box-shadow: 0 0 10px rgba(255, 56, 56, 0.4);
+        }
+
+        body.dark-theme .featured-badge {
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+        }
+
         body.dark-theme .header {
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(0, 204, 255, 0.3);
@@ -213,6 +224,40 @@
             border-color: var(--success);
             box-shadow: 0 8px 25px rgba(5, 150, 105, 0.2);
             background: rgba(5, 150, 105, 0.05);
+        }
+
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .test-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-end;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .pinned-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+        }
+
+        .featured-badge {
+            background: linear-gradient(135deg, #feca57, #ff9ff3);
+            color: #2d3436;
+            box-shadow: 0 2px 4px rgba(254, 202, 87, 0.3);
         }
 
         .test-title {
@@ -400,18 +445,57 @@
     </div>
 
     <script>
-        // Список доступных тестов с полными путями для GitHub Pages
-        const availableTests = [
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_simple.json',
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_working_audio.json',
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_multimedia.json',
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/math_olympiad_10.json',
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/physics_olympiad_11.json',
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/chemistry_test.json',
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/biology_advanced.json',
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/informatics_regional.json',
-            'https://doctorseventop.github.io/neocreator-olympiad/tests/mun23_24.json'
+        // Конфигурация тестов с возможностью закрепления
+        const testsConfig = [
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_simple.json',
+                pinned: false,
+                featured: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_working_audio.json',
+                pinned: false,
+                featured: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_multimedia.json',
+                pinned: true,
+                featured: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math_olympiad_10.json',
+                pinned: false,
+                featured: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/physics_olympiad_11.json',
+                pinned: false,
+                featured: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/chemistry_test.json',
+                pinned: false,
+                featured: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/biology_advanced.json',
+                pinned: false,
+                featured: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/informatics_regional.json',
+                pinned: false,
+                featured: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/mun23_24.json',
+                pinned: false,
+                featured: true
+            }
         ];
+
+        // Получаем список URL для совместимости
+        const availableTests = testsConfig.map(config => config.url);
 
         let selectedTest = null;
         let loadedTests = [];
@@ -437,21 +521,33 @@
             try {
                 const tests = [];
                 
-                // Загружаем каждый тест по полному URL
-                for (const testUrl of availableTests) {
+                // Загружаем каждый тест с конфигурацией
+                for (const testConfig of testsConfig) {
                     try {
-                        const response = await fetch(testUrl);
+                        const response = await fetch(testConfig.url);
                         if (response.ok) {
                             const testData = await response.json();
                             tests.push({
-                                filename: testUrl.split('/').pop(), // Извлекаем имя файла из URL
-                                data: testData
+                                filename: testConfig.url.split('/').pop(),
+                                data: testData,
+                                pinned: testConfig.pinned,
+                                featured: testConfig.featured,
+                                url: testConfig.url
                             });
                         }
                     } catch (error) {
-                        console.log(`Тест ${testUrl} не найден или недоступен`);
+                        console.log(`Тест ${testConfig.url} не найден или недоступен`);
                     }
                 }
+
+                // Сортируем тесты: сначала закрепленные, потом рекомендуемые, потом обычные
+                tests.sort((a, b) => {
+                    if (a.pinned && !b.pinned) return -1;
+                    if (!a.pinned && b.pinned) return 1;
+                    if (a.featured && !b.featured) return -1;
+                    if (!a.featured && b.featured) return 1;
+                    return 0;
+                });
 
                 if (tests.length === 0) {
                     throw new Error('Нет доступных тестов');
@@ -482,8 +578,17 @@
                 const timeLimit = test.data.timeLimit || 'Не ограничено';
                 const passingScore = test.data.passingScore || 70;
 
+                const pinnedBadge = test.pinned ? '<span class="badge pinned-badge">📌 Закреплен</span>' : '';
+                const featuredBadge = test.featured ? '<span class="badge featured-badge">⭐ Рекомендуем</span>' : '';
+                
                 testCard.innerHTML = `
-                    <div class="test-title">${test.data.title || 'Без названия'}</div>
+                    <div class="test-header">
+                        <div class="test-title">${test.data.title || 'Без названия'}</div>
+                        <div class="test-badges">
+                            ${pinnedBadge}
+                            ${featuredBadge}
+                        </div>
+                    </div>
                     <div class="test-description">${test.data.description || 'Описание отсутствует'}</div>
                     <div class="test-meta">
                         <span>📝 ${questionsCount} вопросов</span>
