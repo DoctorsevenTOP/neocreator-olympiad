@@ -2077,7 +2077,7 @@
                             <div class="subquestion ${isCorrect ? 'result-correct' : 'result-incorrect'}">
                                 <div class="subquestion-text">${sIndex + 1}. ${subq.text}</div>
                                 <p>Ваш ответ: <span class="user-answer ${isCorrect ? 'correct' : 'incorrect'}">${userAnswerDisplay}</span></p>
-                                <button class="show-answer-btn" data-question="${qIndex}" data-subquestion="${sIndex}">
+                                <button class="show-answer-btn" onclick="toggleAnswer(${qIndex}, ${sIndex}, this)">
                                     👁️ Показать правильный ответ
                                 </button>
                                 <div id="answer-${qIndex}-${sIndex}" class="correct-answer-hidden">
@@ -2134,42 +2134,9 @@
                 });
 
                 resultsDetails.innerHTML = resultsHTML;
-                
-                // Добавляем обработчики событий для кнопок показа ответов
-                setTimeout(() => {
-                    const answerButtons = document.querySelectorAll('.show-answer-btn');
-                    answerButtons.forEach(button => {
-                        button.addEventListener('click', function() {
-                            const qIndex = parseInt(this.dataset.question);
-                            const sIndex = parseInt(this.dataset.subquestion);
-                            toggleAnswer(qIndex, sIndex, this);
-                        });
-                    });
-                }, 100);
             }
 
 
-            function toggleAnswer(questionIndex, subquestionIndex, buttonElement) {
-                console.log('toggleAnswer called:', questionIndex, subquestionIndex);
-                const answerId = `answer-${questionIndex}-${subquestionIndex}`;
-                const answerDiv = document.getElementById(answerId);
-                const button = buttonElement || event.target;
-                
-                console.log('Answer div found:', answerDiv);
-                console.log('Button element:', button);
-                
-                if (answerDiv && answerDiv.classList.contains('correct-answer-hidden')) {
-                    answerDiv.classList.remove('correct-answer-hidden');
-                    answerDiv.classList.add('correct-answer-visible');
-                    button.innerHTML = '🙈 Скрыть ответ';
-                    console.log('Answer shown');
-                } else if (answerDiv) {
-                    answerDiv.classList.remove('correct-answer-visible');
-                    answerDiv.classList.add('correct-answer-hidden');
-                    button.innerHTML = '👁️ Показать правильный ответ';
-                    console.log('Answer hidden');
-                }
-            }
 
             function restartQuiz() {
                 // Возвращаемся к стартовому экрану
@@ -2181,6 +2148,29 @@
                 updateTotalTimerDisplay();
             }
         });
+
+        // Глобальная функция для показа/скрытия ответов
+        function toggleAnswer(questionIndex, subquestionIndex, buttonElement) {
+            console.log('toggleAnswer called:', questionIndex, subquestionIndex);
+            const answerId = `answer-${questionIndex}-${subquestionIndex}`;
+            const answerDiv = document.getElementById(answerId);
+            const button = buttonElement || event.target;
+            
+            console.log('Answer div found:', answerDiv);
+            console.log('Button element:', button);
+            
+            if (answerDiv && answerDiv.classList.contains('correct-answer-hidden')) {
+                answerDiv.classList.remove('correct-answer-hidden');
+                answerDiv.classList.add('correct-answer-visible');
+                button.innerHTML = '🙈 Скрыть ответ';
+                console.log('Answer shown');
+            } else if (answerDiv) {
+                answerDiv.classList.remove('correct-answer-visible');
+                answerDiv.classList.add('correct-answer-hidden');
+                button.innerHTML = '👁️ Показать правильный ответ';
+                console.log('Answer hidden');
+            }
+        }
     </script>
 </body>
 </html>
