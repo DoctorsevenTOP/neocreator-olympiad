@@ -4,7 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeoTest - Олимпиада</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+    <!-- MathJax для математических формул - ленивая загрузка -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            startup: {
+                ready() {
+                    console.log('MathJax loaded');
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+        
+        // Ленивая загрузка MathJax только при необходимости
+        let mathJaxLoaded = false;
+        function loadMathJax() {
+            if (mathJaxLoaded) return Promise.resolve();
+            mathJaxLoaded = true;
+            
+            return new Promise((resolve, reject) => {
+                const polyfill = document.createElement('script');
+                polyfill.src = 'https://polyfill.io/v3/polyfill.min.js?features=es6';
+                polyfill.onload = () => {
+                    const mathjax = document.createElement('script');
+                    mathjax.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+                    mathjax.async = true;
+                    mathjax.onload = resolve;
+                    mathjax.onerror = reject;
+                    document.head.appendChild(mathjax);
+                };
+                polyfill.onerror = reject;
+                document.head.appendChild(polyfill);
+            });
+        }
+    </script>
     <style>
         :root {
             --primary: #0cf;
@@ -564,6 +609,128 @@
             accent-color: #4a9fd8;
         }
 
+        /* ============================================ */
+        /* Светлая тема для форматированного текста */
+        /* ============================================ */
+        
+        /* Таблицы в светлой теме */
+        body.light-theme .question-table, 
+        body.light-theme .formatted-table {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .question-table th, 
+        body.light-theme .formatted-table th {
+            background: linear-gradient(135deg, #4a9fd8, #64b5f6);
+            color: white;
+        }
+
+        body.light-theme .question-table td, 
+        body.light-theme .formatted-table td {
+            color: #2a2a2a;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .question-table tr:hover, 
+        body.light-theme .formatted-table tr:hover {
+            background: rgba(74, 159, 216, 0.05);
+        }
+
+        /* Выделение текста в светлой теме */
+        body.light-theme .highlight {
+            background: linear-gradient(135deg, rgba(74, 159, 216, 0.2), rgba(100, 181, 246, 0.2));
+            color: #1565c0;
+        }
+
+        body.light-theme .important {
+            color: #e65100;
+        }
+
+        body.light-theme .success-text {
+            color: #2e7d32;
+        }
+
+        body.light-theme .danger-text {
+            color: #c62828;
+        }
+
+        /* Блоки с информацией в светлой теме */
+        body.light-theme .info-block {
+            background: rgba(74, 159, 216, 0.1);
+            border-left: 4px solid #4a9fd8;
+            color: #2a2a2a;
+        }
+
+        body.light-theme .warning-block {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid #ff9800;
+            color: #2a2a2a;
+        }
+
+        body.light-theme .success-block {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid #4caf50;
+            color: #2a2a2a;
+        }
+
+        /* Списки в светлой теме */
+        body.light-theme .formatted-list li {
+            color: #2a2a2a;
+        }
+
+        body.light-theme .formatted-list li::before {
+            color: #4a9fd8;
+        }
+
+        /* Код в светлой теме */
+        body.light-theme .code-block {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #2a2a2a;
+        }
+
+        body.light-theme .inline-code {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #2a2a2a;
+        }
+
+        /* Разделители в светлой теме */
+        body.light-theme .divider {
+            background: linear-gradient(90deg, transparent, #4a9fd8, transparent);
+        }
+
+        /* Цитаты в светлой теме */
+        body.light-theme .quote-block {
+            border-left: 4px solid #9c27b0;
+            background: rgba(156, 39, 176, 0.05);
+            color: #2a2a2a;
+        }
+
+        body.light-theme .quote-block::before {
+            color: #9c27b0;
+        }
+
+        /* Кнопки показа ответов в светлой теме */
+        body.light-theme .show-answer-btn {
+            background: linear-gradient(135deg, #4a9fd8, #64b5f6);
+        }
+
+        body.light-theme .show-answer-btn:hover {
+            box-shadow: 0 4px 12px rgba(74, 159, 216, 0.3);
+        }
+
+        body.light-theme .correct-answer-visible {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 3px solid #4caf50;
+            color: #2a2a2a;
+        }
+
+        body.light-theme .correct-answer {
+            color: #2e7d32;
+        }
+
         .navigation {
             display: flex;
             justify-content: space-between;
@@ -730,6 +897,203 @@
 
         .user-answer {
             font-weight: bold;
+        }
+
+        /* ============================================ */
+        /* Красивое форматирование текста и таблиц */
+        /* ============================================ */
+        
+        /* Математические формулы */
+        .MathJax {
+            font-size: 1.1em !important;
+        }
+        
+        .MathJax_Display {
+            margin: 1em 0 !important;
+        }
+
+        /* Таблицы */
+        .question-table, .formatted-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .question-table th, .formatted-table th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .question-table td, .formatted-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+        }
+
+        .question-table tr:last-child td, .formatted-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .question-table tr:hover, .formatted-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Выделение текста */
+        .highlight {
+            background: linear-gradient(135deg, rgba(0, 204, 255, 0.2), rgba(108, 12, 240, 0.2));
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .important {
+            color: var(--warning);
+            font-weight: 600;
+        }
+
+        .success-text {
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        .danger-text {
+            color: var(--danger);
+            font-weight: 500;
+        }
+
+        /* Блоки с информацией */
+        .info-block {
+            background: rgba(0, 204, 255, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-block {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-block {
+            background: rgba(0, 255, 157, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Списки */
+        .formatted-list {
+            margin: 15px 0;
+            padding-left: 0;
+        }
+
+        .formatted-list li {
+            list-style: none;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--light);
+        }
+
+        .formatted-list li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Код и формулы */
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            color: var(--light);
+            overflow-x: auto;
+        }
+
+        .inline-code {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        /* Разделители */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 20px 0;
+            border-radius: 1px;
+        }
+
+        /* Цитаты */
+        .quote-block {
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin: 15px 0;
+            background: rgba(255, 0, 255, 0.05);
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: """;
+            font-size: 3em;
+            color: var(--accent);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+
+        /* Индикатор загрузки */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 9999;
+            animation: loading-pulse 2s infinite;
+        }
+
+        @keyframes loading-pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .math-loading {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 0.8em;
+            animation: math-loading-dots 1.5s infinite;
+        }
+
+        @keyframes math-loading-dots {
+            0%, 20% { content: "⏳"; }
+            40% { content: "⏳."; }
+            60% { content: "⏳.."; }
+            80%, 100% { content: "⏳..."; }
         }
 
         .user-answer.correct {
@@ -1237,6 +1601,86 @@
         window.toggleAnswer = toggleAnswer; // Явно добавляем в глобальную область
 
         // ============================================
+        // Функции для обработки форматированного текста
+        // ============================================
+        
+        function processFormattedText(text) {
+            if (!text) return text;
+            
+            // Обработка HTML тегов для форматирования
+            text = text
+                // Таблицы
+                .replace(/\[table\](.*?)\[\/table\]/gs, '<table class="formatted-table">$1</table>')
+                .replace(/\[tr\](.*?)\[\/tr\]/gs, '<tr>$1</tr>')
+                .replace(/\[th\](.*?)\[\/th\]/gs, '<th>$1</th>')
+                .replace(/\[td\](.*?)\[\/td\]/gs, '<td>$1</td>')
+                
+                // Выделение текста
+                .replace(/\[highlight\](.*?)\[\/highlight\]/gs, '<span class="highlight">$1</span>')
+                .replace(/\[important\](.*?)\[\/important\]/gs, '<span class="important">$1</span>')
+                .replace(/\[success\](.*?)\[\/success\]/gs, '<span class="success-text">$1</span>')
+                .replace(/\[danger\](.*?)\[\/danger\]/gs, '<span class="danger-text">$1</span>')
+                
+                // Блоки информации
+                .replace(/\[info\](.*?)\[\/info\]/gs, '<div class="info-block">$1</div>')
+                .replace(/\[warning\](.*?)\[\/warning\]/gs, '<div class="warning-block">$1</div>')
+                .replace(/\[success-block\](.*?)\[\/success-block\]/gs, '<div class="success-block">$1</div>')
+                
+                // Списки
+                .replace(/\[list\](.*?)\[\/list\]/gs, '<ul class="formatted-list">$1</ul>')
+                .replace(/\[li\](.*?)\[\/li\]/gs, '<li>$1</li>')
+                
+                // Код
+                .replace(/\[code\](.*?)\[\/code\]/gs, '<div class="code-block">$1</div>')
+                .replace(/\[inline-code\](.*?)\[\/inline-code\]/gs, '<span class="inline-code">$1</span>')
+                
+                // Разделители и цитаты
+                .replace(/\[divider\]/g, '<div class="divider"></div>')
+                .replace(/\[quote\](.*?)\[\/quote\]/gs, '<div class="quote-block">$1</div>')
+                
+                // Математические формулы (поддержка LaTeX)
+                .replace(/\[math\](.*?)\[\/math\]/gs, '\\($1\\)')
+                .replace(/\[display-math\](.*?)\[\/display-math\]/gs, '\\[$1\\]');
+            
+            return text;
+        }
+
+        async function renderMathInElement(element) {
+            // Проверяем, есть ли математические формулы в элементе
+            const hasMath = element.innerHTML.includes('\\(') || element.innerHTML.includes('\\[') || 
+                           element.innerHTML.includes('$') || element.innerHTML.includes('$$');
+            
+            if (!hasMath) return; // Если нет формул, не загружаем MathJax
+            
+            // Показываем индикатор загрузки
+            const mathElements = element.querySelectorAll('*');
+            mathElements.forEach(el => {
+                if (el.innerHTML.includes('\\(') || el.innerHTML.includes('\\[')) {
+                    el.style.position = 'relative';
+                    const loader = document.createElement('span');
+                    loader.className = 'math-loading';
+                    loader.textContent = '⏳ Загрузка формул...';
+                    loader.style.fontSize = '0.8em';
+                    loader.style.color = 'var(--primary)';
+                    el.appendChild(loader);
+                }
+            });
+            
+            try {
+                await loadMathJax(); // Загружаем MathJax только при необходимости
+                if (window.MathJax && window.MathJax.typesetPromise) {
+                    await window.MathJax.typesetPromise([element]);
+                    // Убираем индикаторы загрузки
+                    element.querySelectorAll('.math-loading').forEach(loader => loader.remove());
+                }
+            } catch (err) {
+                console.log('MathJax loading/rendering error:', err);
+                // Убираем индикаторы загрузки даже при ошибке
+                element.querySelectorAll('.math-loading').forEach(loader => loader.remove());
+            }
+        }
+
+        // ============================================
         // IndexedDB для работы с аудиофайлами
         // ============================================
         let db = null;
@@ -1616,8 +2060,9 @@
                 // Обновляем номер вопроса
                 currentQuestionNumber.textContent = currentQuestionIndex + 1;
 
-                // Показываем текст вопроса
-                questionText.textContent = question.text;
+                // Показываем текст вопроса с форматированием
+                questionText.innerHTML = processFormattedText(question.text);
+                renderMathInElement(questionText);
 
                 // Показываем изображение и аудио, если есть
                 questionImageContainer.innerHTML = '';
@@ -1720,10 +2165,11 @@
                     }
 
                     subquestionElement.innerHTML = `
-                        <div class="subquestion-text">${index + 1}. ${subq.text}</div>
+                        <div class="subquestion-text">${index + 1}. ${processFormattedText(subq.text)}</div>
                         <div class="subquestion-points">Баллы: ${subq.points}</div>
                         ${answerInputHTML}
                     `;
+                    renderMathInElement(subquestionElement);
 
                     subquestionsContainer.appendChild(subquestionElement);
                 });
@@ -1996,7 +2442,7 @@
                 testData.questions.forEach((question, qIndex) => {
                     resultsHTML += `
                         <div class="result-item" data-question="${qIndex}">
-                            <p><strong>Вопрос ${qIndex + 1}:</strong> ${question.text}</p>
+                            <p><strong>Вопрос ${qIndex + 1}:</strong> ${processFormattedText(question.text)}</p>
                     `;
 
                     // Добавляем изображения, удаляем если не загружаются
@@ -2105,7 +2551,7 @@
 
                         resultsHTML += `
                             <div class="subquestion ${isCorrect ? 'result-correct' : 'result-incorrect'}">
-                                <div class="subquestion-text">${sIndex + 1}. ${subq.text}</div>
+                                <div class="subquestion-text">${sIndex + 1}. ${processFormattedText(subq.text)}</div>
                                 <p>Ваш ответ: <span class="user-answer ${isCorrect ? 'correct' : 'incorrect'}">${userAnswerDisplay}</span></p>
                                 <button class="show-answer-btn" onclick="window.toggleAnswer ? window.toggleAnswer(${qIndex}, ${sIndex}, this) : console.error('toggleAnswer not found')">
                                     👁️ Показать правильный ответ
@@ -2164,6 +2610,9 @@
                 });
 
                 resultsDetails.innerHTML = resultsHTML;
+                
+                // Рендерим математические формулы в результатах
+                renderMathInElement(resultsDetails);
             }
 
 

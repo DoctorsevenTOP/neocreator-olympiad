@@ -1,0 +1,136 @@
+{
+  "title": "Всероссийская олимпиада школьников — Английский язык. 2024–2025 уч. г. (Муниципальный этап, 10–11 классы)",
+  "description": "Набор заданий по английскому языку (Listening, Reading, Use of English, Writing) для муниципального этапа ВсОШ, 10–11 классы, 2024–2025 учебный год.",
+  "passingScore": 70,
+  "timeLimit": 120,
+  "questions": [
+    {
+      "text": "<p>LISTENING — Task 1 (items 1–10). For items 1–10 listen to a talk about a woman pilot and decide whether the statements (1–10) are TRUE or FALSE.</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "1. The speaker outlined his talk.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "2. Amelia Earhart moved to Chicago as soon as her father was given the sack.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "3. Amelia Earhart graduated from Columbia University in 1920.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "4. Amelia’s parents in California bought her first plane.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "5. After setting a world record Amelia Earhart was employed as a social worker.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "6. Amelia Earhart is famous for being the only woman to fly solo non-stop across the Atlantic.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "7. Before flying across the Atlantic Amelia Earhart used to write articles.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "8. The only reason that prevented Amelia Earhart from flying to Paris was unfavourable weather conditions.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "9. After circumnavigating the world in 1937, Amelia Earhart published two books.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 },
+        { "text": "10. Amelia Earhart was awarded by American and French governments.", "type": "multiple_choice", "options": ["A) True", "B) False"], "answer": null, "points": 1 }
+      ]
+    },
+    {
+      "text": "<p>LISTENING — Task 2 (items 2–6). Conversation between a manager and Chloe; multiple-choice questions.</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "2. During her first week at the store Chloe managed to ...", "type": "multiple_choice", "options": ["A) deal with plenty of customers.", "B) deal with a few difficult customers.", "C) deal with hardly any other trainees."], "answer": null, "points": 1 },
+        { "text": "3. The manager thinks the best sales people ...", "type": "multiple_choice", "options": ["A) are more than just fashion experts.", "B) should answer questions about their section only.", "C) are able to sell cosmetics and jewelry."], "answer": null, "points": 1 },
+        { "text": "4. The sales staff at the department ...", "type": "multiple_choice", "options": ["A) have to wear uniform.", "B) are obliged to wear designer labels.", "C) can be models for the store fashions."], "answer": null, "points": 1 },
+        { "text": "5. Which advice is NOT given to Chloe?", "type": "multiple_choice", "options": ["A) Find out about other departments in the store.", "B) Pressurise customers to buy something.", "C) Give customers a lot of attention."], "answer": null, "points": 1 },
+        { "text": "6. What is NOT TRUE about Chloe?", "type": "multiple_choice", "options": ["A) She is the right person for sales.", "B) She has little sales experience.", "C) She isn't grateful to the manager for the advice."], "answer": null, "points": 1 }
+      ]
+    },
+    {
+      "text": "<p>READING — Task 1 (items 7–16). Multiple-choice comprehension about 'The openness of talking to strangers' (Catherine Carr).</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "7. Catherine’s two main passions are ...", "type": "multiple_choice", "options": ["A) watching people and imagining what their lives are like.", "B) observing strangers and initiating conversations with them.", "C) looking at people from a café or train window.", "D) going to cafes and talking to people in public transport."], "answer": null, "points": 1 },
+        { "text": "8. What is TRUE about Catherine’s job at the radio station?", "type": "multiple_choice", "options": ["A) She was one of the top newsmakers at the time.", "B) She worked overtime by making long interviews.", "C) She set her own interests above professional ones.", "D) She efficiently emailed interviews after completing them."], "answer": null, "points": 1 },
+        { "text": "9. The main concept of Catherine’s podcast is ...", "type": "multiple_choice", "options": ["A) to choose respondents meticulously.", "B) to talk to strange and unconventional people.", "C) to talk to random people anywhere.", "D) to record exceptional life stories."], "answer": null, "points": 1 },
+        { "text": "10. The man who Catherine talked to at lunchtime shared ...", "type": "multiple_choice", "options": ["A) his background and family history.", "B) his failing health and unhappy marriage.", "C) his wish to reconnect with his Italian roots.", "D) his band’s successes all over the country."], "answer": null, "points": 1 },
+        { "text": "11. Listeners of the podcast shared the opinion that the programme ...", "type": "multiple_choice", "options": ["A) let them become more open and communicative.", "B) helped them understand other people better.", "C) inspired them to start their own podcasts.", "D) laid out a plan for how to start talking to strangers."], "answer": null, "points": 1 },
+        { "text": "12. William Buckingham writes that while talking to strangers, people ...", "type": "multiple_choice", "options": ["A) try to sound light and unaffected.", "B) tend to share their personal secrets.", "C) feel free to tangle and argue with them.", "D) aim to get feedback from their conversation partner."], "answer": null, "points": 1 },
+        { "text": "13. After starting her podcast Catherine understood that ...", "type": "multiple_choice", "options": ["A) her worst fears became reality.", "B) her question put many people off.", "C) people were protective of their private lives.", "D) many people were keen to answer her question."], "answer": null, "points": 1 },
+        { "text": "14. According to Catherine’s friend Gina, people ...", "type": "multiple_choice", "options": ["A) tend to share most at the last minute.", "B) feel vulnerable when you ask them a lot of questions.", "C) feel safer when talking to a psychotherapist.", "D) open up to strangers more easily."], "answer": null, "points": 1 },
+        { "text": "15. Catherine thinks that her podcast ...", "type": "multiple_choice", "options": ["A) is more therapeutic than a psychotherapy session.", "B) is way different from what Buckingham describes.", "C) is a mix of both approaches and descriptions.", "D) is more intimate and confessional than both approaches."], "answer": null, "points": 1 },
+        { "text": "16. Catherine realises that alongside the world changes people ...", "type": "multiple_choice", "options": ["A) prefer to talk online and do it less openly.", "B) are communicative and still eager to talk.", "C) are more hostile when talking offline.", "D) get more angered by her question."], "answer": null, "points": 1 }
+      ]
+    },
+    {
+      "text": "<p>READING — Task 2 (Gap-fill: 'Tsvetaeva apple pie') — choose sentences A–K for gaps 1–10.</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "Gaps 1–10: choose sentences A–K (one extra sentence).", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K"], "answer": ["G","B","K","E","I","D","C","A","J","F"], "points": 10 }
+      ]
+    },
+    {
+      "text": "<p>USE OF ENGLISH — Task 1 (items 1–15). Lines with an extra word: identify the extraneous word or tick (V).</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "00. (example) — line with extraneous word: latter", "type": "text", "answer": "latter", "points": 0 },
+        { "text": "1. Identify extraneous word (line 1 in task).", "type": "text", "answer": null, "points": 1 },
+        { "text": "2. Identify extraneous word (line 2).", "type": "text", "answer": null, "points": 1 },
+        { "text": "3. Identify extraneous word (line 3).", "type": "text", "answer": null, "points": 1 },
+        { "text": "4. Identify extraneous word (line 4).", "type": "text", "answer": null, "points": 1 },
+        { "text": "5. Identify extraneous word (line 5).", "type": "text", "answer": null, "points": 1 },
+        { "text": "6. Identify extraneous word (line 6).", "type": "text", "answer": null, "points": 1 },
+        { "text": "7. Identify extraneous word (line 7).", "type": "text", "answer": null, "points": 1 },
+        { "text": "8. Identify extraneous word (line 8).", "type": "text", "answer": null, "points": 1 },
+        { "text": "9. Identify extraneous word (line 9).", "type": "text", "answer": "V", "points": 0 },
+        { "text": "10. Identify extraneous word (line 10).", "type": "text", "answer": null, "points": 1 },
+        { "text": "11. Identify extraneous word (line 11).", "type": "text", "answer": null, "points": 1 },
+        { "text": "12. Identify extraneous word (line 12).", "type": "text", "answer": null, "points": 1 },
+        { "text": "13. Identify extraneous word (line 13).", "type": "text", "answer": null, "points": 1 },
+        { "text": "14. Identify extraneous word (line 14).", "type": "text", "answer": null, "points": 1 },
+        { "text": "15. Identify extraneous word (line 15).", "type": "text", "answer": null, "points": 1 }
+      ]
+    },
+    {
+      "text": "<p>USE OF ENGLISH — Task 2 (items 19–28): Sentence transformation (use given word, 3–5 words). Answers (from answer key).</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "19. Lisa, ____ ____ ____ Milanos, met her friends there yesterday. (whose ... )", "type": "text", "answer": "whose favourite restaurant is", "points": 1 },
+        { "text": "20. \"_____ ______ _____ the salad bar,\" the waitress said. (help ...)", "type": "text", "answer": "Help yourself to", "points": 1 },
+        { "text": "21. _____ ______ ______ , he managed to win the race. (odds ...)", "type": "text", "answer": "Against all odds", "points": 1 },
+        { "text": "22. James _____ _____ _____ ______ home. (had ...)", "type": "text", "answer": "had his luggage flown", "points": 1 },
+        { "text": "23. If there _____ _____ ______ ______ ______ noise, we might have stayed longer at the party. (so ...)", "type": "text", "answer": "had not been so much", "points": 1 },
+        { "text": "24. There ____ ____ ____ ______ ______ number of people applying for university grants last year. (fall ...)", "type": "text", "answer": "was a fall in the", "points": 1 },
+        { "text": "25. This box is really heavy so I ____ ____ ____ ____ you could help me carry it to the car. (grateful ...)", "type": "text", "answer": "would be grateful if", "points": 1 },
+        { "text": "26. \"Excuse me madam, but ____ _____ _____ _____ ____ you?\" (belong ...)", "type": "text", "answer": "does this bag belong to", "points": 1 },
+        { "text": "27. The man claimed ____ _____ _____ _____ anywhere near the factory at the time of the break-in. (to ...)", "type": "text", "answer": "not to have been", "points": 1 },
+        { "text": "28. Trevor ____ _____ _____ ____ _____ his boss to give him a pay rise. (difficulty ...)", "type": "text", "answer": ["had great difficulty in persuading","had such great difficulty persuading"], "points": 1 }
+      ]
+    },
+    {
+      "text": "<p>USE OF ENGLISH — Task 3 (items 1–10): word-formation. Answers (from answer key).</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "0 (example). INVEST -> (0) ____________", "type": "text", "answer": null, "points": 0 },
+        { "text": "1. THROUGH -> (1) ____________", "type": "text", "answer": "Throughout", "points": 1 },
+        { "text": "2. ACADEMIC -> (2) ____________", "type": "text", "answer": "non-academic / unacademic", "points": 1 },
+        { "text": "3. SUSTAIN -> (3) ____________", "type": "text", "answer": "sustainable", "points": 1 },
+        { "text": "4. EMPLOY -> (4) ____________", "type": "text", "answer": "unemployed", "points": 1 },
+        { "text": "5. COMBINE -> (5) ____________", "type": "text", "answer": "combination", "points": 1 },
+        { "text": "6. CONSTANT -> (6) ____________", "type": "text", "answer": "constantly", "points": 1 },
+        { "text": "7. ACHIEVE -> (7) ____________", "type": "text", "answer": "achievement", "points": 1 },
+        { "text": "8. EVER -> (8) ____________", "type": "text", "answer": "whatever", "points": 1 },
+        { "text": "9. VALUE -> (9) ____________", "type": "text", "answer": "valuable", "points": 1 },
+        { "text": "10. EXPECT -> (10) ____________", "type": "text", "answer": "expectations", "points": 1 }
+      ]
+    },
+    {
+      "text": "<p>USE OF ENGLISH — Task 4 (items 1–10): matching items 1–10 to phenomena A–N. Answers (from answer key).</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "1. Oliver Cromwell — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "D", "points": 1 },
+        { "text": "2. Kipling line about bridged and roaded and ruled the land — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "I", "points": 1 },
+        { "text": "3. Thomas Edison — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "K", "points": 1 },
+        { "text": "4. The Great Depression — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "L", "points": 1 },
+        { "text": "5. Levi Strauss — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "G", "points": 1 },
+        { "text": "6. 'out of the woods' — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "N", "points": 1 },
+        { "text": "7. Henry VIII mnemonic — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "F", "points": 1 },
+        { "text": "8. Underground Railroad — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "C", "points": 1 },
+        { "text": "9. Sir Thomas More — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "M", "points": 1 },
+        { "text": "10. The Great Western Railroad — match", "type": "multiple_choice", "options": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"], "answer": "A", "points": 1 }
+      ]
+    },
+    {
+      "text": "<p>WRITING — Task 31. Story (200–250 words) starting with specified sentence; must include a neighbour and a dog. (Assessment criteria included in answer-key file.)</p>",
+      "image": null,
+      "subquestions": [
+        { "text": "31. Write a story with title; must begin: 'Anita had just arrived at her house when she realized she didn't have her keys.' Include: a neighbour, a dog. 200–250 words.", "type": "text", "answer": null, "points": 20 }
+      ]
+    }
+  ]
+}

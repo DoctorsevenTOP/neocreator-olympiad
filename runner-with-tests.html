@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeoCreator - Выбор теста</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
     <style>
         :root {
             /* Светлая тема по умолчанию */
@@ -489,6 +492,142 @@
                 max-width: 300px;
             }
         }
+
+        /* ============================================ */
+        /* Стили для форматированного текста */
+        /* ============================================ */
+        
+        .formatted-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .formatted-table th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .formatted-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(74, 159, 216, 0.3), rgba(100, 181, 246, 0.3));
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .important {
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        .success-text {
+            color: #4caf50;
+            font-weight: 500;
+        }
+
+        .danger-text {
+            color: #f44336;
+            font-weight: 500;
+        }
+
+        .info-block {
+            background: rgba(74, 159, 216, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-block {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-block {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .formatted-list {
+            margin: 15px 0;
+            padding-left: 0;
+        }
+
+        .formatted-list li {
+            list-style: none;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .formatted-list li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .inline-code {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 20px 0;
+            border-radius: 1px;
+        }
+
+        .quote-block {
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin: 15px 0;
+            background: rgba(255, 0, 255, 0.05);
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: """;
+            font-size: 3em;
+            color: var(--accent);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
     </style>
 </head>
 <body>
@@ -553,10 +692,28 @@
                 available: false
             },
             {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/english_test_23-24.json',
+                pinned: false,
+                featured: false,
+                available: true
+            },
+            {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_multimedia.json',
                 pinned: false,
                 featured: false,
                 available: false
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/demo_formatted.json',
+                pinned: false,
+                featured: false,
+                available: true
+            },
+            {
+                url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/formatting_test.json',
+                pinned: false,
+                featured: false,
+                available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math_olympiad_10.json',
@@ -592,57 +749,57 @@
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/mun23_24.json',
-                pinned: true,
-                featured: true,
+                pinned: false,
+                featured: false,
                 available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/eng23_24.json',
-                pinned: true,
+                pinned: false,
                 featured: false,
                 available: false,
                 reason: 'Скоро будет доступен'
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math10_moscow_2024.json',
-                pinned: true,
-                featured: true,
+                pinned: false,
+                featured: false,
                 available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math10_moscow_2022.json',
-                pinned: true,
+                pinned: false,
                 featured: false,
                 available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math10_moscow_2021.json',
-                pinned: true,
+                pinned: false,
                 featured: false,
                 available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math10_moscow_2020.json',
-                pinned: true,
+                pinned: false,
                 featured: false,
                 available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math10_moscow_2019.json',
-                pinned: true,
+                pinned: false,
                 featured: false,
                 available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math10_moscow_2018.json',
-                pinned: true,
+                pinned: false,
                 featured: false,
                 available: true
             },
             {
                 url: 'https://doctorseventop.github.io/neocreator-olympiad/tests/math8_moscow_2023.json',
-                pinned: true,
-                featured: true,
+                pinned: false,
+                featured: false,
                 available: false
             }
         ];
@@ -826,6 +983,8 @@
                 'demo_simple': 'Простой демо-тест',
                 'demo_working_audio': 'Тест с аудио',
                 'demo_multimedia': 'Мультимедиа тест',
+                'demo_formatted': 'Демо: Красивое форматирование',
+                'formatting_test': 'Тест форматирования',
                 'mun23_24': 'МУН 2023-24',
                 'eng23_24': 'Английский язык 2023-24',
                 'math10_moscow_2024': 'Математика 10 класс, Москва 2024-25',

@@ -1,0 +1,63 @@
+{
+  "title": "Демо: Красивое форматирование текста",
+  "description": "Демонстрация возможностей форматирования текста, таблиц и математических формул",
+  "passingScore": 70,
+  "timeLimit": 30,
+  "questions": [
+    {
+      "text": "Рассмотрите следующую [highlight]математическую задачу[/highlight] с использованием формул. [divider] [important]Важно![/important] Это уравнение Пифагора: x² + y² = z²",
+      "subquestions": [
+        {
+          "text": "Чему равно x, если y = 3 и z = 5?",
+          "answer": 4,
+          "points": 2,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Изучите таблицу данных: [table][tr][th]Элемент[/th][th]Символ[/th][th]Атомный номер[/th][/tr][tr][td]Водород[/td][td]H[/td][td]1[/td][/tr][tr][td]Гелий[/td][td]He[/td][td]2[/td][/tr][tr][td]Литий[/td][td]Li[/td][td]3[/td][/tr][/table]",
+      "subquestions": [
+        {
+          "text": "Какой атомный номер у гелия?",
+          "answer": 2,
+          "points": 1,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Рассмотрите следующую информацию: [info]Это информационный блок с важными данными[/info] [warning]Внимание! Будьте осторожны при решении[/warning] [success-block]Отлично! Вы справились с предыдущими заданиями[/success-block]",
+      "subquestions": [
+        {
+          "text": "Сколько блоков информации было показано выше?",
+          "answer": 3,
+          "points": 1,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Изучите список требований: [list][li]Первое требование[/li][li]Второе требование[/li][li][success]Успешно выполненное требование[/success][/li][li][danger]Критическое требование[/danger][/li][/list]",
+      "subquestions": [
+        {
+          "text": "Сколько требований в списке?",
+          "answer": 4,
+          "points": 1,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Рассмотрите код: [code]function solve(x) {\n    return x * x + 2 * x + 1;\n}[/code] И формулу: f(x) = x² + 2x + 1 = (x+1)² [quote]Математика - это язык, на котором написана книга природы[/quote]",
+      "subquestions": [
+        {
+          "text": "Чему равно [inline-code]solve(3)[/inline-code]?",
+          "answer": 16,
+          "points": 2,
+          "type": "numeric"
+        }
+      ]
+    }
+  ]
+}

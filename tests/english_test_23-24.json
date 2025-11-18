@@ -1,0 +1,846 @@
+{
+  "title": "Всероссийская олимпиада школьников по английскому языку",
+  "description": "Муниципальный этап, 10-11 классы, 2023-2024 учебный год",
+  "passingScore": 70,
+  "timeLimit": 140,
+  "questions": [
+    {
+      "text": "LISTENING - Task 1: For items 1–10 listen to a talk about famous people who tried to learn Russian and decide whether the statements are TRUE (A), or FALSE (B)",
+      "audio": "https://doctorseventop.github.io/neocreator-olympiad/media/audio/listening/task1-famous-people-learning-russian.mp3",
+      "subquestions": [
+        {
+          "text": "A lot of people have been determined to learn Russian because of its challenging nature.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        },
+        {
+          "text": "Otto von Bismarck had studied Russian before he was sent to Russia as an official representative of Prussia.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Otto von Bismarck considered studying Russian grammar as difficult as fighting the French Army.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        },
+        {
+          "text": "The Russian emperor complimented Otto von Bismarck on the unwillingness to show his true knowledge of Russian.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Prosper Mérimée lacked fluency in Latin.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        },
+        {
+          "text": "Varvara taught Prosper Mérimée to translate from Russian into French.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        },
+        {
+          "text": "Prosper Mérimée was stunned by the ability of the Russian language to convey subtle shades of meaning.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Lewis Carroll was professionally interested in religious beliefs of the Russians.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        },
+        {
+          "text": "Comments about difficult Russian words didn't discourage Lewis Carroll from studying the language.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Lewis Carroll wasn't good enough at Russian to be able to bargain with the Russian merchants.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "LISTENING - Task 2: For items 11–15 listen to the dialogue. Choose the correct answer (A, B or C)",
+      "audio": "https://doctorseventop.github.io/neocreator-olympiad/media/audio/listening/task2-dialogue-week-plans.mp3",
+      "subquestions": [
+        {
+          "text": "Kelly's week was",
+          "type": "multiple_choice",
+          "options": ["quite usual", "very slow and boring", "really nice"],
+          "answer": "really nice",
+          "points": 1
+        },
+        {
+          "text": "What is NOT TRUE about Steve's dinner?",
+          "type": "multiple_choice",
+          "options": ["He will enjoy French cuisine", "He will go to the restaurant on Saturday", "It won't take him long to get to the restaurant"],
+          "answer": "He will go to the restaurant on Saturday",
+          "points": 1
+        },
+        {
+          "text": "Steve feels certain that at the weekend he will",
+          "type": "multiple_choice",
+          "options": ["prepare food for his friends", "go to the cinema", "have a lie-in"],
+          "answer": "prepare food for his friends",
+          "points": 1
+        },
+        {
+          "text": "On Friday evening Kelly is going to",
+          "type": "multiple_choice",
+          "options": ["meet up her former colleagues", "attend her friends' party", "spend a night at home"],
+          "answer": "spend a night at home",
+          "points": 1
+        },
+        {
+          "text": "Steve finally says that a boat is",
+          "type": "multiple_choice",
+          "options": ["an awesome place for a party", "a cosy place for a party", "a tiny place for a party"],
+          "answer": "an awesome place for a party",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "READING - Task 1: From London to Berlin - Irish author Naoise Dolan on moving to live in the German capital\n\nI moved to Berlin last summer from London, where I had essentially suffered a burnout, depression and emotional collapse. This explanation doesn't go well in small talk, so I tend to claim instead that I wanted a change of scene.\n\nAt the time, my debut novel had been published two years earlier and had gathered a lot of attention. That might sound like a dream come true – but over the months that followed, I was driven progressively more insane by my chronic inability to say no. I tried to be thankful for the flood of media requests and speaking invitations, endless interviews chat shows, Q&A sessions and other public appearances I was asked to make. But that just didn't work out. I never craved for all that attention. I told myself that most people would regard it as a nice problem to have. To me it turned into a nightmare.\n\nFor as long as I could, I denied that anything was wrong. Throughout my early years and adolescence, I found it difficult to communicate and form relationships. I was used to hiding my difficulties and neglecting my own wellbeing in an attempt not to burden others. I could never get used to quick changes and always stuck to my well-established daily patterns. There were definitely moments when I felt like I was on a completely different planet from the rest of the young.\n\nBut by early 2022, I could no longer even vaguely pretend to be holding things together. I struck the bottom when I couldn't sleep for three whole days, by the end of which my feet had swollen, I twitched at background noises and my own voice sounded as if it were coming from several meters away. After finally managing to sleep on the third night, I woke up sixteen hours later to several missed phone calls. Someone from my literary agency had come to a nearby coffee shop with a contract I urgently needed to sign, and had waited in vain for an hour. That was the turning point.\n\nExactly around that time, I visited an Irish friend in Berlin. At my first night in Berlin, I took the tram in the dark, carried my suitcase up the communal stairs in my friend's apartment building and slept more soundly on her small polyester couch than I ever had in my London double bed in the semi-detached house. In the morning I walked around the neighbourhood, enjoying the wide pavements and abundance of trees.\n\nConsider this January trip the first beat in my spiralling romance with Berlin. I returned in the spring to stay another few days and I moved that summer. It was a no brainer. I had no second thoughts about it. Relocating to Berlin has improved my mental health in two main ways. The first is that I'm less professionally overwhelmed. I'm asked to do fewer things now, since it's a hassle to bring me to London – and when I do feel swamped with work, I'm finding it easier to speak up. Daily exposure to German directness has cured me of my once-consuming need to be liked.\n\nBetter yet, learning German has toned-down my perfectionism. Many young Berliners instantly switch to English when they hear the slightest trace of any accent. At first I took this personally, interpreted each English response as a minus. Over time, I toughened up. Nowadays I rarely get hit with English – and when I do, I choose to see it as their own desire to practice. I asked my German friends \"Why do you reply in English to me if I've just spoken perfectly fine German?\" They were uniformly baffled that anyone could get upset. \"Of course\" they say \"you speak English with English-speakers – for us it's just a matter of politeness!\"\n\nDid I need to move to Berlin to get happy? Maybe not. But I needed to do something and this thing worked. I love writing again, love people, love being alive and learning words of the German-yet-unknown.",
+      "subquestions": [
+        {
+          "text": "After the publication of her first novel Naoise",
+          "type": "multiple_choice",
+          "options": ["received too much unwanted publicity", "was grateful to be invited to interviews", "wanted to leave London for a change of scene", "was looking forward to be in the limelight"],
+          "answer": "received too much unwanted publicity",
+          "points": 1
+        },
+        {
+          "text": "In London Naoise felt uncomfortable because",
+          "type": "multiple_choice",
+          "options": ["she didn't feel safe and secure in public", "she disliked the shows she was invited to", "she couldn't reject the offers she got", "she suffered from her fans' attention"],
+          "answer": "she couldn't reject the offers she got",
+          "points": 1
+        },
+        {
+          "text": "What is NOT TRUE about Naoise's childhood and teenage years?",
+          "type": "multiple_choice",
+          "options": ["She didn't pay attention to her health and mental state", "She used to show how different she was from others", "She had problems interacting with other people", "She preferred her well-paced regular routine"],
+          "answer": "She used to show how different she was from others",
+          "points": 1
+        },
+        {
+          "text": "Naoise's state reached its worst when she",
+          "type": "multiple_choice",
+          "options": ["was hours late and failed to sign an important contract", "stopped hearing clearly her own voice", "shuddered at the slightest sound of her cell phone", "started suffering from physical reactions to stress"],
+          "answer": "started suffering from physical reactions to stress",
+          "points": 1
+        },
+        {
+          "text": "In comparison to her London home, the place Naoise stayed at during her first visit to Berlin",
+          "type": "multiple_choice",
+          "options": ["was modest but more relaxing", "was more comfortable and roomy", "was safer and much greener", "was quieter and more peaceful"],
+          "answer": "was modest but more relaxing",
+          "points": 1
+        },
+        {
+          "text": "The word \"no-brainer\" in Paragraph 6 means",
+          "type": "multiple_choice",
+          "options": ["an obvious decision that you do not need to consider much", "a rash decision taken without much consideration", "a cautious step to take to avoid failure and defeat", "an act of well-planned and calculated moving house"],
+          "answer": "an obvious decision that you do not need to consider much",
+          "points": 1
+        },
+        {
+          "text": "Moving to Berlin helped Naoise",
+          "type": "multiple_choice",
+          "options": ["improve her professional skills", "reduce overall work pressure", "get more work from her London agent", "become more popular and liked"],
+          "answer": "reduce overall work pressure",
+          "points": 1
+        },
+        {
+          "text": "When Naoise spoke German but got a reply in English, she",
+          "type": "multiple_choice",
+          "options": ["immediately switched to English", "was hurt and felt offended", "realized she had a strong accent", "felt she was misunderstood"],
+          "answer": "was hurt and felt offended",
+          "points": 1
+        },
+        {
+          "text": "The Germans are likely to reply in English to a native speaker of English because",
+          "type": "multiple_choice",
+          "options": ["they feel a need to practice their English", "they want to surprise the other speaker", "they think it's more respectful", "they wish to show their level of English"],
+          "answer": "they think it's more respectful",
+          "points": 1
+        },
+        {
+          "text": "Eventually the experience of moving to Berlin",
+          "type": "multiple_choice",
+          "options": ["made Naoise completely independent of social media", "met Naoise's expectations of a perfect city to work in", "turned Naoise into a perfectionist", "helped Naoise find a way to enjoy life"],
+          "answer": "helped Naoise find a way to enjoy life",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "READING - Task 2: For items 1–10, read the passage below and choose which of the sentences A–K fit into the numbered gaps in the text. There is one extra sentence which does not fit in any of the gaps.\n\nOn July 22, 2012, the Lena Pillars Nature Park became a UNESCO World Heritage Site. (1) _____. The park occupies more than a million hectares, with taiga, dunes, a full-flowing river, and bizarre rocks resembling an ancient Gothic castle or a sleeping dragon.\n\n(2) _____. They stand intermittently in a 40 kilometre wall along the right bank of the Lena River and the left bank of the Buotama, a nearly parallel tributary.\n\nIn fact, the spire-shaped rocks are remnants that survived the weathering of mountain ranges. (3) _____. The mountains that shaped the Lena Pillars began to form on the site of a once shallow sea that was lapping here, at the bottom of which limestone was gradually accumulating. (4) _____. For all these years nature has been taking a creative approach in shaping the Cambrian limestones using erosion and dramatic changes in temperature to form this impregnable wall.\n\n(5) _____. However, locals consider them to be frozen deities that are waiting for their time to come back to people. (6) _____. A young warrior fought the dragon to save a fair lady. The monster was almost defeated, but at the last moment it struck the ground with its tail and turned everything and everybody into stone.\n\nAnother interesting fact is that researchers managed to find an early man site in the park that is about 370,000 years old, as well as the remains of a mammoth, an ancient bison, and a woolly rhinoceros. (7) _____. The real paleontological treasure of the park is the fossils found there, with ancient invertebrates preserved in them.\n\nToday the diversity of flora and fauna of the national park cannot but amaze. There are about 500 species of plants, 42 species of mammals, more than a hundred species of nesting birds, a huge number of fish and many reptiles. (8) _____. Unique Ust-Buotama Farm aims to restore the population of these rare animals that are on the IUCN Red List. (9) _____. On the territory of the national park, there are many lakes with a depth of two to three meters, formed both in natural relief depressions and on flat watersheds. They are filled with water due to rainfall. (10) _____. Their shores are usually flat, and in winter both the shores and floors of the lakes are usually frozen.",
+      "subquestions": [
+        {
+          "text": "Gap 1",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+          "points": 1
+        },
+        {
+          "text": "Gap 2",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+          "points": 1
+        },
+        {
+          "text": "Gap 3",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+          "points": 1
+        },
+        {
+          "text": "Gap 4",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+          "points": 1
+        },
+        {
+          "text": "Gap 5",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+          "points": 1
+        },
+        {
+          "text": "Gap 6",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon.",
+          "points": 1
+        },
+        {
+          "text": "Gap 7",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+          "points": 1
+        },
+        {
+          "text": "Gap 8",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+          "points": 1
+        },
+        {
+          "text": "Gap 9",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+          "points": 1
+        },
+        {
+          "text": "Gap 10",
+          "type": "multiple_choice",
+          "options": [
+            "It disappeared after the Siberian platform began to rise, forming rocky formations composed of limestone, faults and river valleys, while the shape of the mountains was influenced by erosion, in particular - weathering.",
+            "The climate in the area of the pillars is usual for these places; it is sharply continental, and the river makes the air very humid, causing hard frost in winter, and swelteringly hot days in summer.",
+            "Archeologists discovered many caves with petroglyphs on the slopes of the rocks: ancient people made these paintings with yellow mineral paint and stone tools.",
+            "The Park is distinguished by a spectacular series of monumental columnar cliffs up to 100 m high of limestone and dolerite karst.",
+            "Over time, depending on the degree of erosion, the rocks acquired the most bizarre forms that to some people remind of the walls of a huge medieval castle wall or stone giants, forever frozen by some magical or unnatural force.",
+            "Essentially, about 5,000 years ago, most of the bison living in Siberia died out, while the rest moved to North America, from where 30 animals were brought back to the farm.",
+            "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+            "The striking scenery of the park and wild Yakut nature make it the pearl of the region and one of the most beautiful places in the world.",
+            "What's more, the Lena Pillars Nature Park is home for living peers of mammoths — the wood bison.",
+            "They were formed from the mountains and remains of plants and animals that lived on the territory of Yakutia more than 500 million years ago.",
+            "Another story runs that these rocks are a monument of love, fidelity and courage, since the Lena Pillars are actually nothing more than a pair of lovers who were enchanted by the dragon."
+          ],
+          "answer": "Therefore, during a drought, large reservoirs become shallow, and small ones dry up altogether.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "USE OF ENGLISH - Task 1: For Questions 1–15, read the text below and look carefully at each line. Some of the lines are correct, and some have a word which should not be there. If a line is correct put 'V'. If a line has a word which should not be there, write the word.\n\nAdvertising will change profoundly over the next couple of decades, although there's a good chance you won't notice the difference, since the most meaningful changes won't be visible to the casual observer.\nIt's the changes that are happening underground that will count, and they're the ones we should be aware of. Advertising in the future will be such stealthily and eerily, targeted, disturbingly omnipresent and inescapable.\nTechnology, naturally, will be the engine. User-tracking software that records your TV and Internet viewing habits in minute detail - and crosses it with your purchasing history - will allow the advertiser to know that you have children, that you eat meat, that your native tongue is Spanish and that your dishwasher is however far many years old.\nThat way you will be shown commercials for mini-vans, cheeseburgers, and replacement dishwashers, all in Spanish, and not for sports cars, tofu and replacement refrigerators, in English. In fact, this technology already exists. Refined with data that track what kinds of online ads you tend to click on – funny, sentimental, fact-laden – every commercial will have hit home.\nSay what you will, that's a nifty trick. In the future, people won't be bothered with advertising messages irrelevant to them. They'll tend to like advertising too better because it's so carefully tailored to their tastes and will begin to feel less like an intrusion.\nThis works for the advertiser too because fewer dollars will be wasted. While it's a little dispiriting to think we can be so predictably manipulated, maybe that's a fair price to pay to avoid the pollution of messages you don't care about.\nNevertheless, it seems clear that the advertising outlets that exist today - TV and audio commercials, prints ads, billboards and taxi tops – will be inadequate for accommodating all the commercial messages that are agitating to get out of.\nAdvertising will therefore inevitably slip beyond within the boundaries of the 30-second commercial and the full-page ad and migrate to the rest of the world, including entertainment, journalism and art.\nYou can glimpse the future now. A product placement in movies is an obvious instance of where advertising has slipped outside its traditional container into entertainment.\nThe music channels which are an entertainment medium designed specially to sell records are another classic example. Every time an artist mentions a brand in their lyrics, advertising slips into art.\nIt you have a tattoo of your team's name, you're already there. If you wear a T-shirt with a logo on it, you're also there but with less pain. Eventually, every surface that can display a message will be made appropriated for advertising.\nA backlash is inevitable. Perhaps people will be pay a premium to live in advertising-free zones.\nPeople get very nervous when they see the line being blurring between advertising and other forms of content; they think advertising is some kind of infection that pollutes the purity of art, ruins objectivity and distracts from the pleasure of entertainment.\nYet this is missing the point. Surely consumers are smart and perfectly aware of when they're being sold something; surely people who go to company websites are happy to find worthwhile information there and are capable of distinguishing between a commercial message and an editorial one.\nIn the main, art and journalism have long relied on direct subsidy from private sources. Don't think for a minute that commercial interests didn't enter into it.\nThe genuinely disturbing aspect remains of advertising is that it has begun to take over what was formally the property of the community. Take, for example, the popular Boston Garden park, naturally named after the city. It is now known as the \"Fleet Center\", after the sponsoring bank. A little town in the Pacific Northwest just renamed itself after a dotcom company in return for a generous denotation.\nI won't mention the name here, since I figure advertising should be paid for it. That's when advertising has gone too far: when it's become something we are, rather than something we see.",
+      "subquestions": [
+        {
+          "text": "Line 1: Technology, naturally, will be the engine. User-tracking software that records your TV and Internet viewing habits in minute detail - and crosses it with your purchasing history - will allow the advertiser to know that you have children, that you eat meat, that your native tongue is Spanish and that your dishwasher is however far many years old.",
+          "type": "text",
+          "answer": "far",
+          "points": 1
+        },
+        {
+          "text": "Line 2: That way you will be shown commercials for mini-vans, cheeseburgers, and replacement dishwashers, all in Spanish, and not for sports cars, tofu and replacement refrigerators, in English. In fact, this technology already exists. Refined with data that track what kinds of online ads you tend to click on – funny, sentimental, fact-laden – every commercial will have hit home.",
+          "type": "text",
+          "answer": "have",
+          "points": 1
+        },
+        {
+          "text": "Line 3: Say what you will, that's a nifty trick. In the future, people won't be bothered with advertising messages irrelevant to them. They'll tend to like advertising too better because it's so carefully tailored to their tastes and will begin to feel less like an intrusion.",
+          "type": "text",
+          "answer": "too",
+          "points": 1
+        },
+        {
+          "text": "Line 4: This works for the advertiser too because fewer dollars will be wasted. While it's a little dispiriting to think we can be so predictably manipulated, maybe that's a fair price to pay to avoid the pollution of messages you don't care about.",
+          "type": "text",
+          "answer": "V",
+          "points": 1
+        },
+        {
+          "text": "Line 5: Nevertheless, it seems clear that the advertising outlets that exist today - TV and audio commercials, prints ads, billboards and taxi tops – will be inadequate for accommodating all the commercial messages that are agitating to get out of.",
+          "type": "text",
+          "answer": "of",
+          "points": 1
+        },
+        {
+          "text": "Line 6: Advertising will therefore inevitably slip beyond within the boundaries of the 30-second commercial and the full-page ad and migrate to the rest of the world, including entertainment, journalism and art.",
+          "type": "text",
+          "answer": "within",
+          "points": 1
+        },
+        {
+          "text": "Line 7: You can glimpse the future now. A product placement in movies is an obvious instance of where advertising has slipped outside its traditional container into entertainment.",
+          "type": "text",
+          "answer": "a",
+          "points": 1
+        },
+        {
+          "text": "Line 8: The music channels which are an entertainment medium designed specially to sell records are another classic example. Every time an artist mentions a brand in their lyrics, advertising slips into art.",
+          "type": "text",
+          "answer": "V",
+          "points": 1
+        },
+        {
+          "text": "Line 9: It you have a tattoo of your team's name, you're already there. If you wear a T-shirt with a logo on it, you're also there but with less pain. Eventually, every surface that can display a message will be made appropriated for advertising.",
+          "type": "text",
+          "answer": "made",
+          "points": 1
+        },
+        {
+          "text": "Line 10: A backlash is inevitable. Perhaps people will be pay a premium to live in advertising-free zones.",
+          "type": "text",
+          "answer": "be",
+          "points": 1
+        },
+        {
+          "text": "Line 11: People get very nervous when they see the line being blurring between advertising and other forms of content; they think advertising is some kind of infection that pollutes the purity of art, ruins objectivity and distracts from the pleasure of entertainment.",
+          "type": "text",
+          "answer": "being",
+          "points": 1
+        },
+        {
+          "text": "Line 12: Yet this is missing the point. Surely consumers are smart and perfectly aware of when they're being sold something; surely people who go to company websites are happy to find worthwhile information there and are capable of distinguishing between a commercial message and an editorial one.",
+          "type": "text",
+          "answer": "of",
+          "points": 1
+        },
+        {
+          "text": "Line 13: In the main, art and journalism have long relied on direct subsidy from private sources. Don't think for a minute that commercial interests didn't enter into it.",
+          "type": "text",
+          "answer": "V",
+          "points": 1
+        },
+        {
+          "text": "Line 14: The genuinely disturbing aspect remains of advertising is that it has begun to take over what was formally the property of the community. Take, for example, the popular Boston Garden park, naturally named after the city. It is now known as the \"Fleet Center\", after the sponsoring bank. A little town in the Pacific Northwest just renamed itself after a dotcom company in return for a generous denotation.",
+          "type": "text",
+          "answer": "remains",
+          "points": 1
+        },
+        {
+          "text": "Line 15: I won't mention the name here, since I figure advertising should be paid for it. That's when advertising has gone too far: when it's become something we are, rather than something we see.",
+          "type": "text",
+          "answer": "it",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "USE OF ENGLISH - Task 2: For items 1–10, complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given.",
+      "subquestions": [
+        {
+          "text": "Original: Suzy couldn't reach the picture without a ladder. | Word: for | Target: The picture was too high up _____ without a ladder. (4 words)",
+          "type": "text",
+          "answer": "for Suzy to reach",
+          "points": 1
+        },
+        {
+          "text": "Original: Those eggs will be rotten by now. | Word: off | Target: Those eggs _____ by now. (4 words)",
+          "type": "text",
+          "answer": "will have gone off",
+          "points": 1
+        },
+        {
+          "text": "Original: The weather was so terrible that we stayed inside and played cards. | Word: such | Target: It was _____ we stayed inside and played cards. (4 words)",
+          "type": "text",
+          "answer": "such terrible weather that",
+          "points": 1
+        },
+        {
+          "text": "Original: It's important to exercise a lot if you want to stay fit. | Word: plenty | Target: It's important to _____ if you want to stay fit. (4 words)",
+          "type": "text",
+          "answer": "take plenty of exercise",
+          "points": 1
+        },
+        {
+          "text": "Original: The Wall Street Crash caused a chain reaction in stock markets around the world. | Word: off | Target: The Wall Street Crash ___ ___ a chain reaction in stock markets around the world. (2 words)",
+          "type": "text",
+          "answer": "set off",
+          "points": 1
+        },
+        {
+          "text": "Original: Vicki liked physics best at school. | Word: favourite | Target: Physics ___ ___ ___ ___ ___ at school. (4 words)",
+          "type": "text",
+          "answer": "was Vicki's favourite subject",
+          "points": 1
+        },
+        {
+          "text": "Original: I hope it'll be sunny tomorrow, then we can go to the seaside. | Word: if | Target: We can go to the seaside ___ ___ ___ ___ tomorrow. (4 words)",
+          "type": "text",
+          "answer": "if it is sunny",
+          "points": 1
+        },
+        {
+          "text": "Original: Albert's wife says he has to start being interested in his children's lives. | Word: about | Target: Albert's wife says it is _____ _____ an interest in his children's lives. (5 words)",
+          "type": "text",
+          "answer": "about time that he took",
+          "points": 1
+        },
+        {
+          "text": "Original: I wish Jack had bought tickets for Venice but we went to Paris instead. | Word: rather | Target: Jack bought us tickets to Paris but I _____ _____ to Venice. (4 words)",
+          "type": "text",
+          "answer": "would rather have gone",
+          "points": 1
+        },
+        {
+          "text": "Original: The council officer promised to get someone to remove the rubbish. | Word: have | Target: The council officer promised he _____ _____ away. (5 words)",
+          "type": "text",
+          "answer": "would have the rubbish taken",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "USE OF ENGLISH - Task 3: For items 1–10 read the text below. Use the word given in capitals to form a new word that fits in the space.\n\nFrench (0) … Franky Zapata became the first person to cross the English Channel on a jet-powered flyboard. INVENT\nThe flyboard is a (1) … between Franky and the French army, who think his invention could have military uses in the future. PRODUCTION\nPreflight, Franky was a little (2) … because he hadn't had time to do all the tests he wanted to do, but once he began flying, he felt fine. NERVE\nThe flyboard only has enough kerosene for ten minutes of flight so he had to (3) … the board on a ship in the middle of the trip. FUEL\nUnfortunately, the first time he tried to do this he (4) … his landing and fell into the sea. He went under the waves for a second. CALCULATE\nHis team were glad to see him after his (5) … . APPEAR\nHowever, there was a lot of (6) … for Franky because his helmet filled with seawater and he had to drink it to be able to continue breathing. COMFORT\nHe realized he had (7) … the size of the ship he would need to land on and used a bigger one for his second attempt. ESTIMATE\nHe travelled in a total distance of 22 miles and reached a maximum speed of approximately 160 kph. That isn't exactly (8) … but it's not bad for a small flyboard. SONIC\nFlying without wings, he looked like a (9) … . HERO\nNext, he says he's going to build a flying car. Some people think he's (10) … when he says that the car will fly at a speed of 400 kph! CONFIDENT",
+      "subquestions": [
+        {
+          "text": "Gap 1: The flyboard is a (1) … between Franky and the French army, who think his invention could have military uses in the future. | Word: PRODUCTION",
+          "type": "text",
+          "answer": "coproduction",
+          "points": 1
+        },
+        {
+          "text": "Gap 2: Preflight, Franky was a little (2) … because he hadn't had time to do all the tests he wanted to do, but once he began flying, he felt fine. | Word: NERVE",
+          "type": "text",
+          "answer": "nervous",
+          "points": 1
+        },
+        {
+          "text": "Gap 3: The flyboard only has enough kerosene for ten minutes of flight so he had to (3) … the board on a ship in the middle of the trip. | Word: FUEL",
+          "type": "text",
+          "answer": "refuel",
+          "points": 1
+        },
+        {
+          "text": "Gap 4: Unfortunately, the first time he tried to do this he (4) … his landing and fell into the sea. He went under the waves for a second. | Word: CALCULATE",
+          "type": "text",
+          "answer": "miscalculated",
+          "points": 1
+        },
+        {
+          "text": "Gap 5: His team were glad to see him after his (5) … . | Word: APPEAR",
+          "type": "text",
+          "answer": "disappearance",
+          "points": 1
+        },
+        {
+          "text": "Gap 6: However, there was a lot of (6) … for Franky because his helmet filled with seawater and he had to drink it to be able to continue breathing. | Word: COMFORT",
+          "type": "text",
+          "answer": "discomfort",
+          "points": 1
+        },
+        {
+          "text": "Gap 7: He realized he had (7) … the size of the ship he would need to land on and used a bigger one for his second attempt. | Word: ESTIMATE",
+          "type": "text",
+          "answer": "underestimated",
+          "points": 1
+        },
+        {
+          "text": "Gap 8: He travelled in a total distance of 22 miles and reached a maximum speed of approximately 160 kph. That isn't exactly (8) … but it's not bad for a small flyboard. | Word: SONIC",
+          "type": "text",
+          "answer": "supersonic",
+          "points": 1
+        },
+        {
+          "text": "Gap 9: Flying without wings, he looked like a (9) … . | Word: HERO",
+          "type": "text",
+          "answer": "superhero",
+          "points": 1
+        },
+        {
+          "text": "Gap 10: Next, he says he's going to build a flying car. Some people think he's (10) … when he says that the car will fly at a speed of 400 kph! | Word: CONFIDENT",
+          "type": "text",
+          "answer": "overconfident",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "USE OF ENGLISH - Task 4: For items 1–10, match the items 1–10 to the phenomena A–M.",
+      "subquestions": [
+        {
+          "text": "Gretna Green",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+          "points": 1
+        },
+        {
+          "text": "pulp fiction",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+          "points": 1
+        },
+        {
+          "text": "Land's End",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "The westernmost peninsula of the county of Cornwall.",
+          "points": 1
+        },
+        {
+          "text": "To keep up with the Joneses",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "To do the same things as the people around you to appear as successful as they are",
+          "points": 1
+        },
+        {
+          "text": "constituency",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "The area that an MP represents in Parliament",
+          "points": 1
+        },
+        {
+          "text": "spin doctor",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media",
+          "points": 1
+        },
+        {
+          "text": "The Athens of the North",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "The capital of Scotland",
+          "points": 1
+        },
+        {
+          "text": "front benchers",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "MPs who are their parties' spokespeople",
+          "points": 1
+        },
+        {
+          "text": "whodunit",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "A work of detective fiction, presented mainly as a puzzle",
+          "points": 1
+        },
+        {
+          "text": "What's sauce for the goose is sauce for the gander",
+          "type": "multiple_choice",
+          "options": [
+            "To do the same things as the people around you to appear as successful as they are",
+            "What is right or wrong for one sex is right or wrong for the other as well",
+            "The capital of Ireland",
+            "Attract more attention and praise than other people in a particular situation",
+            "A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+            "MPs who are their parties' spokespeople",
+            "A work of detective fiction, presented mainly as a puzzle",
+            "The area that an MP represents in Parliament",
+            "A person who treats acute and chronic illnesses and provides preventive care and health education to patients of all ages",
+            "It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+            "The westernmost peninsula of the county of Cornwall.",
+            "The capital of Scotland",
+            "A person who is a close adviser to a politician or political party and whose job is to make them look good in the media"
+          ],
+          "answer": "What is right or wrong for one sex is right or wrong for the other as well",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "WRITING: Comment on the following quotation: 'A leader is best when people barely know he exists, when his work is done, his aim fulfilled, they will say: we did it ourselves.' - Lao Tzu. Write 200–250 words.\n\nYour essay should include:\n- Introduction explaining how you understand the author's point of view\n- Your personal opinion with reasons to support it\n- Examples from literature or history to illustrate your reasons\n- Conclusion restating your position",
+      "subquestions": [
+        {
+          "text": "Writing task",
+          "type": "text",
+          "answer": "",
+          "points": 20
+        }
+      ]
+    }
+  ]
+}

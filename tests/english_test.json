@@ -1,0 +1,652 @@
+{
+  "title": "Всероссийская олимпиада школьников по английскому языку 2023-2024",
+  "description": "Муниципальный этап, 10-11 классы. Включает аудирование, чтение, использование английского языка и письмо.",
+  "passingScore": 70,
+  "timeLimit": 180,
+  "questions": [
+    {
+      "text": "LISTENING - Task 1: Прослушайте рассказ об известных людях, изучавших русский язык, и определите, являются ли утверждения правдивыми (True) или ложными (False).",
+      "audio": "https://username.github.io/repo/media/audio/listening/listening-task1-famous-people-learning-russian.mp3",
+      "subquestions": [
+        {
+          "text": "A lot of people have been determined to learn Russian because of its challenging nature.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Otto von Bismarck had studied Russian before he was sent to Russia as an official representative of Prussia.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Otto von Bismarck considered studying Russian grammar as difficult as fighting the French Army.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "The Russian emperor complimented Otto von Bismarck on the unwillingness to show his true knowledge of Russian.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Prosper Mérimée lacked fluency in Latin.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        },
+        {
+          "text": "Varvara taught Prosper Mérimée to translate from Russian into French.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Prosper Mérimée was stunned by the ability of the Russian language to convey subtle shades of meaning.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Lewis Carroll was professionally interested in religious beliefs of the Russians.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        },
+        {
+          "text": "Comments about difficult Russian words didn't discourage Lewis Carroll from studying the language.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "True",
+          "points": 1
+        },
+        {
+          "text": "Lewis Carroll wasn't good enough at Russian to be able to bargain with the Russian merchants.",
+          "type": "multiple_choice",
+          "options": ["True", "False"],
+          "answer": "False",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "LISTENING - Task 2: Прослушайте диалог между Kelly и Steve и выберите правильный ответ на вопросы 11-15.",
+      "audio": "https://username.github.io/repo/media/audio/listening/listening-task1-famous-people-learning-russian.mp3",
+      "subquestions": [
+        {
+          "text": "Kelly's week was",
+          "type": "multiple_choice",
+          "options": ["quite usual", "very slow and boring", "really nice"],
+          "answer": "really nice",
+          "points": 1
+        },
+        {
+          "text": "What is NOT TRUE about Steve's dinner?",
+          "type": "multiple_choice",
+          "options": [
+            "He will enjoy French cuisine",
+            "He will go to the restaurant on Saturday",
+            "It won't take him long to get to the restaurant"
+          ],
+          "answer": "It won't take him long to get to the restaurant",
+          "points": 1
+        },
+        {
+          "text": "Steve feels certain that at the weekend he will",
+          "type": "multiple_choice",
+          "options": [
+            "prepare food for his friends",
+            "go to the cinema",
+            "have a lie-in"
+          ],
+          "answer": "have a lie-in",
+          "points": 1
+        },
+        {
+          "text": "On Friday evening Kelly is going to",
+          "type": "multiple_choice",
+          "options": [
+            "meet up her former colleagues",
+            "attend her friends' party",
+            "spend a night at home"
+          ],
+          "answer": "attend her friends' party",
+          "points": 1
+        },
+        {
+          "text": "Steve finally says that a boat is",
+          "type": "multiple_choice",
+          "options": [
+            "an awesome place for a party",
+            "a cosy place for a party",
+            "a tiny place for a party"
+          ],
+          "answer": "an awesome place for a party",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "READING - Task 1: Прочитайте текст об ирландской писательнице Naoise Dolan, переехавшей из Лондона в Берлин, и выберите лучший вариант ответа для вопросов 1-10.\n\n[display-math]TEXT:[/display-math]\n\nIrish author Naoise Dolan moved to Berlin from London after experiencing burnout, depression and emotional collapse following the publication of her debut novel. The book gathered significant attention, leading to numerous media requests and public appearances that she struggled to refuse. Throughout her early years, she had difficulties with communication and forming relationships, preferring established routines. By early 2022, her condition worsened dramatically - she couldn't sleep for three days, experienced physical symptoms, and missed an important contract signing. \n\nDuring a visit to an Irish friend in Berlin, she slept soundly on a small couch and enjoyed the neighbourhood's wide pavements and trees. This January trip sparked her romance with Berlin, and she moved there that summer. The relocation improved her mental health by reducing professional pressure and helping her become more direct. Learning German also reduced her perfectionism, as young Berliners often switched to English when hearing accents. Her German friends explained they replied in English out of politeness. The move helped Naoise rediscover her love for writing, people, and life.",
+      "subquestions": [
+        {
+          "text": "After the publication of her first novel Naoise",
+          "type": "multiple_choice",
+          "options": [
+            "received too much unwanted publicity",
+            "was grateful to be invited to interviews",
+            "wanted to leave London for a change of scene",
+            "was looking forward to be in the limelight"
+          ],
+          "answer": "received too much unwanted publicity",
+          "points": 1
+        },
+        {
+          "text": "In London Naoise felt uncomfortable because",
+          "type": "multiple_choice",
+          "options": [
+            "she didn't feel safe and secure in public",
+            "she disliked the shows she was invited to",
+            "she couldn't reject the offers she got",
+            "she suffered from her fans' attention"
+          ],
+          "answer": "she couldn't reject the offers she got",
+          "points": 1
+        },
+        {
+          "text": "What is NOT TRUE about Naoise's childhood and teenage years?",
+          "type": "multiple_choice",
+          "options": [
+            "She didn't pay attention to her health and mental state",
+            "She used to show how different she was from others",
+            "She had problems interacting with other people",
+            "She preferred her well-paced regular routine"
+          ],
+          "answer": "She used to show how different she was from others",
+          "points": 1
+        },
+        {
+          "text": "Naoise's state reached its worst when she",
+          "type": "multiple_choice",
+          "options": [
+            "was hours late and failed to sign an important contract",
+            "stopped hearing clearly her own voice",
+            "shuddered at the slightest sound of her cell phone",
+            "started suffering from physical reactions to stress"
+          ],
+          "answer": "started suffering from physical reactions to stress",
+          "points": 1
+        },
+        {
+          "text": "In comparison to her London home, the place Naoise stayed at during her first visit to Berlin",
+          "type": "multiple_choice",
+          "options": [
+            "was modest but more relaxing",
+            "was more comfortable and roomy",
+            "was safer and much greener",
+            "was quieter and more peaceful"
+          ],
+          "answer": "was modest but more relaxing",
+          "points": 1
+        },
+        {
+          "text": "The word 'no-brainer' in the text means",
+          "type": "multiple_choice",
+          "options": [
+            "an obvious decision that you do not need to consider much",
+            "a rash decision taken without much consideration",
+            "a cautious step to take to avoid failure and defeat",
+            "an act of well-planned and calculated moving house"
+          ],
+          "answer": "an obvious decision that you do not need to consider much",
+          "points": 1
+        },
+        {
+          "text": "Moving to Berlin helped Naoise",
+          "type": "multiple_choice",
+          "options": [
+            "improve her professional skills",
+            "reduce overall work pressure",
+            "get more work from her London agent",
+            "become more popular and liked"
+          ],
+          "answer": "reduce overall work pressure",
+          "points": 1
+        },
+        {
+          "text": "When Naoise spoke German but got a reply in English, she",
+          "type": "multiple_choice",
+          "options": [
+            "immediately switched to English",
+            "was hurt and felt offended",
+            "realized she had a strong accent",
+            "felt she was misunderstood"
+          ],
+          "answer": "was hurt and felt offended",
+          "points": 1
+        },
+        {
+          "text": "The Germans are likely to reply in English to a native speaker of English because",
+          "type": "multiple_choice",
+          "options": [
+            "they feel a need to practice their English",
+            "they want to surprise the other speaker",
+            "they think it's more respectful",
+            "they wish to show their level of English"
+          ],
+          "answer": "they think it's more respectful",
+          "points": 1
+        },
+        {
+          "text": "Eventually the experience of moving to Berlin",
+          "type": "multiple_choice",
+          "options": [
+            "made Naoise completely independent of social media",
+            "met Naoise's expectations of a perfect city to work in",
+            "turned Naoise into a perfectionist",
+            "helped Naoise find a way to enjoy life"
+          ],
+          "answer": "helped Naoise find a way to enjoy life",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "READING - Task 2: Прочитайте текст о природном парке «Ленские столбы» и подберите предложения A-K к пропускам 1-10. Одно предложение лишнее.\n\n[display-math]TEXT:[/display-math]\n\nOn July 22, 2012, the Lena Pillars Nature Park became a UNESCO World Heritage Site. (1) ___. The park occupies more than a million hectares, with taiga, dunes, a full-flowing river, and bizarre rocks. (2) ___. They stand intermittently in a 40 kilometre wall along the right bank of the Lena River. The spire-shaped rocks are remnants that survived mountain weathering. (3) ___. The mountains began to form on the site of a once shallow sea where limestone was accumulating. (4) ___. Nature has been shaping the Cambrian limestones using erosion and temperature changes. (5) ___. However, locals consider them frozen deities waiting to return. (6) ___. A legend tells of a young warrior who fought a dragon to save a lady, but the dragon turned everything to stone. Researchers found an early man site about 370,000 years old, plus mammoth and bison remains. (7) ___. The park contains fossils with ancient invertebrates. Today the park has about 500 plant species, 42 mammal species, and over 100 bird species. (8) ___. Ust-Buotama Farm restores rare animals on the IUCN Red List. (9) ___. The park has many shallow lakes formed in natural depressions. (10) ___. Their shores are flat and freeze in winter.\n\n[display-math]SENTENCES:[/display-math]\nA. The sea disappeared after the Siberian platform rose, forming rocky formations\nB. The climate is sharply continental with humid air from the river\nC. Archeologists discovered caves with petroglyphs on rock slopes\nD. The Park features monumental columnar cliffs up to 100m high\nE. Rocks acquired bizarre forms resembling medieval castle walls\nF. About 5,000 years ago most Siberian bison died out\nG. During drought, large reservoirs become shallow and small ones dry up\nH. The striking scenery makes it the pearl of the region\nI. The park is home to wood bison, living peers of mammoths\nJ. They formed from mountains and remains from 500 million years ago\nK. Rocks are a monument of love - lovers enchanted by a dragon\nL. The capital of Scotland\nM. A person who is a close adviser to a politician",
+      "subquestions": [
+        {
+          "text": "Gap 1",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "H",
+          "points": 1
+        },
+        {
+          "text": "Gap 2",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "D",
+          "points": 1
+        },
+        {
+          "text": "Gap 3",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "J",
+          "points": 1
+        },
+        {
+          "text": "Gap 4",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "A",
+          "points": 1
+        },
+        {
+          "text": "Gap 5",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "E",
+          "points": 1
+        },
+        {
+          "text": "Gap 6",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "K",
+          "points": 1
+        },
+        {
+          "text": "Gap 7",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "C",
+          "points": 1
+        },
+        {
+          "text": "Gap 8",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "I",
+          "points": 1
+        },
+        {
+          "text": "Gap 9",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "F",
+          "points": 1
+        },
+        {
+          "text": "Gap 10",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+          "answer": "G",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "USE OF ENGLISH - Task 1: Прочитайте текст о будущем рекламы. Некоторые строки правильные (поставьте V), в других есть лишнее слово (напишите это слово).\n\n[display-math]TEXT:[/display-math]\n\nAdvertising will change profoundly over the next couple of decades. The most meaningful changes won't be visible to casual observers - they're happening underground. Future advertising will be stealthily targeted, disturbingly omnipresent and inescapable. Technology will be the engine. User-tracking software recording TV and Internet habits will allow advertisers to know you have children, eat meat, speak Spanish, and have an old dishwasher. You'll see commercials for minivans, cheeseburgers, and replacement dishwashers in Spanish. This technology already exists. People won't be bothered with irrelevant messages and will like advertising better because it's tailored to their tastes. This works for advertisers too because fewer dollars are wasted. Maybe that's a fair price to avoid message pollution. Nevertheless, existing outlets like TV commercials, print ads, and billboards will be inadequate for all commercial messages. Advertising will therefore slip beyond commercial boundaries into entertainment, journalism and art. Product placement in movies is an obvious instance. Music channels designed to sell records are another example. Every time an artist mentions a brand, advertising slips into art. If you wear a logo T-shirt, you're already there. Eventually, every surface will be appropriated for advertising. A backlash is inevitable - perhaps people will pay a premium for advertising-free zones. People get nervous seeing the line blurred between advertising and other content. Yet consumers are smart and aware when they're being sold something. Art and journalism have long relied on private subsidies. The disturbing aspect is advertising taking over community property. Boston Garden park is now the Fleet Center after a sponsoring bank. A Pacific Northwest town renamed itself after a dotcom company for a generous donation. That's when advertising has gone too far - when it's become something we are rather than something we see.",
+      "subquestions": [
+        {
+          "text": "Line: Technology, naturally, will be the engine. User-tracking software that records your TV and Internet viewing habits in minute detail - and crosses it with your purchasing history - will allow the advertiser to know that you have children, that you eat meat, that your native tongue is Spanish and that your dishwasher is however far many years old.",
+          "type": "text",
+          "answer": "far",
+          "points": 1
+        },
+        {
+          "text": "Line: That way you will be shown commercials for mini-vans, cheeseburgers, and replacement dishwashers, all in Spanish, and not for sports cars, tofu and replacement refrigerators, in English. In fact, this technology already exists. Refined with data that track what kinds of online ads you tend to click on – funny, sentimental, fact-laden – every commercial will have hit home.",
+          "type": "text",
+          "answer": "have",
+          "points": 1
+        },
+        {
+          "text": "Line: Say what you will, that's a nifty trick. In the future, people won't be bothered with advertising messages irrelevant to them. They'll tend to like advertising too better because it's so carefully tailored to their tastes and will begin to feel less like an intrusion.",
+          "type": "text",
+          "answer": "too",
+          "points": 1
+        },
+        {
+          "text": "Line: This works for the advertiser too because fewer dollars will be wasted. While it's a little dispiriting to think we can be so predictably manipulated, maybe that's a fair price to pay to avoid the pollution of messages you don't care about.",
+          "type": "text",
+          "answer": "V",
+          "points": 1
+        },
+        {
+          "text": "Line: Nevertheless, it seems clear that the advertising outlets that exist today - TV and audio commercials, prints ads, billboards and taxi tops – will be inadequate for accommodating all the commercial messages that are agitating to get out of.",
+          "type": "text",
+          "answer": "of",
+          "points": 1
+        },
+        {
+          "text": "Line: Advertising will therefore inevitably slip beyond within the boundaries of the 30-second commercial and the full-page ad and migrate to the rest of the world, including entertainment, journalism and art.",
+          "type": "text",
+          "answer": "within",
+          "points": 1
+        },
+        {
+          "text": "Line: You can glimpse the future now. A product placement in movies is an obvious instance of where advertising has slipped outside its traditional container into entertainment.",
+          "type": "text",
+          "answer": "a",
+          "points": 1
+        },
+        {
+          "text": "Line: The music channels which are an entertainment medium designed specially to sell records are another classic example. Every time an artist mentions a brand in their lyrics, advertising slips into art.",
+          "type": "text",
+          "answer": "V",
+          "points": 1
+        },
+        {
+          "text": "Line: It you have a tattoo of your team's name, you're already there. If you wear a T-shirt with a logo on it, you're also there but with less pain. Eventually, every surface that can display a message will be made appropriated for advertising.",
+          "type": "text",
+          "answer": "made",
+          "points": 1
+        },
+        {
+          "text": "Line: A backlash is inevitable. Perhaps people will be pay a premium to live in advertising-free zones.",
+          "type": "text",
+          "answer": "be",
+          "points": 1
+        },
+        {
+          "text": "Line: People get very nervous when they see the line being blurring between advertising and other forms of content; they think advertising is some kind of infection that pollutes the purity of art, ruins objectivity and distracts from the pleasure of entertainment.",
+          "type": "text",
+          "answer": "being",
+          "points": 1
+        },
+        {
+          "text": "Line: Yet this is missing the point. Surely consumers are smart and perfectly aware of when they're being sold something; surely people who go to company websites are happy to find worthwhile information there and are capable of distinguishing between a commercial message and an editorial one.",
+          "type": "text",
+          "answer": "of",
+          "points": 1
+        },
+        {
+          "text": "Line: In the main, art and journalism have long relied on direct subsidy from private sources. Don't think for a minute that commercial interests didn't enter into it.",
+          "type": "text",
+          "answer": "V",
+          "points": 1
+        },
+        {
+          "text": "Line: The genuinely disturbing aspect remains of advertising is that it has begun to take over what was formally the property of the community. Take, for example, the popular Boston Garden park, naturally named after the city. It is now known as the Fleet Center, after the sponsoring bank.",
+          "type": "text",
+          "answer": "remains",
+          "points": 1
+        },
+        {
+          "text": "Line: I won't mention the name here, since I figure advertising should be paid for it. That's when advertising has gone too far: when it's become something we are, rather than something we see.",
+          "type": "text",
+          "answer": "it",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "USE OF ENGLISH - Task 2: Преобразуйте предложения, используя данное слово. Используйте от 2 до 5 слов. Не меняйте данное слово.",
+      "subquestions": [
+        {
+          "text": "Suzy couldn't reach the picture without a ladder. [for] → The picture was too high up ___ ___ ____ ____ without a ladder. (4 words)",
+          "type": "text",
+          "answer": "for Suzy to reach",
+          "points": 1
+        },
+        {
+          "text": "Those eggs will be rotten by now. [off] → Those eggs ___ ___ __ __ by now. (4 words)",
+          "type": "text",
+          "answer": "will have gone off",
+          "points": 1
+        },
+        {
+          "text": "The weather was so terrible that we stayed inside and played cards. [such] → It was __ ___ ___ ___ we stayed inside and played cards. (4 words)",
+          "type": "text",
+          "answer": "such terrible weather that",
+          "points": 1
+        },
+        {
+          "text": "It's important to exercise a lot if you want to stay fit. [plenty] → It's important to ___ ___ ___ ___ if you want to stay fit. (4 words)",
+          "type": "text",
+          "answer": "take plenty of exercise",
+          "points": 1
+        },
+        {
+          "text": "The Wall Street Crash caused a chain reaction in stock markets around the world. [off] → The Wall Street Crash __ ___ a chain reaction in stock markets around the world. (2 words)",
+          "type": "text",
+          "answer": "set off",
+          "points": 1
+        },
+        {
+          "text": "Vicki liked physics best at school. [favourite] → Physics ___ ___ ___ ___ at school. (4 words)",
+          "type": "text",
+          "answer": "was Vicki's favourite subject",
+          "points": 1
+        },
+        {
+          "text": "I hope it'll be sunny tomorrow, then we can go to the seaside. [if] → We can go to the seaside __ __ ___ ___ tomorrow. (4 words)",
+          "type": "text",
+          "answer": "if it is sunny",
+          "points": 1
+        },
+        {
+          "text": "Albert's wife says he has to start being interested in his children's lives. [about] → Albert's wife says it is ___ ____ ____ ____ ___ an interest in his children's lives. (5 words)",
+          "type": "text",
+          "answer": "about time that he took",
+          "points": 1
+        },
+        {
+          "text": "I wish Jack had bought tickets for Venice but we went to Paris instead. [rather] → Jack bought us tickets to Paris but I __ ___ ___ ___ to Venice. (4 words)",
+          "type": "text",
+          "answer": "would rather have gone",
+          "points": 1
+        },
+        {
+          "text": "The council officer promised to get someone to remove the rubbish. [have] → The council officer promised he __ __ ___ ___ ___ away. (5 words)",
+          "type": "text",
+          "answer": "would have the rubbish taken",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "USE OF ENGLISH - Task 3: Используйте слово в скобках для образования нового слова, подходящего по смыслу.\n\n[display-math]TEXT:[/display-math]\n\nFrench (0) inventor Franky Zapata became the first person to cross the English Channel on a jet-powered flyboard. The flyboard is a (1) ___ between Franky and the French army, who think his invention could have military uses. Preflight, Franky was a little (2) ___ because he hadn't had time to do all the tests, but once he began flying, he felt fine. The flyboard only has enough kerosene for ten minutes so he had to (3) ___ the board on a ship mid-trip. Unfortunately, the first time he tried this he (4) ___ his landing and fell into the sea. He went under the waves for a second. His team were glad to see him after his (5) ___. However, there was a lot of (6) ___ for Franky because his helmet filled with seawater and he had to drink it to continue breathing. He realized he had (7) ___ the size of the ship needed and used a bigger one for his second attempt. He travelled a total distance of 22 miles and reached a maximum speed of approximately 160 kph. That isn't exactly (8) ___ but it's not bad for a small flyboard. Flying without wings, he looked like a (9) ___. Next, he says he's going to build a flying car. Some people think he's (10) ___ when he says the car will fly at 400 kph!",
+      "subquestions": [
+        {
+          "text": "(1) PRODUCTION",
+          "type": "text",
+          "answer": "coproduction",
+          "points": 1
+        },
+        {
+          "text": "(2) NERVE",
+          "type": "text",
+          "answer": "nervous",
+          "points": 1
+        },
+        {
+          "text": "(3) FUEL",
+          "type": "text",
+          "answer": "refuel",
+          "points": 1
+        },
+        {
+          "text": "(4) CALCULATE",
+          "type": "text",
+          "answer": "miscalculated",
+          "points": 1
+        },
+        {
+          "text": "(5) APPEAR",
+          "type": "text",
+          "answer": "disappearance",
+          "points": 1
+        },
+        {
+          "text": "(6) COMFORT",
+          "type": "text",
+          "answer": "discomfort",
+          "points": 1
+        },
+        {
+          "text": "(7) ESTIMATE",
+          "type": "text",
+          "answer": "underestimated",
+          "points": 1
+        },
+        {
+          "text": "(8) SONIC",
+          "type": "text",
+          "answer": "supersonic",
+          "points": 1
+        },
+        {
+          "text": "(9) HERO",
+          "type": "text",
+          "answer": "superhero",
+          "points": 1
+        },
+        {
+          "text": "(10) CONFIDENT",
+          "type": "text",
+          "answer": "overconfident",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "USE OF ENGLISH - Task 4: Сопоставьте термины 1-10 с определениями A-M. Есть лишние определения.",
+      "subquestions": [
+        {
+          "text": "1. Gretna Green → J) It was long famous as the goal of eloping English couples seeking hasty marriage. They were obliged to cross the border into Scotland.",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "J",
+          "points": 1
+        },
+        {
+          "text": "2. pulp fiction → E) A work of fiction which is so bad and has so little meaning that its main value is in the paper it's written on",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "E",
+          "points": 1
+        },
+        {
+          "text": "3. Land's End → K) The westernmost peninsula of the county of Cornwall",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "K",
+          "points": 1
+        },
+        {
+          "text": "4. To keep up with the Joneses → A) To do the same things as the people around you to appear as successful as they are",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "A",
+          "points": 1
+        },
+        {
+          "text": "5. constituency → H) The area that an MP represents in Parliament",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "H",
+          "points": 1
+        },
+        {
+          "text": "6. spin doctor → M) A person who is a close adviser to a politician or political party and whose job is to make them look good in the media",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "M",
+          "points": 1
+        },
+        {
+          "text": "7. The Athens of the North → L) The capital of Scotland",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "L",
+          "points": 1
+        },
+        {
+          "text": "8. front benchers → F) MPs who are their parties' spokespeople",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "F",
+          "points": 1
+        },
+        {
+          "text": "9. whodunit → G) A work of detective fiction, presented mainly as a puzzle",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "G",
+          "points": 1
+        },
+        {
+          "text": "10. What's sauce for the goose is sauce for the gander → B) What is right or wrong for one sex is right or wrong for the other as well",
+          "type": "multiple_choice",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+          "answer": "B",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "text": "WRITING: Напишите эссе-комментарий к следующей цитате Лао Цзы: 'A leader is best when people barely know he exists, when his work is done, his aim fulfilled, they will say: we did it ourselves.' (Лидер лучше всего, когда люди едва знают о его существовании, когда его работа выполнена, его цель достигнута, они скажут: мы сделали это сами.)\n\n[display-math]План эссе:[/display-math]\n1) Введение с объяснением точки зрения автора цитаты\n2) Ваше личное мнение с аргументами в его защиту\n3) Примеры из литературы или истории для иллюстрации\n4) Заключение, подтверждающее вашу позицию\n\n[display-math]Требования:[/display-math]\n• Объем: 200-250 слов\n• Нейтральный стиль\n• Логичная структура с абзацами\n• Разнообразная лексика и грамматические конструкции\n\n[display-math]Оценивание (максимум 20 баллов):[/display-math]\n• Решение коммуникативной задачи: 4 балла\n• Организация текста: 4 балла\n• Лексика: 4 балла\n• Грамматика: 4 балла\n• Орфография и пунктуация: 4 балла",
+      "subquestions": [
+        {
+          "text": "Write your essay (200-250 words). Essay content is evaluated manually by examiners according to the criteria above.",
+          "type": "text",
+          "answer": null,
+          "points": 20
+        }
+      ]
+    }
+  ]
+}

@@ -450,7 +450,6 @@ media/
 - ❌ Не включай изображения в JSON как Base64 (только ссылки)
 - ❌ Не добавляй единицы измерения к числовым ответам
 - ❌ Не создавай подвопросы без четких ответов
-- ❌ Не делай слишком длинные тексты вопросов
 - ❌ Не используй локальные пути к файлам (только URL)
 - ❌ Не используй кириллицу в именах файлов
 - ❌ Не используй пробелы и спецсимволы в именах файлов
@@ -524,7 +523,7 @@ media/
 2. **Загрузите файлы на GitHub:**
    - Перейдите в папку media/ вашего репозитория
    - Загрузите файлы в соответствующие подпапки
-   - Используйте правильные имена файлов (только латиница и дефисы)
+   - Используйте правильные имена файлов (латиница и дефисы)
 
 3. **Обновите ссылки в JSON:**
    - Замените `https://username.github.io/repo/` на ваш реальный URL
@@ -553,26 +552,77 @@ media/
 - Максимум баллов: Z
 - Рекомендуемое время: W минут
 - Медиафайлов: N (X изображений, Y аудио, Z видео)
-```
 
 ---
 
-## ⚠️ ВАЖНО: Обязательные требования к ответу
+## НОВЫЙ PROMPT ДЛЯ НОВОЙ ТЕСТОВОЙ СИСТЕМЫ (runner-with-tests)
 
-### **Твой ответ ДОЛЖЕН содержать:**
-1. ✅ **JSON код теста** - готовый к использованию
-2. ✅ **Раздел "Инструкции по медиафайлам"** - если есть медиафайлы
-3. ✅ **Список всех необходимых файлов** с описанием
-4. ✅ **Детальные требования** к каждому медиафайлу
-5. ✅ **Инструкции по загрузке** и организации файлов
-6. ✅ **Статистику теста** - количество вопросов, баллов, медиафайлов
+Ниже — точный промпт, предназначенный для вызова LLM при конвертации PDF (включая задания и отдельный раздел с ответами) в корректный JSON, совместимый с новой тестовой системой проекта. Используй этот текст как system-подсказку (system message) и добавляй в user-message сырой текст, извлечённый из PDF (или его часть).
 
-### **Если в PDF НЕТ медиафайлов:**
-Просто выведи JSON и статистику без раздела медиафайлов.
+=== BEGIN PROMPT ===
+You are a specialized structured-data extraction assistant. Input: raw extracted text of an English test PDF (questions and answers). Output: a single JSON object that exactly matches the schema described below. Follow rules strictly: if you cannot determine a value, set it to null and add an explanatory entry to "validation.errors". Do not include any additional text, commentary, or markdown — only the JSON.
 
-### **Если в PDF ЕСТЬ медиафайлы:**
-ОБЯЗАТЕЛЬНО добавь полный раздел с инструкциями, даже если это просто текстовое описание изображения.
+Schema (required fields):
+{
+  "id": string,                 // unique test id, e.g. "eng23_pt1"
+  "title": string|null,
+  "language": "en",
+  "source": { "filename": string, "page_range": string|null, "notes": string|null },
+  "items": [                     // ordered questions
+    {
+      "id": string,             // "Q1", "Q2a"
+      "type": "multiple_choice"|"gap_fill"|"matching"|"open_answer"|"audio"|"image",
+      "prompt": string,         // question text (cleaned)
+      "points": number|null,
+      "media": [ { "type":"audio"|"image", "path": string, "caption": string|null } ],
+      "answer_key": object|null, // see type-specific rules below
+      "hints": [string] | null,
+      "raw_text": string|null,
+      "parse_confidence": number  // 0.0 - 1.0
+    }
+  ],
+  "metadata": { "created_at": string (ISO), "converted_by": string, "confidence": number },
+  "validation": { "passed": boolean, "errors": [string], "warnings": [string] }
+}
 
----
+Type-specific answer_key rules:
+- multiple_choice:
+  answer_key = { "choices": [string,...], "correct": [int,...] } // indexes into choices, zero-based
+- gap_fill:
+  answer_key = { "text_with_gaps": string, "gaps": [ { "index": int, "solutions": [string,...] } ] }
+- matching:
+  answer_key = { "left": [string,...], "right": [string,...], "pairs": [ [leftIndex,rightIndex], ... ] }
+- open_answer:
+  answer_key = { "sample_answer": string|null, "rubric": string|null }
+- audio/image:
+  answer_key = { "correct": [int|string,...], "media_refs": [ { "type":"audio"|"image", "path": string } ] }
 
-**🎯 Готов к работе! Загружай PDF файл с олимпиадными заданиями.**
+Quality & parsing rules:
+1. Preserve question numbering when possible. For ambiguous numbering, use "Q{page}_{offset}".
+2. Normalize whitespace and quotes. Remove page headers/footers if repeated on pages.
+3. If multiple correct options are indicated, return all indexes in "correct".
+4. Compute parse_confidence per item (0.0-1.0) based on heuristics: clear numbering + clear options + match in answer-key section => >0.8; partial matches => 0.5-0.8; guessed => <0.5.
+5. Fill `validation.errors` with explicit messages when required fields missing or confidence < 0.6.
+6. Media: reference files by relative paths; if media lost, set path=null and add warning.
+
+Output requirements:
+- Only JSON; must be valid UTF-8.
+- Ensure all strings are trimmed.
+- Include `raw_text` for traceability.
+- Limit total tokens returned by LLM: if output would be too long, truncate `raw_text` and set a warning.
+
+Error handling:
+- If LLM cannot parse a block, it must create an item with type "open_answer", prompt equal to the block, parse_confidence 0.0, and a validation error.
+- Add a top-level "validation" with passed=false if any parse_confidence <0.5.
+
+Final instruction:
+- After producing JSON, run these checks (implement in caller):
+  - JSON schema valid and top-level `items` non-empty.
+  - For multiple_choice: len(choices)>1 and at least one correct index.
+  - For matching: left/right lengths >0 and pairs reference valid indexes.
+If a check fails, return JSON anyway but with `validation.passed=false` and descriptive `validation.errors`.
+
+(End of prompt)
+=== END PROMPT ===
+
+Добавляй в user-message только очищенный/нормализованный текст (raw_text) и указывай имя файла в source.filename. Если документ большой — дроби его по логическим секциям и присылай LLM части поочередно, затем мерджь items по порядку.

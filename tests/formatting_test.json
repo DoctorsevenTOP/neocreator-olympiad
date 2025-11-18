@@ -1,0 +1,63 @@
+{
+  "title": "Тест форматирования",
+  "description": "Простой тест для проверки всех элементов форматирования",
+  "passingScore": 50,
+  "timeLimit": 10,
+  "questions": [
+    {
+      "text": "Это [highlight]выделенный текст[/highlight] и [important]важная информация[/important]. Также есть [success]успешный текст[/success] и [danger]опасный текст[/danger].",
+      "subquestions": [
+        {
+          "text": "Сколько типов выделения текста показано выше?",
+          "answer": 4,
+          "points": 1,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Информационные блоки: [info]Это информационный блок[/info] [warning]Это предупреждение[/warning] [success-block]Это блок успеха[/success-block]",
+      "subquestions": [
+        {
+          "text": "Сколько информационных блоков показано?",
+          "answer": 3,
+          "points": 1,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Простая таблица: [table][tr][th]Название[/th][th]Значение[/th][/tr][tr][td]A[/td][td]1[/td][/tr][tr][td]B[/td][td]2[/td][/tr][/table]",
+      "subquestions": [
+        {
+          "text": "Какое значение у элемента B?",
+          "answer": 2,
+          "points": 1,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "Список элементов: [list][li]Первый элемент[/li][li]Второй элемент[/li][li]Третий элемент[/li][/list] [divider] Код: [inline-code]console.log('Hello')[/inline-code]",
+      "subquestions": [
+        {
+          "text": "Сколько элементов в списке?",
+          "answer": 3,
+          "points": 1,
+          "type": "numeric"
+        }
+      ]
+    },
+    {
+      "text": "[quote]Знание - сила[/quote] [code]function test() {\n  return 42;\n}[/code]",
+      "subquestions": [
+        {
+          "text": "Что возвращает функция test()?",
+          "answer": 42,
+          "points": 1,
+          "type": "numeric"
+        }
+      ]
+    }
+  ]
+}
