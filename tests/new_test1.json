@@ -1,0 +1,298 @@
+{
+  "title": "Всероссийская олимпиада школьников по английскому языку. Муниципальный этап. 9-11 классы",
+  "description": "Английский язык, 9-11 классы, муниципальный этап",
+  "passingScore": 32,
+  "timeLimit": 60,
+  "questions": [
+    {
+      "text": "Task 1. Items 36-50. Read the text below and look carefully at each line. Some of the lines are correct, and some have a word which should not be there. If a line is correct put a tick. If a line has a word which should not be there, write the word.",
+      "subquestions": [
+        {
+          "text": "Line 36: When final exam time came, the students were so indoctrinated into the system that I only needed to announce one warning at 9:40 a.m. So, as the final minutes ticked away, I announced, \"It is 9:40. You have ten minutes until pencils down.\"",
+          "answer": "V",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 37: At exactly 9:50 a.m., I would say, \"Pencils down!\" Everyone had to stop writing immediately, put their pencils down, proceed to the front of the room and turn out in their blue books.",
+          "answer": "out",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 38: Those who did not put their pencils down at exactly 9:50 a.m. and give their blue books to me would receive an automatic F, no exceptions!",
+          "answer": "V",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 39: Then at 9:50 a.m., I gave my last command for that semester: \"It's 9:50, pencils down. You know the rules!\"",
+          "answer": "V",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 40: And boom, all pencils went down, just like always. All 500 students stood – or was it only 499? Yes, it was. Everyone was filled the aisle except for one sneaky guy.",
+          "answer": "was",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 41: He was just writing and writing away. I saw him up there, but he didn't think I could have. Once again, I said, \"Pencils down everyone!\"",
+          "answer": "have",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 42: But he kept writing and writing, trying to beat my system. How dare he! Boy, would I get him! At 9:58 a.m., as I began to organize the stacks of examination packets, I saw this young man running down the aisle to surrender his exam to the table.",
+          "answer": "V",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 43: \"Here, Mr. D'Angelo, take my blue book!\" he huffed and puffed. It was an attempt at making me to break the whole system! \"I cannot accept this. You know the rules. Pencils down at 9:50 a.m., or you get an automatic F!\"",
+          "answer": "to",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 44: \"Please, Mr. D'Angelo, take my blue book!\" \"No! You know I can't do that. It's against the rules.\" \"Please, please, take my blue book. I'm barely passing this class. My mom and dad are going to kill me if I will have to repeat this class. Just take it, and no one will ever know.\" A tear began to stream down his cheek.",
+          "answer": "will",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 45: \"I'm sorry. I just can't.\" I went back to the stacks, organizing them one by one. The young man just turned and walked away with his shoulders slumped.",
+          "answer": "V",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 46: Now with a stack of five hundred or so blue books in my arms, I watched the freshman to walk up the stairs toward the exit. Just about at the halfway point, he changed his mind and approached me again.",
+          "answer": "to",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 47: He questioned softly, \"Mr. D'Angelo, do you know who I am?\" \"Why no, and frankly I couldn't care less.\"",
+          "answer": "V",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 48: \"Are you sure you don't know who I am?\" he inquired with even greater confidence. I started to get a little concerned. Was this the dean's son? What had I gotten myself into?",
+          "answer": "V",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 49: \"No, I'm sorry. I don't,\" I said with a little hesitation in my voice. \"Are you absolutely, 100 percent sure that you don't know who I am?\"",
+          "answer": "the",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Line 50: \"For the last time, no, I don't know who you are!\" \"Well then, good!\" and he has shoved his blue book into the middle of the stack and ran out of the door.",
+          "answer": "has",
+          "points": 1,
+          "type": "gap_fill"
+        }
+      ]
+    },
+    {
+      "text": "Task 2. Items 51-60. Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. Use from three to five words.",
+      "subquestions": [
+        {
+          "text": "I had only just arrived home when the phone rang. (sooner) No ____ ______ _____ ______ home than the phone rang.",
+          "answer": "sooner had I arrived",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "We all know that Mark was a terrible gossip. (known) Mark is ____ ______ _____ _____ a terrible gossip.",
+          "answer": "known to have been",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Ruth knew what the outcome was after reading the book. (read) By the time Ruth ____ ______ _____ ______, she knew what the outcome was.",
+          "answer": "had read the book",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "I think a change would do you good. (from) I think ____ ______ _____ ____ a change.",
+          "answer": "you would benefit from",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "My skirt needs letting out. (have) I need to____ ______ _____ _____ out.",
+          "answer": "have my skirt let",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Nobody there had heard of Miss Parker. (who) Nobody there knew _____ _____ _____ ______.",
+          "answer": "who Miss Parker was",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "You are worrying about something, aren't you? (on) There is _____ ____ ______ mind, isn't there?",
+          "answer": "something on your",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "The decorators didn't leave too much mess when they did the job. (with) The decorators managed to do ______ ____ ______ _____ mess.",
+          "answer": "the job with little",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Carol's legacy meant that she could give up work. (enabled) Carol's legacy ____ ______ ____ give up work.",
+          "answer": "enabled her to",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "I am sorry I told you this yesterday. (regret) I _____ ____ ______ this yesterday.",
+          "answer": "regret telling you",
+          "points": 1,
+          "type": "gap_fill"
+        }
+      ]
+    },
+    {
+      "text": "Task 3. Items 61-70. Read the text below. Use the word given in capitals at the end of each line to form a new word that fits in the space in the same line.",
+      "subquestions": [
+        {
+          "text": "Over Saturday morning pancakes, my parents announced they had ROLL (61) … me in an all-girls Catholic school with uniforms.",
+          "answer": "enrolled",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "If I had been cutting class, I might have understood. But I hadn't even done anything forbidden to deserve it. So when fall crept around, there I was sighing (62) … as I stomped dramatically to my dad's sedan in stiff, shiny penny loafers.",
+          "answer": "resentfully",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "I went to my first class, sat down and didn't open my mouth for an entire semester. It was a scene from the annals of (63) … scenarios.",
+          "answer": "nightmarish",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Luckily, my new classmates, private school-bred (64) … , didn't prove to be wealthy snots with expensive purses and a million tortures planned for inferior classmates like myself.",
+          "answer": "creatures",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "So my new private school friends couldn't be bothered to engage in HOLD (65) … the snobby insults and hair-pulling stunts I'd come to fear from a lifetime of bad teen movies.",
+          "answer": "uphold",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Such a small school couldn't even (66) … a social hierarchy. In this society, however, you were forced to get a (67) … .",
+          "answer": "loveably",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "This (67) … wasn't like public school friendships when preppies drifted towards someone looking like them.",
+          "answer": "personality",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "We were forced to look the same; what distinguished us was the person beneath the plaid, and it was time to figure out just who she was. So my routine polyester plaid getup made the same transposition LOVE (68) … creepy.",
+          "answer": "loveably",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "We knew what the uniform did to civilians, it was a superhero's INNOCENT (69) … disguise bestowing the powers of (70) … and charm.",
+          "answer": "innocence",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "So this private school had never become (70) …, and it never became prison either.",
+          "answer": "conversations",
+          "points": 1,
+          "type": "gap_fill"
+        }
+      ]
+    },
+    {
+      "text": "Task 4. Items 71-80. Match the items 71-80 to the phenomena A-N. There are some extra phenomena which do not match.",
+      "subquestions": [
+        {
+          "text": "71. Watergate",
+          "answer": "G",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "72. Underground Railroad",
+          "answer": "I",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "73. Monroe Doctrine",
+          "answer": "A",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "74. The Marshall Plan",
+          "answer": "E",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "75. Samuel Langhorne Clemens",
+          "answer": "K",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "76. Declaration of Independence",
+          "answer": "D",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "77. The 13th Amendment",
+          "answer": "F",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "78. John Hancock",
+          "answer": "M",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "79. Mayflower Compact",
+          "answer": "H",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "80. Preamble",
+          "answer": "C",
+          "points": 1,
+          "type": "gap_fill"
+        }
+      ]
+    }
+  ]
+}

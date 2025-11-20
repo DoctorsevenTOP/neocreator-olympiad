@@ -1,0 +1,298 @@
+{
+  "title": "Всероссийская олимпиада школьников. Английский язык. Муниципальный этап. 10-11 классы. 2024-2025 уч. г.",
+  "description": "Use of English section from the municipal stage of the All-Russian Olympiad in English for grades 10-11",
+  "passingScore": 32,
+  "timeLimit": 60,
+  "questions": [
+    {
+      "text": "Task 1. Items 1–15 (15 points). For Questions 1–15, read the text below and look carefully at each line. Some of the lines are correct, and some have a word which should not be there. If a line is correct put a tick. Use letter \"V\" as a tick. If a line has a word which should not be there, write the word in a given space.",
+      "subquestions": [
+        {
+          "text": "If I will try to initiate a conversation, for example by complimenting someone on their obviously expensive camera, they will initially respond but after about 60 seconds turn away as soon as they realise that I am \"trying to make conversation\".",
+          "answer": "will",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "On the other one hand, I am able to express myself very well in writing. Even more paradoxically I make a good living as a translator (in written form), translating from various European languages.",
+          "answer": "one",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Partly this is because I take a very analytical approach to language and so I am able to dig too deep into the meaning of what the writer is trying to convey.",
+          "answer": "too",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "I also get along very well with animals, using a body language. For instance, I can get dogs to follow me around, walk to heel, sit or lie down merely by using gestures.",
+          "answer": "a",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "But it would be far nice to take my conversational skills a little bit higher. Any tips?",
+          "answer": "far",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Some people are being stuck on transmit (\"rambling\") and think talking about themselves is good chat. Some think interrogating the other person is the way to go. But conversation is the turning together of two people. A lot of people mistake talking for conversation.",
+          "answer": "being",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "I wouldn't necessarily always blame yourself either; a fruitful conversation does it require input from two people, not just one left doing the heavy lifting.",
+          "answer": "it",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "I went to psychotherapist and skilled conversationalist Chris Mills with whom I did a podcast on the art of listening which is a great bedrock of conversation.",
+          "answer": "V",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Mills pondered on at \"the difference between small talk and delivering factual information. The fundamental for a conversation to be successful is that it has to make emotional contact and a list of facts (\"croissant and coffee\") on their own won't do that. It has to have emotional zing.\"",
+          "answer": "at",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "So to layer on what you already do you could add, \"the croissants look great – do you make them here?\" or \"this coffee hits the spot, what a blend is it?\"",
+          "answer": "a",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "These things won't trigger a massive conversation because baristas often have a queue to serve over, but they are stepping stones and good practice points.",
+          "answer": "over",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "We also have had to be realistic about how far some conversations, in certain settings, can go. I think it's entirely realistic that after 60 seconds someone will call time on talking about a camera. Even the most skilled conversationalist would struggle.",
+          "answer": "had",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "That said by some people need fewer triggers. Some spill more slowly. Being interested and curious – which you clearly are – is a great springboard for conversation; we are after all hard-wired for connection.",
+          "answer": "by",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "\"To have a conversation you have to be able to imagine how what you're saying is going to land with the other person. And that takes after empathy,\" says Mills. Observation is also a great tool for conversation: just hearing what others talk about. There's a reason talking about the weather is a stalwart in so many countries. It's a connection, it's non-committal, it's not too personal and you can test the water with the other person.",
+          "answer": "after",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "But like I am said, you have to be realistic. Some conversations will never go beyond a few exchanges. Listen carefully to what people are saying and instead of facts maybe think about feelings. So if someone says, \"We're going on holiday to X\" try something like \"have you ever been before? Are you excited about going?\" Good luck!",
+          "answer": "am",
+          "points": 1,
+          "type": "gap_fill"
+        }
+      ]
+    },
+    {
+      "text": "Task 2. Items 19–28 (10 points). Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. Use from three to five words.",
+      "subquestions": [
+        {
+          "text": "Lisa met her friends at her favourite restaurant, Milanos, yesterday. whose. Lisa, _____ _____ ______ ______ Milanos, met her friends there yesterday. (4 words)",
+          "answer": "whose favourite restaurant is",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "The waitress told Ben he could take anything from the salad bar. help. \"_____ ______ _____ the salad bar,\" the waitress said. (3 words)",
+          "answer": "Help yourself to",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Despite all difficulties, he managed to win the race. odds. ______ ______ ______ , he managed to win the race. (3 words)",
+          "answer": "Against all odds",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "James arranged for his luggage to be flown home. had. James _____ _____ _____ ______ home. (4 words)",
+          "answer": "had his luggage flown",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "We didn't stay long at the party because it was very noisy. so. If there _____ _____ ______ ______ ______ noise, we might have stayed longer at the party. (5 words)",
+          "answer": "had not been so much",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "The number of people applying for university grants fell last year. fall. There ____ ____ ____ ______ ______ number of people applying for university grants last year. (5 words)",
+          "answer": "was a fall in the",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Would you mind helping me carry this heavy box to the car? grateful. This box is really heavy so I ____ ____ ____ ____ you could help me carry it to the car. (4 words)",
+          "answer": "would be grateful if",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "\"Excuse me madam, but is this your bag?\" the policeman asked. belong. \"Excuse me madam, but ____ _____ _____ _____ ____ you?\" the policeman asked. (5 words)",
+          "answer": "does this bag belong to",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "The man claimed that he had been nowhere near the factory at the time of the break-in. to. The man claimed ____ _____ _____ _____ anywhere near the factory at the time of the break-in. (4 words)",
+          "answer": "not to have been",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Trevor found it very difficult to persuade his boss to give him a pay rise. difficulty. Trevor ____ _____ _____ ____ _____ his boss to give him a pay rise. (5 words)",
+          "answer": "had great difficulty in persuading",
+          "points": 1,
+          "type": "gap_fill"
+        }
+      ]
+    },
+    {
+      "text": "Task 3. Items 1–10 (10 points). Use the word given in capitals to form a new word that fits in the space in the same line.",
+      "subquestions": [
+        {
+          "text": "Throughout my childhood, I was acutely aware that they struggled to keep up with the fees and was very conscious that my dad was working in horrendous conditions in dangerous parts of the world for my sake.",
+          "answer": "Throughout",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "I turned out to be utterly ______ and was encouraged by the school to pursue a career in the arts (rather than the traditional medicine, law or Stem subjects).",
+          "answer": "non-academic",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Now I am trying to find a way out to something more financially and mentally ______.",
+          "answer": "sustainable",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "My dad is not fit enough to work, ______ with no pension, and I am terrified I can't support my parents as they age because of the path I chose at 17.",
+          "answer": "unemployed",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "The ______ of accumulated private school fees and my student loans has left a cloud of debt looming over my head.",
+          "answer": "combination",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "I'm sure your parents were trying to do their best but ______ reminding you of that is corrosive and self-defeating.",
+          "answer": "constantly",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "It wasn't about seeing who you really are either, or understanding that academic ______ doesn't always lead to happiness.",
+          "answer": "achievement",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Being accepted for who we are, ______ that is.",
+          "answer": "whatever",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "It's a ______ lesson, as an adult child, to learn you can be angry with your parents, resent them, appreciate them, and love them all at the same time.",
+          "answer": "valuable",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "Your parents' ______ were.",
+          "answer": "expectations",
+          "points": 1,
+          "type": "gap_fill"
+        }
+      ]
+    },
+    {
+      "text": "Task 4. Items 1–10 (10 points). Match the items 1–10 to the phenomena A–N. There are some extra phenomena which do not match.",
+      "subquestions": [
+        {
+          "text": "1. Oliver Cromwell",
+          "answer": "D",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "2. But _____________came with a heavy hand, And bridged and roaded and ruled the land.... R. Kipling",
+          "answer": "I",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "3. Thomas Edison",
+          "answer": "K",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "4. The Great Depression",
+          "answer": "L",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "5. Levi Strauss",
+          "answer": "G",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "6. out of the woods",
+          "answer": "N",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "7. 1) divorced, 2) beheaded, 3) died, 4) divorced, 5) beheaded, 6) survived.",
+          "answer": "F",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "8. Underground Railroad",
+          "answer": "C",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "9. Sir Thomas More",
+          "answer": "M",
+          "points": 1,
+          "type": "gap_fill"
+        },
+        {
+          "text": "10. The Great Western Railroad",
+          "answer": "A",
+          "points": 1,
+          "type": "gap_fill"
+        }
+      ]
+    }
+  ]
+}
